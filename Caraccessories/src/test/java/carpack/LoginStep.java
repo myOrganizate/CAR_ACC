@@ -9,6 +9,7 @@ import carpack.user;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+
 public class LoginStep {
 	static boolean flag=false;
 	static boolean flagemail=false;
@@ -18,6 +19,7 @@ public class LoginStep {
 	static user U=new user();
 	static admin A=new admin();
 	static Installer I=new Installer();
+	static product P= new product();
 	
 	static boolean flagadmin;
 	static boolean flagIns;
@@ -25,6 +27,8 @@ public class LoginStep {
 	static boolean is_admin=false;
 	static boolean flagnotlogin=false;
 	
+	
+
 	
 	@Given("that the user is not logged in")
 	public void that_the_user_is_not_logged_in() {

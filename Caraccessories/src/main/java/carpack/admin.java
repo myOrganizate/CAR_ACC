@@ -14,8 +14,8 @@ public class admin {
 	 
 	// static List<String> emailAdmin =new ArrayList<String>() ;
 	 //static List<String> passAdmin =new ArrayList<String>() ;
-	product p=new product();
-	user u=new user();
+	//product p=new product();
+	//user u=new user();
 	
 	 
 	 
@@ -55,6 +55,7 @@ public class admin {
 		
 		return 0;
 	}
+	/*
 	
 	public void createpro(String id,String description,String prices,String availability,String Categories) {
 		
@@ -84,19 +85,20 @@ public class admin {
 	public void  addex(String id,String description,String prices,String availability,String Categorie) {
 		p.addprodExterior(id, description, prices, availability, Categorie);
 	}
+	*/
 	
-	public void  addelec(String id,String description,String prices,String availability,String Categorie) {
-		p.addprodElectronic(id, description, prices, availability, Categorie);
-	}
+//	public void  addelec(String id,String description,String prices,String availability,String Categorie) {
+	//	p.addprodElectronic(id, description, prices, availability, Categorie);
+	//}
 	
-	public void updateuser(String email,String pass,String phone,String name,String address,String age) {
-		u.updateuser(email, pass, phone, name, address, age);
+	//public void updateuser(String email,String pass,String phone,String name,String address,String age) {
+		//u.updateuser(email, pass, phone, name, address, age);
 		
-	}
-	public void createuser(String email,String pass,String phone,String name,String address,String age) {
-		u.createCustomer(email, pass, phone, name, address, age);
+	//}
+	//public void createuser(String email,String pass,String phone,String name,String address,String age) {
+		//u.createCustomer(email, pass, phone, name, address, age);
 		
-	}
+	//}
 	
 	
 	
