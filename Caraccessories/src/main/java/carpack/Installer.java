@@ -104,34 +104,34 @@ public class Installer {
 		}
 		
 		
-		public static String updateappointment(String email, String newdate, String newtime, String newdetail) {
+		public static String updateappointment(String email, String olddate, String oldtime, String olddetail, String newdate, String newtime, String newdetail) {
+		    // Construct the old and new appointment strings
+		    String oldAppointment = "date: " + olddate + " time: " + oldtime + " detail: " + olddetail + " for customer: " + email;
+		    String newAppointment = "date: " + newdate + " time: " + newtime + " detail: " + newdetail + " for customer: " + email;
+
 		    // Iterate through the 'appo' list
 		    for (int i = 0; i < appo.size(); i++) {
 		        String appointment = appo.get(i);
-		        if (appointment.contains("for customer: " + email)) {
-		            // Update the appointment details
-		            String updatedAppointment = "date: " + newdate + " time: " + newtime + " detail: " + newdetail + " for customer: " + email;
-		            appo.set(i, updatedAppointment);
-		            return updatedAppointment;
+		        if (appointment.equals(oldAppointment)) {
+		            // Replace the old appointment with the new appointment
+		            appo.set(i, newAppointment);
+		            return newAppointment;
 		        }
 		    }
 		    // Return null if no matching appointment is found
 		    return null;
 		}
 
+		
+		
 		public static boolean deleteappointment(String email, String date, String time, String detail) {
-		    // Iterate through the 'appo' list
-		    for (int i = 0; i < appo.size(); i++) {
-		        String appointment = appo.get(i);
-		        if (appointment.contains("for customer: " + email)) {
-		            // Check if this appointment matches the specified date, time, and detail
-		            if (appointment.contains("date: " + date) && appointment.contains("time: " + time) && appointment.contains("detail: " + detail)) {
-		                // Remove the appointment
-		                appo.remove(i);
-		                return true; // Appointment deleted successfully
-		            }
-		        }
+		    String appointmentToDelete = "date: " + date + " time: " + time + " detail: " + detail + " for customer: " + email;
+		    
+		    if (appo.contains(appointmentToDelete)) {
+		        appo.remove(appointmentToDelete);
+		        return true; // Appointment deleted successfully
 		    }
+		    
 		    return false; // No matching appointment found for deletion
 		}
 		

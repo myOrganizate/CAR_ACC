@@ -178,14 +178,14 @@ public class user {
 			
 			
 			
-			public void deleteCustomer(String ph1)
+			public void deleteCustomer(String email)
 			{
 				
 				for(int i=0;i<useru.size();i++)
 				{
 					if(useru.isEmpty())
 						break;
-					else if(useru.get(i).phone.equals(ph1)) {
+					else if(useru.get(i).emaill.equals(email)) {
 						useru.remove(i);
 						
 					}
@@ -204,22 +204,22 @@ public class user {
 			}
 			
 			
-
 			
 			
-			public void updatCustomer(String name1,String age1,String adderess1,String ph1)
+			
+			public void updatCustomer(String email,String name,String age,String add,String phone)
 			{
-				this.setCustomerName(name1);
-				this.setCustomerAge(age1);
-				this.setCustomerAddress(adderess1);
-				this.setCustomerPhoneNumber(ph1);
+				this.setCustomerName(name);
+				this.setCustomerAge(age);
+				this.setCustomerAddress(add);
+				this.setCustomerPhoneNumber(phone);
 				
 				
 				
 				for(int i=0;i<useru.size();i++)
 				{
 					
-				if(useru.get(i).getCustomerPhoneNumber().equals(ph1))
+				if(useru.get(i).getemail().equals(email))
 					useru.set(i, this);
 				}
 			
@@ -236,8 +236,8 @@ public class user {
 
 			
 			public static void printCustomer() {
-			    List<String> uniqueCustomerInfo = new ArrayList<>();
-			    List<user> uniqueCustomers = new ArrayList<>();
+			    List<String> uniqueCustomerInfo = new ArrayList<String>();
+			    List<user> uniqueCustomers = new ArrayList<user>();
 			    
 			    for (user customer : useru) {
 			        String customerInfo = customer.name + " " + customer.phone + " " + customer.address + " " + customer.age;

@@ -193,16 +193,24 @@ public class AdminStep {
 		assertTrue(ins&&LoginStep.flagadmin);
 	    
 	}
-
-	@When("Admin can update  appointment for Customer  with email {string}  date {string}, time {string}, and product to install {string}")
-	public void admin_can_update_appointment_for_Customer_with_email_date_time_and_product_to_install(String string, String string2, String string3, String string4) {
+	
+	
+	@When("Admin can update appointment for Customer with email {string} date {string}, time {string}, and product to install {string}, newdate {string}, newtime {string}, newproduct to install {string}")
+	public void admin_can_update_appointment_for_Customer_with_email_date_time_and_product_to_install_newdate_newtime_newproduct_to_install(String string, String string2, String string3, String string4, String string5, String string6, String string7) {
 	    // Write code here that turns the phrase above into concrete actions
 		if(LoginStep.flagadmin) {
-			LoginStep.I.updateappointment(string, string2, string3, string4);
+			LoginStep.I.updateappointment(string, string2, string3, string4,string5,string6,string7);
+			
 			upapp=true;
 			}
-	    
+	   
 	}
+	
+	
+	
+	
+
+	
 
 	@Then("Admin can update appointment successfully")
 	public void admin_can_update_appointment_successfully() {

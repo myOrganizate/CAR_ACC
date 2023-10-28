@@ -216,18 +216,25 @@ public void the_admin_successfully_creates_the_Customer() {
 
 
 
-@When("the admin updates the Customer with phone {string} by changing name to {string}, address to {string}, and age to {string}")
-public void the_admin_updates_the_Customer_with_phone_by_changing_name_to_address_to_and_age_to(String string, String string2, String string3, String string4) {
+
+
+
+@When("the admin updates the Customer with email {string} by changing phone to {string} ,name to {string}, address to {string}, and age to {string}")
+public void the_admin_updates_the_Customer_with_email_by_changing_phone_to_name_to_address_to_and_age_to(String string, String string2, String string3, String string4, String string5) {
     // Write code here that turns the phrase above into concrete actions
-	
+   
 	if(LoginStep.flagadmin) {
-	faupdus=true;
-	LoginStep.U.updatCustomer(string2, string4, string3, string);
-	}
+		faupdus=true;
+		LoginStep.U.updatCustomer(string,string3,string5,string4,string2);
 	
-	
-    
+		}
 }
+
+
+
+
+
+
 
 @Then("the admin successfully updates the Customer")
 public void the_admin_successfully_updates_the_Customer() {
@@ -237,18 +244,19 @@ public void the_admin_successfully_updates_the_Customer() {
 }
 
 
-
-@When("the admin deletes the Customer with phone {string}")
-public void the_admin_deletes_the_Customer_with_phone(String string) {
+@When("the admin deletes the Customer with email {string}")
+public void the_admin_deletes_the_Customer_with_email(String string) {
     // Write code here that turns the phrase above into concrete actions
-	
 	if(LoginStep.flagadmin) {
-	fdelcus=true;
-	LoginStep.U.deleteCustomer(string);
-	}
+		fdelcus=true;
+		LoginStep.U.deleteCustomer(string);
+		}
+		
 	
-   
 }
+
+
+
 
 @Then("the admin successfully deletes the Customer")
 public void the_admin_successfully_deletes_the_Customer() {

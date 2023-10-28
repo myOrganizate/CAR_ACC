@@ -535,11 +535,11 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the admin updates the Customer with phone \"059865432\" by changing name to \"jodikammal\", address to \"nablus\", and age to \"20\"",
+  "name": "the admin updates the Customer with email \"jodi@gmail.com\" by changing phone to \"059865432\" ,name to \"jodikammal\", address to \"nablus\", and age to \"20\"",
   "keyword": "When "
 });
 formatter.match({
-  "location": "carpack.RoleStep.the_admin_updates_the_Customer_with_phone_by_changing_name_to_address_to_and_age_to(java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+  "location": "carpack.RoleStep.the_admin_updates_the_Customer_with_email_by_changing_phone_to_name_to_address_to_and_age_to(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -570,11 +570,11 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the admin deletes the Customer with phone \"059865432\"",
+  "name": "the admin deletes the Customer with email \"jodi@gmail.com\"",
   "keyword": "When "
 });
 formatter.match({
-  "location": "carpack.RoleStep.the_admin_deletes_the_Customer_with_phone(java.lang.String)"
+  "location": "carpack.RoleStep.the_admin_deletes_the_Customer_with_email(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -710,11 +710,11 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "Admin can update  appointment for Customer  with email \"lujainuser@gmail.com\"  date \"4-4-2023\", time \"3:00\", and product to install \"bluelight\"",
+  "name": "Admin can update appointment for Customer with email \"lujain@gmail.com\" date \"4-4-2023\", time \"2:00\", and product to install \"bluelight\", newdate \"4-4-2023\", newtime \"3:00\", newproduct to install \"bluelight\"",
   "keyword": "When "
 });
 formatter.match({
-  "location": "carpack.AdminStep.admin_can_update_appointment_for_Customer_with_email_date_time_and_product_to_install(java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+  "location": "carpack.AdminStep.admin_can_update_appointment_for_Customer_with_email_date_time_and_product_to_install_newdate_newtime_newproduct_to_install(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -1349,11 +1349,11 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the admin updates the Customer with phone \"059865432\" by changing name to \"jodikammal\", address to \"nablus\", and age to \"20\"",
+  "name": "the admin updates the Customer with email \"jodi@gmail.com\" by changing phone to \"059865432\" ,name to \"jodikammal\", address to \"nablus\", and age to \"20\"",
   "keyword": "When "
 });
 formatter.match({
-  "location": "carpack.RoleStep.the_admin_updates_the_Customer_with_phone_by_changing_name_to_address_to_and_age_to(java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+  "location": "carpack.RoleStep.the_admin_updates_the_Customer_with_email_by_changing_phone_to_name_to_address_to_and_age_to(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -1384,11 +1384,11 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the admin deletes the Customer with phone \"059865432\"",
+  "name": "the admin deletes the Customer with email \"jodi@gmail.com\"",
   "keyword": "When "
 });
 formatter.match({
-  "location": "carpack.RoleStep.the_admin_deletes_the_Customer_with_phone(java.lang.String)"
+  "location": "carpack.RoleStep.the_admin_deletes_the_Customer_with_email(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -1574,6 +1574,117 @@ formatter.step({
 });
 formatter.match({
   "location": "carpack.RoleStep.the_Installer_successfully_schedules_an_appointment()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.uri("file:Use_Cases/UserProfile.feature");
+formatter.feature({
+  "name": "User Profile",
+  "description": "View order history and installation requests",
+  "keyword": "Feature"
+});
+formatter.scenario({
+  "name": "Customers can edit their profiles",
+  "description": "",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "name": "the Customer is login with email \"lujainuser@gmail.com\" and password \"useruser\"",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "carpack.RoleStep.the_Customer_is_login_with_email_and_password(java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the Customer with email \"lujainuser@gmail.com\" can edit his profile newpass\"1233\",newPhone\"059986789\",newName\"lujain\",newAddress\"nablus\",newAge\"20\"",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "carpack.UserStep.the_Customer_with_email_can_edit_his_profile(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Customers can edit their profiles",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "carpack.UserStep.customers_can_edit_their_profiles()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Customers can View order history",
+  "description": "",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "name": "the Customer is login with email \"lujainuser@gmail.com\" and password \"useruser\"",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "carpack.RoleStep.the_Customer_is_login_with_email_and_password(java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the Customer  with email \"lujainuser@gmail.com\" can View order history",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "carpack.UserStep.the_Customer_with_email_can_View_order_history(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Customers can View order history",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "carpack.UserStep.customers_can_View_order_history()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Customers can View  installation requests",
+  "description": "",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "name": "the Customer is login with email \"lujainuser@gmail.com\" and password \"useruser\"",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "carpack.RoleStep.the_Customer_is_login_with_email_and_password(java.lang.String,java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the Customer  with email \"lujainuser@gmail.com\" can View  installation requests",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "carpack.UserStep.the_Customer_with_email_can_View_installation_requests(java.lang.String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Customers can View  installation requests",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "carpack.UserStep.customers_can_View_installation_requests()"
 });
 formatter.result({
   "status": "passed"

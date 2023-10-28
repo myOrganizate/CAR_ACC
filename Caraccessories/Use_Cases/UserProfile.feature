@@ -5,11 +5,12 @@ View order history and installation requests
     
   Scenario: Customers can edit their profiles 
    Given the Customer is login with email "lujainuser@gmail.com" and password "useruser"
-    When the Customer  with email "lujainuser@gmail.com" can edit his  profile newpass"1233",newPhone"059865432",newName"jodi",newAddress"nablus",newAge"20"
+   When the Customer with email "lujainuser@gmail.com" can edit his profile newpass"1233",newPhone"059986789",newName"lujain",newAddress"nablus",newAge"20"
     Then Customers can edit their profiles 
     
-    
-    
+  
+ 
+			
     
 
      Scenario: Customers can View order history

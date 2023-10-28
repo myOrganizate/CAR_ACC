@@ -51,12 +51,12 @@ Then admin can delete product
 
   Scenario: Admin can update Customer
     Given the admin is login with email "lujain@gmail.com" and password "lujain"
-    When the admin updates the Customer with phone "059865432" by changing name to "jodikammal", address to "nablus", and age to "20"
+    When the admin updates the Customer with email "jodi@gmail.com" by changing phone to "059865432" ,name to "jodikammal", address to "nablus", and age to "20"
     Then the admin successfully updates the Customer
 
   Scenario: Admin can delete Customer
     Given the admin is login with email "lujain@gmail.com" and password "lujain"
-    When the admin deletes the Customer with phone "059865432"
+    When the admin deletes the Customer with email "jodi@gmail.com"
     Then the admin successfully deletes the Customer
 
   Scenario: Customer can Browse products

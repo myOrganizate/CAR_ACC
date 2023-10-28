@@ -36,7 +36,7 @@ public class Main {
 	    boolean flagintitail = false;
 	    int userselected = 0;
 	    user cc = null; // Declare the user object outside the loop
-	    user u=new user();
+	 //   user u=new user();
 	    admin aa = new admin();
 	    int pr1 = 0;
 	    product p=null;
@@ -76,6 +76,7 @@ public class Main {
 	                    userselected1 = adminMenue();
 	                    switch (userselected1) {
 	                        case 1:
+	                        	
 	                            user.printCustomer();
 	                            break;
 
@@ -99,23 +100,28 @@ public class Main {
 		                        
 		                        
 		                    case 3:
-		                    	 System.out.print("Enter phone of Customer you need to delete : ");
+		                    	 System.out.print("Enter email of Customer you need to delete : ");
 		                    	 String cuss = scc.next();
 		                    	 
 		                        r.deleteCustomer(cuss);
 		                        break;
 		                    case 4:
-		                    	 System.out.print("Enter phone of Customer you need to update: ");
+		                    	 System.out.print("Enter email of Customer you need to update: ");
 		                    	 String cp = scc.next();
+		                    	 
+		                    	 
 		                    	 System.out.print("Enter new name to update: ");
 		                    	 String cn = scc.next();
 		                    	 System.out.print("Enter new age to update: ");
 		                    	 String ca = scc.next();
 		                    	 System.out.print("Enter new address to update: ");
 		                    	 String cad = scc.next();
+		                    	 System.out.print("Enter new phone to update: ");
+		                    	 String cd = scc.next();
+		                    	 
 		                    	
 		                    	 
-		                    	r.updatCustomer(cn,ca,cad,cp);
+		                    	r.updatCustomer(cp,cn,ca,cad,cd);
 		                    	
 		                        break;
 		                    case 5:
@@ -142,23 +148,23 @@ public class Main {
 		                        System.out.print("Enter availability of Product you need to add: ");
 		                        String availability = scc.next();
 		                        System.out.print("Enter Categories of Product you need to add: ");
-		                        String Cat = scc.next();
+		                        String Cattt= scc.next();
 		                        System.out.print("Enter image of Product you need to add: ");
-		                        String imag = scc.next();
+		                        String imagg = scc.next();
 		                        
-		                      p=new product(id,desc,prices,availability,Cat,imag);
+		                      p=new product(id,desc,prices,availability,Cattt,imagg);
 	                           
 	                            
 	                           
 	                            products.add(p); // Add the product to the main products list
 
-	                            if ("Exterior".equals(Cat)) {
+	                            if ("Exterior".equals(Cattt)) {
 	                                productsExterior.add(p); // Add to the exterior products list if it's an exterior product
 	                            }
-	                            if ("Interior".equals(Cat)) {
+	                            if ("Interior".equals(Cattt)) {
 	                                productsInterior.add(p); // Add to the exterior products list if it's an exterior product
 	                            }
-	                            if ("Electronic".equals(Cat)) {
+	                            if ("Electronic".equals(Cattt)) {
 	                                productsElectronic.add(p); // Add to the exterior products list if it's an exterior product
 	                            }
 	                            
@@ -636,22 +642,10 @@ public class Main {
 		                            
 		                    case 21:
 		                    	
-		                    	 System.out.println("Enter yes if you need to add an appointment : ");
-		                    	 String bool= scc.next();
-		                    	 if(bool.equals("yes")) {
-		                    		 System.out.print("Enter Email of user you want to apply the installation: ");
-		                          String em = scc.next();
-		                        	
-		                    	  
-	                            System.out.print("Enter the Date when you want to apply the instalation : ");
-                                String datepr = scc.next();
-                                System.out.print("Enter Time when you want to apply the instalation : ");
-                                String timepr= scc.next();
-                                System.out.print("Enter name of product that you want to install it : ");
-                                String decpr= scc.next();
-                                appoin.add(Installer.appointment(datepr,timepr,decpr,em));
+		                    	
+		                    		
                                 
-		                    	 }
+		                    	 
 
 		                    	 System.out.println("ALL APPOINTMENTS: ");
 		                    	 for (String appointment : appoin) {
@@ -659,12 +653,94 @@ public class Main {
 		                    	 }
 	                            
 	                            break;
-	                      
+	                            
+		                    case 22:
+		                    	
+		                    	 System.out.print("Enter Email of user you want to apply the installation: ");
+		                          String em = scc.next();
+		                        	
+		                    	  
+	                            System.out.print("Enter the Date when you want to apply the instalation : ");
+                               String datepr = scc.next();
+                               System.out.print("Enter Time when you want to apply the instalation : ");
+                               String timepr= scc.next();
+                               System.out.print("Enter name of product that you want to install it : ");
+                               String decpr= scc.next();
+                               appoin.add(Installer.appointment(datepr,timepr,decpr,em));
+                               break;
+                               
+                               
+		                    case 23:
+		                
+		                        System.out.print("Enter Email of user for appointment update: ");
+		                        String emailUpdate = scc.next();
+		                        System.out.print("Enter the old Date of the appointment: ");
+		                        String oldDate = scc.next();
+		                        System.out.print("Enter the old Time of the appointment: ");
+		                        String oldTime = scc.next();
+		                        System.out.print("Enter the old name of product: ");
+		                        String oldDetail = scc.next();
+		                        
+		                        System.out.print("Enter the new Date for the appointment: ");
+		                        String newDate = scc.next();
+		                        System.out.print("Enter the new Time for the appointment: ");
+		                        String newTime = scc.next();
+		                        System.out.print("Enter updated name of product that you want to install: ");
+		                        String newDetail = scc.next();
+
+		                        // Construct the old and new appointments
+		                        String oldAppointment = "date: " + oldDate + " time: " + oldTime + " detail: " + oldDetail + " for customer: " + emailUpdate;
+		                        String newAppointment = "date: " + newDate + " time: " + newTime + " detail: " + newDetail + " for customer: " + emailUpdate;
+
+		                        // Update the appointment in 'appo' list
+		                        Installer.updateappointment(emailUpdate, oldDate, oldTime, oldDetail, newDate, newTime, newDetail);
+
+
+		                        // Update the appointment in 'appoin' list
+		                        for (int i = 0; i < appoin.size(); i++) {
+		                            if (appoin.get(i).equals(oldAppointment)) {
+		                                appoin.set(i, newAppointment);
+		                                break;
+		                            }
+		                        }
+
+		                        System.out.println("Appointment updated successfully: " + newAppointment);
+		                        break;
+		                    	
+		                    case 24:
+		                        System.out.print("Enter Email of user for appointment deletion: ");
+		                        String emailDelete = scc.next();
+		                        System.out.print("Enter Date of the appointment to be deleted: ");
+		                        String dateToDelete = scc.next();
+		                        System.out.print("Enter Time of the appointment to be deleted: ");
+		                        String timeToDelete = scc.next();
+		                        System.out.print("Enter name of product of this appointment to be deleted: ");
+		                        String detailToDelete = scc.next();
+
+		                        // Delete the appointment from 'appoin' list
+		                        String appointmentToDelete = "date: " + dateToDelete + " time: " + timeToDelete + " detail: " + detailToDelete + " for customer: " + emailDelete;
+
+		                        if (appoin.contains(appointmentToDelete)) {
+		                            appoin.remove(appointmentToDelete);
+		                        }
+
+		                        // Call the 'Installer.deleteappointment' function
+		                        boolean isDeleted = Installer.deleteappointment(emailDelete, dateToDelete, timeToDelete, detailToDelete);
+
+		                        if (isDeleted) {
+		                            System.out.println("Appointment deleted successfully.");
+		                        } else {
+		                            System.out.println("No matching appointment found for deletion.");
+		                        }
+		                        break;
+		                        
 		                    	
 		                        
-		                    case 22:
-		                    	userselected = firstMenu();
-		                    	break;
+		                   // case 25:
+		                    //	userselected = firstMenu();
+		                    	
+		                    	
+		                    	//break;
 		                     
 		                        
 		                     
@@ -681,12 +757,16 @@ public class Main {
 		                System.out.println("Your USERNAME or PASSWORD is incorrect");
 		                System.out.println("Please try again");
 		            }
-		        } while (userselected1 < 23);
+		        } while (userselected1 < 25);{    
+	       			 
+
+	        			userselected =firstMenu();
+	        			
+
+	        		}
+	            
 		        
-		        if (flagadmin) {
-		            //System.out.println("Exit");
-		           // userselected = firstMenu();
-		        }
+		  
 		    }
 	        
 	        
@@ -697,7 +777,7 @@ public class Main {
 	        
 	        
 	        
-	        else if (userselected == 2) {
+	         if (userselected == 2) {
 	            int userselected2 = 0;
 
 	            System.out.print(ayy);
@@ -781,9 +861,12 @@ public class Main {
                             appoin.add(Installer.appointment(datepr,timepr,decpr,em));
                             	break;
 	                           
-	                        case 5:
-	                        	userselected = firstMenu();
-	                        	break;
+	                  //      case 5:
+	                    //    	userselected = firstMenu();
+	
+	                   	        
+	                   	        
+	                       
 	                        default:
 	                            System.out.println("Welcome ");
 	                            break;
@@ -794,7 +877,15 @@ public class Main {
 	                    break;
 	                }
 
-	            } while (userselected2 < 6);
+	            } while (userselected2 < 5);
+	            	{    
+	       			 
+
+	        			userselected =firstMenu();
+	        			
+
+	        		}
+	            
 
 	            System.out.println("");
 	        }
@@ -805,7 +896,7 @@ public class Main {
 	        
 	        
 	        
-	        else  if (userselected == 3) {
+	         if (userselected == 3) {
 	            System.out.println("1- You have an account");
 	            System.out.println("2- Create account");
 	            System.out.print("Your option is: ");
@@ -835,7 +926,22 @@ public class Main {
 	                        if (flaguser) {
 	                            userselected3 = customerMenu();
 	                            switch (userselected3) {
-	                                case 1:
+	                            
+	                            case 1:
+	                            	   if (products.isEmpty()) {
+	   		                            System.out.println("No products available.");
+	   		                        } else {
+	   		                            for (int i = 0; i < products.size(); i++) {
+	   		                                String a = "Product : " + products.get(i).id + " " + products.get(i).description + " " + products.get(i).prices + " " +
+	   		                                           products.get(i).availability + " " + products.get(i).Categories;
+	   		                                System.out.println(a);
+	   		                            }
+	   		                        }
+	   		                        break;
+	                            
+	                            
+	                            
+	                                case 2:
 	                                    System.out.println("Option 1 is selected. Thank you.");
 	                              
 
@@ -859,7 +965,7 @@ public class Main {
 	                                 // Confirm that the product has been added to the 'bag'.
 	                                 System.out.println("Product has been added to your bag :)");
 	                                 break;
-	                                case 2:
+	                                case 3:
 	                                	System.out.print("Enter the ID of the product you want to delete from the Shopping Cart: ");
 	                                	String productIDToDelete = scc.next();
 	                                	boolean productFound = false;
@@ -882,7 +988,7 @@ public class Main {
 	                                  
 	                                    break;
 	                               
-	                                case 3:
+	                                case 4:
 	                                   
 	                                    boolean ordersFound = false;
 
@@ -908,7 +1014,7 @@ public class Main {
 	                                    break;
 	                                    
 	                                    
-	                                case 4:
+	                                case 5:
 	                                	
 	                                
 	                                  
@@ -940,7 +1046,7 @@ public class Main {
 	                                  
 	                                
 	                                	
-	                                case 5:
+	                                case 6:
 	                                    System.out.println("User Profile");
 	                                    
 	                                    // Prompt the user for their email (identifier)
@@ -954,7 +1060,7 @@ public class Main {
 	                                    }
 	                                    break;
 	                                    
-	                                case 6:
+	                                case 7:
 	                                	
 	                                	
 	                                	
@@ -974,7 +1080,7 @@ public class Main {
 	                                	
 	                                appoin.add(Installer.appointment(datepr,timepr,decpr,emails));
 	                                	break;
-	                                case 7:
+	                                case 8:
 	                                	
 	                                	
 	                                	
@@ -994,9 +1100,11 @@ public class Main {
 	                                        System.out.println("No installation services found for the specified customer.");
 	                                    }
 	                                    break;
-	                                case 8:
-	                                	userselected = firstMenu();
-	                                	break;
+	                          //      case 9:
+	                            //    	userselected = firstMenu();
+	                               
+	                           	        
+	                              //  	break;
 	                                		
 	                                		
 	                                		
@@ -1027,23 +1135,7 @@ public class Main {
 	        
 	        
 	        
-	        switch (userType) {
-	        case 1:
-	            userselected = firstMenu(); // Back to the main menu
-	            break;
-	        case 2:
-	            userselected = InstallerMenu(); // Go to the installer menu
-	            break;
-	        case 3:
-	        	userselected = customerMenu();
-	            break;
-	        default:
-	        	
-	            // Handle unknown user type
-	            break;
-	    }
-	        
-	        
+	     
 	        
 	        
 	        
@@ -1135,8 +1227,16 @@ public class Main {
 	    System.out.printf("★%s19-%sDelete Electronic Product %s ★%n", S1, S1, TT);
 	    System.out.printf("★%s20-%sUpdate Electronic Product %s ★%n", S1, S1, TT);
 	   
-	    System.out.printf("★%s21-%smanage installation appointments %s%s ★%n", S1, S1, TT, TT);
-	    System.out.printf("★%s22-%sMain Menu %s%s ★%n", S1, S1, TT, TT);
+	    System.out.printf("★%s21-%sview installation appointments %s%s ★%n", S1, S1, TT, TT);
+	    System.out.printf("★%s22-%sadd installation appointments %s%s ★%n", S1, S1, TT, TT);
+	    System.out.printf("★%s23-%supdate installation appointments %s%s ★%n", S1, S1, TT, TT);
+	    System.out.printf("★%s24-%sdelete installation appointments %s%s ★%n", S1, S1, TT, TT);
+	   
+	    
+	    
+	    
+	    
+	   // System.out.printf("★%s25-%sMain Menu %s%s ★%n", S1, S1, TT, TT);
 	    
 	   
 	    System.out.printf("%s ★%n", STR);
@@ -1156,15 +1256,15 @@ public class Main {
 	    System.out.println("  ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ");
 	    
 	    
-//  ??????????????????  System.out.printf("★%-2s1-%-21s★%n", "", "Browse products");l
-	    System.out.printf("★%-2s1-%-21s★%n", "", "Add product to Shopping cart");
-	    System.out.printf("★%-2s2-%-21s★%n", "", "Delete Product from Shopping cart");
-	    System.out.printf("★%-2s3-%-21s★%n", "", "View order");
-	    System.out.printf("★%-2s4-%-21s★%n", "", "edit profile");
-	    System.out.printf("★%-2s5-%-21s★%n", "", "My profile");
-	    System.out.printf("★%-2s6-%-21s★%n", "", "  request installation services for certain product");
-	    System.out.printf("★%-2s7-%-21s★%n", "", "  Print My All Installation Services ");
-	    System.out.printf("★%-2s8-%-21s★%n", "", " Main Menu ");
+       System.out.printf("★%-2s1-%-21s★%n", "", "Browse products");
+	    System.out.printf("★%-2s2-%-21s★%n", "", "Add product to Shopping cart");
+	    System.out.printf("★%-2s3-%-21s★%n", "", "Delete Product from Shopping cart");
+	    System.out.printf("★%-2s4-%-21s★%n", "", "View order");
+	    System.out.printf("★%-2s5-%-21s★%n", "", "edit profile");
+	    System.out.printf("★%-2s6-%-21s★%n", "", "My profile");
+	    System.out.printf("★%-2s7-%-21s★%n", "", "  request installation services for certain product");
+	    System.out.printf("★%-2s8-%-21s★%n", "", "  Print My All Installation Services ");
+	   // System.out.printf("★%-2s9-%-21s★%n", "", " Main Menu ");
 	   
 	    
 	    System.out.println("  ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ");
@@ -1185,7 +1285,7 @@ public class Main {
 	    System.out.println("★    2- edit profile     ★");
 	    System.out.println("★    3- View installation requests ★");
 	    System.out.println("★    4- schedule appointments ★");
-	    System.out.println("★    5- Main Menu        ★");
+	  //  System.out.println("★    5- Main Menu        ★");
 	    System.out.println("★                        ★");
 	    System.out.println("  ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ");
 	    System.out.println(OPT);
