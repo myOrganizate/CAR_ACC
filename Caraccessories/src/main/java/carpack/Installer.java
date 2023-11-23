@@ -18,6 +18,7 @@ public class Installer {
 	 static List<String> passI =new ArrayList<String>();
 	 static public List<String> appo =new ArrayList<String>();
 	 static List<Installer>Instu = new ArrayList<Installer>();
+	 static List<String> phone1 =new ArrayList<String>() ;
 	 static String b;
 	 private String emaill;
 		private String passs;
@@ -26,6 +27,7 @@ public class Installer {
 		static String app;
 		String time;
 		static boolean y;
+		static List<String> scheapp =new ArrayList<String>();
 		
 	
 	
@@ -43,10 +45,11 @@ public class Installer {
 		 public Installer() {
 				this.name="aya";
 				this.address="Nablus";
-				this.phone="22";
-				emailI.add("aya@gmail.com");
+				this.phone="059857467";
+				phone1.add("059986789");
+				emailI.add("ayamoinn95@gmail.com");
 				passI.add("ayaaya1");
-				emaill="aya@gmail.com";
+				emaill="ayamoinn95@gmail.com";
 				passs="ayaaya1";
 				if(!Instu.contains(this))
 					Instu.add(this);
@@ -220,6 +223,56 @@ public class Installer {
 			this.phone=newPhone;
 			
 		}
+		public static void scheduleapp(String date, String time) {
+		    String s = date + "\t" + time;
+
+		    
+			// Check if s is already in scheapp
+		    if (!scheapp.contains(s)) {
+		        scheapp.add(s);
+		        System.out.println("Appointment scheduled successfully.");
+		    } else {
+		        System.out.println("Appointment already exists at this date and time.");
+		    }
+		}
+		public static void deleteappo(String date, String time) {
+		    String s = date + "\t" + time;
+
+		    // Check if s is in scheapp
+		    if (scheapp.contains(s)) {
+		        scheapp.remove(s);
+		        System.out.println("Appointment deleted successfully.");
+		    } else {
+		        System.out.println("Appointment not found at this date and time.");
+		    }
+		}
+
+		public static void updateappo(String dateOld, String timeOld, String dateNew, String timeNew) {
+		    String sOld = dateOld + "\t" + timeOld;
+		    String sNew = dateNew + "\t" + timeNew;
+
+		    // Check if sOld is in scheapp
+		    if (scheapp.contains(sOld)) {
+		        // Remove the old appointment and add the updated one
+		        scheapp.remove(sOld);
+		        scheapp.add(sNew);
+		        System.out.println("Appointment updated successfully.");
+		    } else {
+		        System.out.println("Appointment not found at the old date and time.");
+		    }
+		}
+		 public int checkPhone(String num)
+			{
+				for(int i=0;i<phone1.size();i++)
+				{
+					if(num.equals(phone1.get(i)))
+						return 1;
+				}
+			return 0;
+				
+			}
+		
+		
 	
 	
 	

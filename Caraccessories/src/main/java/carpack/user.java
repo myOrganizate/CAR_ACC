@@ -33,34 +33,43 @@ public class user {
 		 static List<product> order =new ArrayList<product>();
 		 
 		 
-		 private String emaill;
-			private String passs;
+		 private  static String emaill;
+			private static  String passs;
 		
 
 			
 			 public user() {
-					this.name="lujaindarwazeh";
+				
+					this.name="jodikmal";
 					this.address="Nablus";
-					this.emaill="lujainuser@gmail.com";
+					this.emaill="Jodikmal@gmail.com";
 					this.passs="useruser";
 					this.phone="059986789";
 					this.age="20";
 					
-					emailu.add("lujainuser@gmail.com");
+					emailu.add("Jodikmal@gmail.com");
 					passu.add("useruser");
-					
-			
-				
-					
 					phone1.add("059986789");
-					if(!useru.contains(this))
-						useru.add(this);
+					useru.add(this);
+					
+					
+					if (!useru.contains(this)) {
+					    useru.add(this);
+					} else {
+					}
+
+					// Print the contents of useru list for debugging
 					
 					
 					if (!passu.contains("useruser"))
 						passu.add("useruser");
-					if (!emailu.contains("lujainuser@gmail.com"))
-						emailu.add("lujainuser@gmail.com");
+					
+					
+					if (!emailu.contains("Jodikmal@gmail.com"))
+						emailu.add("Jodikmal@gmail.com");
+					
+					
+					
 				}
 			 
 			 
@@ -92,13 +101,17 @@ public class user {
 			 }
 			
 			public String getemail() {
+				if(!emailu.contains("Jodikmal@gmail.com"))
+					emailu.add("Jodikmal@gmail.com");
 				return emaill;
 			}
 			public void setemail(String email) {
+				if (!emailu.contains("Jodikmal@gmail.com"))
+    		       emailu.add("Jodikmal@gmail.com");
 				this.emaill = email;
 				
-				//if (!emailu.contains(email))
-					// emailu.add(email);
+//				if (!emailu.contains(""))
+//					emailu.add(email);
 			}
 			public String getPass() {
 				return passs;
@@ -110,6 +123,8 @@ public class user {
 			}
 		    
 			public static  int checkpass(String p) {
+				if (!passu.contains("useruser"))
+					 passu.add("useruser");
 				for(int i=0;i<passu.size();i++)
 				{
 					if(p.equals(passu.get(i)))
@@ -119,17 +134,24 @@ public class user {
 			
 				
 			}
+			
 			public static int checkemail(String e) {
-		
-				for(int i=0;i<emailu.size();i++)
-				{
-					if(e.equals(emailu.get(i)))
-				    return 1;
-				}
-				return 0;
+							
+							if (!emailu.contains("Jodikmal@gmail.com"))
+								 emailu.add("Jodikmal@gmail.com");
+					
+							for(int i=0;i<emailu.size();i++)
+							{
+								if(e.equals(emailu.get(i)))
+							    return 1;
+							}
+							return 0;
+							
 				
+
 				
 			}
+			
 			public  String getCustomerName() {
 				return this.name;
 			}
@@ -226,6 +248,11 @@ public class user {
 			}
 			
 			
+			
+			
+			
+			
+			
 		//	public void Browseproducts() {
 			//    p.printProduct();
 				
@@ -255,9 +282,10 @@ public class user {
 			    if (useru.isEmpty()) {
 			        System.out.println("No customers available to delete.");
 			    } else {
-			        for (user customer : useru) {
-			            String j = "Customer: " + customer.name + " " + customer.phone + " " + customer.address + " " + customer.age;
-			            System.out.println(j);
+			    	for (user customer : useru) {
+			    	    String j = "Customer: " + "Name: " + customer.name + " Phone: " + customer.phone + " Address: " + customer.address + " Age: " + customer.age;
+			    	    System.out.println(j);
+			    	
 			        }
 			    }
 			}
@@ -278,12 +306,13 @@ public class user {
 				}
 			 }
 			 public static boolean printProfile(String email) {
+		
 				 
 				 for(int i=0;i<useru.size();i++) {
-					 
-					 
 					
-					    if (useru.get(i).getemail().equals(email)) {
+		
+					if (useru.get(i).getemail().equals(email)) {
+						
 					    	
 				    System.out.println("User Profile:");
 				    System.out.println("Email: " + email);
@@ -305,6 +334,16 @@ public class user {
 				 return y;   
 
 			 }
+			 public int checkPhone(String num)
+				{
+					for(int i=0;i<phone1.size();i++)
+					{
+						if(num.equals(phone1.get(i)))
+							return 1;
+					}
+				return 0;
+					
+				}
 }
 			
 			

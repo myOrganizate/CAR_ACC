@@ -60,7 +60,8 @@ public class RoleStep {
 	    	
 	    	if(LoginStep.flagadmin) {
 	    	faddproduct=true;
-	    	p.createProduct(id, image, price, availability, category);
+	    	p.createProduct(id, name, price, availability, category);
+	    	
 	    	}
 	    	
 	    	
@@ -397,15 +398,18 @@ public void the_Installer_successfully_views_installation_requests() {
 
 
 
-@When("the Installer schedules an appointment for Customer  with email {string}  date {string}, time {string}, and product to install {string}")
-public void the_Installer_schedules_an_appointment_for_Customer_with_email_date_time_and_product_to_install(String string, String string2, String string3, String string4) {
+@When("the Installer schedules an appointment with date {string}, time {string}")
+public void the_Installer_schedules_an_appointment_with_date_time(String string, String string2) {
     // Write code here that turns the phrase above into concrete actions
 	if(LoginStep.flagIns) {
-	fapp=true;
-	LoginStep.I.appointment(string2, string3, string4,string);
-	
+		fapp=true;
+		LoginStep.I.scheduleapp(string, string2);
 	}
+    
 }
+	
+	
+
 
 @Then("the Installer successfully schedules an appointment")
 public void the_Installer_successfully_schedules_an_appointment() {

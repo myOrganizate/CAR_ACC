@@ -2,7 +2,7 @@ Feature: user login to the Car accessories
 	
 Scenario: User can login
 	Given that the user is not logged in
-	And the email is "lujainuser@gmail.com"
+	And the email is "Jodikmal@gmail.com"
 	And the password is "useruser"
 	Then the user login succeeds
 	And the user is logged in
@@ -10,7 +10,7 @@ Scenario: User can login
 	
 	Scenario: User has the wrong password or email
 	Given that the user is not logged in
-	And the email is "lujainuser123@gmail.com"
+	And the email is "Jodikmal12@gmail.com"
 	And the password is "useruser"
 	Then the user login fail
 	And the user is not logged in
@@ -24,7 +24,7 @@ Scenario Outline: Admin or Installer can login
 	Examples: 
       | name     | email               | pass      | status     |
       | "lujain" | "lujain@gmail.com"  | "lujain"  | admin      |
-      | "aya"    | "aya@gmail.com"    | "ayaaya1" | Installer  |
+      | "aya"    | "ayamoinn95@gmail.com"    | "ayaaya1" | Installer  |
    
  
 	
