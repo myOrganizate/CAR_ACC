@@ -1,8 +1,6 @@
 Feature: Admin Dashboard
 
 
-
-    
   Scenario: Admin can add Interior product
     Given the admin is login with email "lujain@gmail.com" and password "lujain"
     When the admin adds an Interior product with id "4", name "yellolight", price "30$", availability "yes", category "Interior", and image "yellolight.jpeg"

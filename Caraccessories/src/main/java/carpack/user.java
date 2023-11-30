@@ -311,7 +311,7 @@ public class user {
 				 for(int i=0;i<useru.size();i++) {
 					
 		
-					if (useru.get(i).getemail().equals(email)) {
+				if (useru.get(i).getemail().equals(email)) {
 						
 					    	
 				    System.out.println("User Profile:");

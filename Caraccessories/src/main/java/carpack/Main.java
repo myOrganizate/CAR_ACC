@@ -17,7 +17,8 @@ public class Main {
 	private static final String S1=" ";
 	static String mostBoughtProduct = "";
 	static int maxQuantityAcrossCustomers = 0;
-	
+	static int customercount=0;
+	static int installercount=0;
 	
 	
 	
@@ -785,16 +786,21 @@ public class Main {
 		                    case 27:
 		                        System.out.println("  * * * * * * * * * * * * * * * *REPORT * * * * * * * * * * * * * * * * * * * * * * * * * *");
 
-		                        System.out.println("1.Total buy count : " + buycount);
-		                        System.out.println("2.Total Installation request count : " + reqcount);
-		                        System.out.println("3.Total profit : " + Totalprofit);
+		                        System.out.println("1.Total number of customer: " +customercount );
+		                        System.out.println("2.Total number of installer: " +installercount );
+		                        System.out.println("3.count of buy product : " +buycount );
+		                        
+		                        
+		                        System.out.println("4.Total Installation request count : " + reqcount);
+		                        System.out.println("5.Total profit : " + Totalprofit);
 
 		                        
 		                        String mostBoughtProduct = null;
 		                        int maxQuantityAcrossCustomers = 0;
 
 		                        // Iterate through all products in the store
-		                        for (product productInCart : products) {
+		                        
+		                        for (product productInCart : bag) {
 		                            int totalQuantity = 0;
 
 		                            // Iterate through the shopping bags of all customers
@@ -863,12 +869,16 @@ public class Main {
 	            String w2 = scc.next();
 	            if (w.checkemail(w1) == 1 && w.checkpass(w2) == 1) {
 	                flagworker = true;
+	                if(!allemail.contains(w1) ) {
 	                allemail.add(w1);
+	                installercount++;
+	                }
 	                userType = 2;
 	            }
 
 	            do {
 	                if (flagworker) {
+	                	
 	                    userselected2 = InstallerMenu();
 	                    switch (userselected2) {
 	                    case 1:
@@ -983,17 +993,21 @@ public class Main {
 	        
 	        
 	         if (userselected == 3) {
+	        	 
 	            System.out.println("1- You have an account");
 	            System.out.println("2- Create account");
 	            System.out.print("Your option is: ");
 	            int x = scc.nextInt();
 
 	            int userselected3 = 0;
+	           
+
 
 	            do {
 	                String cc1 = null;
 	                String cc2;
 	                if (x == 1) {
+	                	
 	                    if (!flagaccount) {
 	                        System.out.print(ayy);
 	                        cc1 = scc.next();
@@ -1008,13 +1022,24 @@ public class Main {
 	                      
 
 	                        
-	                        if (user.checkemail(cc1) == 1 && user.checkpass(cc2) == 1) {
-	                        	 allemail.add(emails);
+	                        if (!allemail.contains(emails) && user.checkemail(cc1) == 1 && user.checkpass(cc2) == 1) {
+
+	                        	allemail.add(emails);
 	                            flaguser = true;
 	                            userType = 3;
+
+	                            // Increment customercount only when a new account is created
+	                            customercount++;
 	                        }
-	                    } else {
+	                    }
+	                  //  else {
 	                        if (flaguser) {
+	                        	
+	                        	
+	                        	
+	                        	
+	                        	
+	                        	
 	                            userselected3 = customerMenu();
 	                            switch (userselected3) {
 	                            
@@ -1123,18 +1148,20 @@ public class Main {
 	                                    if (!ordersFound) {
 	                                        System.out.println("No orders found for the customer with email: " + emails);
 	                                    }
+	                                    
 	                                    System.out.println(" Do you want to confirm your order? Enter yes or no: ");
 	                                    String conf = scc.next();
 
 	                                    if (conf.equals("yes")) {
 	                                    	
 	                                        try {
+	                                        	
 	                                           sendEmail.sendemail("Jodikmal@gmail.com", "1", "user");
 	                                        } catch (MessagingException e) {
 	                                            e.printStackTrace();
 	                                        }
 	                                    	 System.out.println("Your purchases price: " + Totalprofit);
-	                                    	
+	                                    	 System.out.println("Total number of products bought: " + buycount);
 	                                    }
 	                                    else {
 	                                    	
@@ -1592,7 +1619,13 @@ public class Main {
 	                                 
 	                                
 	                                        }
-	                                    }
+	                            
+	                            
+	                            
+	                            
+	                            
+	                            
+	                                   // }
 	                                }
 	                            } 
 	                else {
@@ -1711,7 +1744,8 @@ public class Main {
 	    System.out.printf("★%s24-%sadd installation appointments %s%s ★%n", S1, S1, TT, TT);
 	    System.out.printf("★%s25-%supdate installation appointments %s%s ★%n", S1, S1, TT, TT);
 	    System.out.printf("★%s26-%sdelete installation appointments %s%s ★%n", S1, S1, TT, TT);
-	    System.out.printf("★%s27-%sview report %s%s ★%n", S1, S1, TT, TT);
+	   
+	    System.out.printf("★%s27-%sview report                %s%s ★%n", S1, S1, TT, TT);
 	    
 	   
 	    
