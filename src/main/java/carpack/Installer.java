@@ -16,7 +16,7 @@ public class Installer {
 	 int isIns=0;
 	 static List<String> emailI =new ArrayList<String>();
 	 static List<String> passI =new ArrayList<String>();
-	 static public List<String> appo =new ArrayList<String>();
+	 static  List<String> appo =new ArrayList<String>();
 	 static List<Installer>Instu = new ArrayList<Installer>();
 	 static List<String> phone1 =new ArrayList<String>() ;
 	 static String b;
@@ -33,7 +33,7 @@ public class Installer {
 	
 
 		public Installer(String em, String pa) {
-			// TODO Auto-generated constructor stub
+			
 			emaill=em;
 			passs=pa;
 			emailI.add(em);
@@ -95,9 +95,7 @@ public class Installer {
 			
 		}
 		public static String appointment(String date, String time, String detail, String email) {
-		  //  this.date = date;
-		   // this.time = time;
-		    //this.detail = detail;
+		
 		    app = "date: " + date + " time: " + time + " detail: " + detail + " for customer: " + email;
 
 		    if (!appo.contains(app)) {
@@ -108,20 +106,16 @@ public class Installer {
 		
 		
 		public static String updateappointment(String email, String olddate, String oldtime, String olddetail, String newdate, String newtime, String newdetail) {
-		    // Construct the old and new appointment strings
 		    String oldAppointment = "date: " + olddate + " time: " + oldtime + " detail: " + olddetail + " for customer: " + email;
 		    String newAppointment = "date: " + newdate + " time: " + newtime + " detail: " + newdetail + " for customer: " + email;
 
-		    // Iterate through the 'appo' list
 		    for (int i = 0; i < appo.size(); i++) {
 		        String appointment = appo.get(i);
 		        if (appointment.equals(oldAppointment)) {
-		            // Replace the old appointment with the new appointment
 		            appo.set(i, newAppointment);
 		            return newAppointment;
 		        }
 		    }
-		    // Return null if no matching appointment is found
 		    return null;
 		}
 
@@ -132,10 +126,10 @@ public class Installer {
 		    
 		    if (appo.contains(appointmentToDelete)) {
 		        appo.remove(appointmentToDelete);
-		        return true; // Appointment deleted successfully
+		        return true; 
 		    }
 		    
-		    return false; // No matching appointment found for deletion
+		    return false; 
 		}
 		
 		
@@ -196,10 +190,8 @@ public class Installer {
 		 }
 		
 		 public static void editProfile(String email, String newPassword, String newPhone, String newName, String newAddress) {
-			    // Find the Installer object with the matching email
 			    for (Installer installer : Instu) {
 			        if (installer.getemail().equals(email)) {
-			            // Update the Installer's profile information with the new data
 			            installer.setemail(email);
 			            installer.setPass(newPassword);
 			            installer.setPhone(newPhone);
@@ -209,17 +201,17 @@ public class Installer {
 			    }
 			}
 		private void setAddress(String newAddress) {
-			// TODO Auto-generated method stub
+			
 			this.address = newAddress;
 			
 		}
 		private void setName(String newName) {
-			// TODO Auto-generated method stub
+			
 			this.name=newName;
 			
 		}
 		private void setPhone(String newPhone) {
-			// TODO Auto-generated method stub
+			
 			this.phone=newPhone;
 			
 		}
@@ -227,7 +219,7 @@ public class Installer {
 		    String s = date + "\t" + time;
 
 		    
-			// Check if s is already in scheapp
+			
 		    if (!scheapp.contains(s)) {
 		        scheapp.add(s);
 		        System.out.println("Appointment scheduled successfully.");
@@ -238,7 +230,7 @@ public class Installer {
 		public static void deleteappo(String date, String time) {
 		    String s = date + "\t" + time;
 
-		    // Check if s is in scheapp
+		   
 		    if (scheapp.contains(s)) {
 		        scheapp.remove(s);
 		        System.out.println("Appointment deleted successfully.");
@@ -251,9 +243,8 @@ public class Installer {
 		    String sOld = dateOld + "\t" + timeOld;
 		    String sNew = dateNew + "\t" + timeNew;
 
-		    // Check if sOld is in scheapp
+		   
 		    if (scheapp.contains(sOld)) {
-		        // Remove the old appointment and add the updated one
 		        scheapp.remove(sOld);
 		        scheapp.add(sNew);
 		        System.out.println("Appointment updated successfully.");

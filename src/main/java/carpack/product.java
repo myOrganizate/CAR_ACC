@@ -19,7 +19,7 @@ public class product {
 		static String a;
 		String email;
 		
-		//"Exterior" "Interior" "Electronic"
+		
 		 static boolean flageorder;
 		 String description;
 		 
@@ -138,7 +138,6 @@ public class product {
 	 public void updateProduct(String idd, String description, String prices, String availability, String Categorie, String image) {
 		    for (int i = 0; i < prod.size(); i++) {
 		        if (prod.get(i).id.equals(idd)) {
-		            // Remove the old product from the appropriate category list
 		            if ("Exterior".equals(prod.get(i).Categories)) {
 		                prodExterior.remove(prod.get(i));
 		            } else if ("Interior".equals(prod.get(i).Categories)) {
@@ -147,7 +146,6 @@ public class product {
 		                prodElectronic.remove(prod.get(i));
 		            }
 
-		            // Update the product attributes
 		            prod.get(i).id = idd;
 		            prod.get(i).description = description;
 		            prod.get(i).prices = prices;
@@ -155,7 +153,6 @@ public class product {
 		            prod.get(i).Categories = Categorie;
 		            prod.get(i).image = image;
 
-		            // Add the updated product to the appropriate category list
 		            if ("Exterior".equals(Categorie)) {
 		                prodExterior.add(prod.get(i));
 		            } else if ("Interior".equals(Categorie)) {
@@ -171,12 +168,11 @@ public class product {
 	        return id;
 	    }
 
-	    // Getter for the description
 	    public String getDescription() {
 	        return description;
 	    }
 	    public String getemail() {
-	        return email != null ? email : ""; // Return the email or an empty string if it's null
+	        return email != null ? email : ""; 
 	    }
 	    public void setEmail(String email) {
 	        this.email = email;
@@ -190,35 +186,31 @@ public class product {
 	
 	 
 	 public static void deleteProduct(String id) {
-		    // Remove the product from the 'prod' list
 		    for (int i = 0; i < prod.size(); i++) {
 		        if (prod.get(i).id.equals(id)) {
 		            prod.remove(i);
-		            break; // Exit the loop once the product is found and removed
+		            break; 
 		        }
 		    }
 
-		    // Remove the product from the 'prodInterior' list
 		    for (int j = 0; j < prodInterior.size(); j++) {
 		        if (prodInterior.get(j).id.equals(id)) {
 		            prodInterior.remove(j);
-		            break; // Exit the loop once the product is found and removed
+		            break; 
 		        }
 		    }
 
-		    // Remove the product from the 'prodExterior' list
 		    for (int j = 0; j < prodExterior.size(); j++) {
 		        if (prodExterior.get(j).id.equals(id)) {
 		            prodExterior.remove(j);
-		            break; // Exit the loop once the product is found and removed
+		            break; 
 		        }
 		    }
 
-		    // Remove the product from the 'prodElectronic' list
 		    for (int j = 0; j < prodElectronic.size(); j++) {
 		        if (prodElectronic.get(j).id.equals(id)) {
 		            prodElectronic.remove(j);
-		            break; // Exit the loop once the product is found and removed
+		            break; 
 		        }
 		    }
 		}
@@ -339,7 +331,6 @@ public class product {
 	}
 	
 	public static void addprodElectronic(String id, String description, String prices, String availability, String Categorie,String image) {
-	    // Create a new instance of your product class
 	    product newProduct = new product(id, description, prices, availability, Categorie,image);
 
 	    
@@ -415,12 +406,10 @@ public class product {
 	public void order(String id, String email) {
 	    for (product orderedProduct : prod) {
 	        if (orderedProduct.id.equals(id)) {
-	            // Add the email address of the customer to the product
 	            orderedProduct.email = email;
-	            // Add the ordered product to the 'order' list
 	            order.add(orderedProduct);
-	            flageorder = true; // Set the flag to indicate that an order was placed
-	            break; // Break the loop once the product is found
+	            flageorder = true; 
+	            break; 
 	        }
 	    }
 	}
@@ -428,11 +417,9 @@ public class product {
 	public static void vieworder(String customerEmail) {
 	    for (product orderedProduct : order) {
 	        if (orderedProduct.email.equals(customerEmail)) {
-	            // Print order details
 	            System.out.println("Product ID: " + orderedProduct.id);
 	            System.out.println("Description: " + orderedProduct.description);
 	            System.out.println("Price: " + orderedProduct.prices);
-	            // Add more order information here
 	        }
 	    }
 	}
@@ -462,14 +449,6 @@ public class product {
 	        }
 	    }
 
-	    // Print the filtered products
-//	    for (product filteredProduct : filteredProducts) {
-//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
-//	        System.out.print("Product Category: " + filteredProduct.getCategory() + "\t");
-//	        System.out.println("Product Price: " + filteredProduct.getPrice());
-//	        // Add any other relevant information here
-//	    }
-
 	    return filteredProducts;
 	}
  
@@ -486,13 +465,6 @@ public class product {
 	        }
 	    }
 
-	    // Print the filtered products
-//	    for (product filteredProduct : filteredProducts) {
-//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
-//	        System.out.print("Product Category: " + filteredProduct.getCategory() + "\t");
-//	        System.out.println("Product Price: " + filteredProduct.getPrice());
-//	        // Add any other relevant information here
-//	    }
 
 	    return filteredProducts;
 	}
@@ -510,13 +482,7 @@ public class product {
 	        }
 	    }
 
-	    // Print the filtered products
-//	    for (product filteredProduct : filteredProducts) {
-//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
-//	        System.out.print("Product Category: " + filteredProduct.getCategory() + "\t");
-//	        System.out.println("Product Price: " + filteredProduct.getPrice());
-//	        // Add any other relevant information here
-//	    }
+	  
 
 	    return filteredProducts;
 	}
@@ -532,15 +498,6 @@ public class product {
 	        }
 	    }
 
-	    // Print the filtered products
-//	    for (product filteredProduct : filteredProducts) {
-//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
-//	        System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-//	        System.out.print("Product Price: " + filteredProduct.getPrices() + "\t");
-//	        System.out.println("Product Availability: " + filteredProduct.getAvailability());
-//	        // Add any other relevant information here
-//	    }
-
 	    return filteredProducts;
 	}
  
@@ -553,14 +510,7 @@ public class product {
 	        }
 	    }
 
-	    // Print the filtered products
-//	    for (product filteredProduct : filteredProducts) {
-//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
-//	        System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-//	        System.out.print("Product Price: " + filteredProduct.getPrices() + "\t");
-//	        System.out.println("Product Availability: " + filteredProduct.getAvailability());
-//	        // Add any other relevant information here
-//	    }
+
 
 	    return filteredProducts;
 	}
@@ -578,14 +528,7 @@ public class product {
 	        }
 	    }
 
-	    // Print the filtered products
-//	    for (product filteredProduct : filteredProducts) {
-//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
-//	        System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-//	        System.out.print("Product Price: " + filteredProduct.getPrices() + "\t");
-//	        System.out.println("Product Availability: " + filteredProduct.getAvailability());
-//	        // Add any other relevant information here
-//	    }
+
 
 	    return filteredProducts;
 	}
@@ -605,13 +548,6 @@ public class product {
 	        }
 	    }
 
-	    // Print the filtered products
-//	    for (product filteredProduct : filteredProducts) {
-//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
-//	        System.out.print("Product Category: " + filteredProduct.getCategory() + "\t");
-//	        System.out.println("Product Price: " + filteredProduct.getPrice());
-//	        // Add any other relevant information here
-//	    }
 
 	    return filteredProducts;
 	}
@@ -626,13 +562,7 @@ public class product {
 	        }
 	    }
 
-	    // Print the filtered products
-//	    for (product filteredProduct : filteredProducts) {
-//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
-//	        System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-//	        System.out.println("Product Price: " + filteredProduct.getPrices());
-//	        // Add any other relevant information here
-//	    }
+
 
 	    return filteredProducts;
 	}
@@ -643,7 +573,6 @@ public class product {
 
 	    List<product> productList = getProductListByCategory(category);
 
-	    // You can directly return the filtered list without printing
 	    return productList;
 	}
 
@@ -655,7 +584,7 @@ public class product {
 	    } else if ("electronic".equalsIgnoreCase(category)) {
 	        return prodElectronic;
 	    } else {
-	        return new ArrayList<product>(); // or throw an exception for unknown category
+	        return new ArrayList<product>(); 
 	    }
 	}
  public static List<product> filterProductByAvailability(String availability) {
@@ -669,14 +598,7 @@ public class product {
 	        }
 	    }
 
-	    // Print the filtered products
-//	    for (product filteredProduct : filteredProducts) {
-//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
-//	        System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-//	        System.out.println("Product Price: " + filteredProduct.getPrices());
-	        // Add any other relevant information here
-//	    }
-
+	
 	    return filteredProducts;
 	}
  public int getQuantity() {
@@ -715,7 +637,6 @@ public class product {
 	        double max = Double.parseDouble(maxPrice);
 	        return price >= min && price <= max;
 	    } catch (NumberFormatException e) {
-	        // Handle the case where price or minPrice or maxPrice is not a valid number
 	        return false;
 	    }
 	}

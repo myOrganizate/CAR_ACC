@@ -19,15 +19,13 @@ public class user {
 		  String age;
 		  String phone;
 		  String app;
-		//  product p=new product();
-		//  static String j;
+		
 	 
 		  
 		  
 
 		 static List<String> emailu =new ArrayList<String>();
 		 static List<String> passu =new ArrayList<String>();
-		// static List<user> customerData =new ArrayList<user>();
 		 static List<String> phone1 =new ArrayList<String>() ;
 		 static List<user> useru = new ArrayList<user>();
 		 static List<product> order =new ArrayList<product>();
@@ -58,7 +56,6 @@ public class user {
 					} else {
 					}
 
-					// Print the contents of useru list for debugging
 					
 					
 					if (!passu.contains("useruser"))
@@ -110,16 +107,14 @@ public class user {
     		       emailu.add("Jodikmal@gmail.com");
 				this.emaill = email;
 				
-//				if (!emailu.contains(""))
-//					emailu.add(email);
+
 			}
 			public String getPass() {
 				return passs;
 			}
 			public void setPass(String pass) {
 				this.passs = pass;
-				//if (!passu.contains(pass))
-					// passu.add(pass);
+			
 			}
 		    
 			public static  int checkpass(String p) {
@@ -253,12 +248,7 @@ public class user {
 			
 			
 			
-		//	public void Browseproducts() {
-			//    p.printProduct();
-				
-				
-				
-			//}
+	
 			
 
 			
@@ -275,7 +265,6 @@ public class user {
 			        }
 			    }
 			    
-			    // Update useru to only include unique customers
 			    useru.clear();
 			    useru.addAll(uniqueCustomers);
 			    
@@ -290,10 +279,8 @@ public class user {
 			    }
 			}
 			 public static void editProfile(String newEmail, String newPassword, String newPhone, String newName, String newAddress, String newAge) {
-				    // Check if the email matches the identifierEmail
 				 for(int i=0;i<useru.size();i++) {
 				    if (useru.get(i).getemail().equals(newEmail)) {
-				        // Update the customer's profile information with the new data
 				    	
 				       useru.get(i) .emaill = newEmail;
 				       useru.get(i) .passs = newPassword;

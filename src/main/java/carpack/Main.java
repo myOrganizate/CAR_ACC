@@ -25,7 +25,6 @@ public class Main {
 	
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
-		//ArrayList<product> products = new ArrayList<product>();
 		ArrayList<product> products = new ArrayList<product>();
         ArrayList<product> productsExterior = new ArrayList<product>();
         
@@ -43,8 +42,8 @@ public class Main {
 	    Scanner scc = new Scanner(System.in);
 	    boolean flagintitail = false;
 	    int userselected = 0;
-	    user cc = null; // Declare the user object outside the loop
-	 //   user u=new user();
+	    user cc = null; 
+	
 	    admin aa = new admin();
 	    int pr1 = 0;
 	    product p=null;
@@ -106,7 +105,7 @@ public class Main {
 	                            System.out.print("Enter age of Customer you need to add: ");
 	                            String ag = scc.next();
 
-	                            cc = new user(e, pp, add, n, ph, ag); // Create a new user object
+	                            cc = new user(e, pp, add, n, ph, ag); 
 	               			 
 
 
@@ -175,16 +174,16 @@ public class Main {
 	                           
 	                            
 	                           
-	                            products.add(p); // Add the product to the main products list
+	                            products.add(p); 
 
 	                            if ("Exterior".equals(Catttt)) {
-	                                productsExterior.add(p); // Add to the exterior products list if it's an exterior product
+	                                productsExterior.add(p); 
 	                            }
 	                            if ("Interior".equals(Catttt)) {
-	                                productsInterior.add(p); // Add to the exterior products list if it's an exterior product
+	                                productsInterior.add(p); 
 	                            }
 	                            if ("Electronic".equals(Catttt)) {
-	                                productsElectronic.add(p); // Add to the exterior products list if it's an exterior product
+	                                productsElectronic.add(p); 
 	                            }
 	                            
 	                            break;
@@ -195,11 +194,10 @@ public class Main {
 		                        String idd = scc.next();
 		                        product.deleteProduct(idd);
 
-		                        // You should also remove the product from the main list 'products'
 		                        for (product prod : products) {
 		                            if (prod.id.equals(idd)) {
 		                                products.remove(prod);
-		                                break; // Exit the loop once the product is found and removed
+		                                break; 
 		                            }
 		                        }
 		                        break;
@@ -217,13 +215,11 @@ public class Main {
 		                        System.out.print("Enter Category of Product you need to update: ");
 		                        String Categoriee = scc.next();
 		                        System.out.print("Enter image URL of Product you need to update: ");
-		                        String image = scc.next(); // You'll need to get the image URL from the user
+		                        String image = scc.next(); 
 
-		                        // Call the updateProduct method with the image parameter
 		                        p.updateProduct(iddd, descriptionn, pricee, availab, Categoriee, image);
 
 
-		            		            // Use the 'id' to find the correct product to remove from other lists
 		            		            for (int j = 0; j <  productsInterior.size(); j++) {
 		            		                if ( productsInterior.get(j).id.equals(iddd)) {
 		            		                	 productsInterior.remove(j);
@@ -244,10 +240,8 @@ public class Main {
 		            		                    break;
 		            		                }
 		            		            }
-		                        // Remove the old product from the main products list
 		                       
 
-		                        // Add the updated product to the appropriate category list
 		                        if ("Exterior".equals(Categoriee)) {
 		                            productsExterior.add(p);
 		                        } else if ("Interior".equals(Categoriee)) {
@@ -287,16 +281,16 @@ public class Main {
 		                           
 		                            
 		                           
-		                            products.add(p); // Add the product to the main products list
+		                            products.add(p); 
 
 		                            if ("Exterior".equals(Catex)) {
-		                                productsExterior.add(p); // Add to the exterior products list if it's an exterior product
+		                                productsExterior.add(p); 
 		                            }
 		                            if ("Interior".equals(Catex)) {
-		                                productsInterior.add(p); // Add to the exterior products list if it's an exterior product
+		                                productsInterior.add(p); 
 		                            }
 		                            if ("Electronic".equals(Catex)) {
-		                                productsElectronic.add(p); // Add to the exterior products list if it's an exterior product
+		                                productsElectronic.add(p); 
 		                            }
 		                            
 		                    	
@@ -307,13 +301,13 @@ public class Main {
 		                        String iddex = scc.next();
 		                        product.deleteProduct(iddex);
 
-		                        // You should also remove the product from the main list 'products'
+		                        
 		                        for (product prod : products) {
 		                            if (prod.id.equals(iddex)) {
 		                                products.remove(prod);
 		                                productsExterior.remove(prod);
 		                                
-		                                break; // Exit the loop once the product is found and removed
+		                                break; 
 		                            }
 		                        }
 		                        break;
@@ -335,13 +329,13 @@ public class Main {
 		                    	System.out.print("Enter image URL of Exterior Product you need to update: ");
 		                    	String imageex = scc.next();
 
-		                    	// Call a method to update the product
+		                    	
 		                    	
 		                    	
 		                    	
 		                    	p.updateProduct(idddex, descriptionnex, priceeex, availabex, Categorieeex, imageex);
 
-		                    	// Use the 'id' to find the correct product to remove from other lists
+		                    	
 		                    	for (int j = 0; j <productsInterior.size(); j++) {
 		                    	    if (productsInterior.get(j).id.equals(idddex)) {
 		                    	        productsInterior.remove(j);
@@ -363,7 +357,7 @@ public class Main {
 		                    	    }
 		                    	}
 
-		                    	// Add the updated product to the appropriate category list
+		                    	
 		                    	if ("Exterior".equals(Categorieeex)) {
 		                    	    productsExterior.add(new product(idddex, descriptionnex, priceeex, availabex, Categorieeex, imageex));
 		                    	} else if ("Interior".equals(Categorieeex)) {
@@ -375,10 +369,7 @@ public class Main {
 			                        break;
 	            		              
 			                        
-			                        
-	            		         //       }
-	            		                
-			                       // }
+			                   
 			                        
 	            		                
 		                    	
@@ -415,16 +406,16 @@ public class Main {
 	                           
 	                            
 	                           
-	                            products.add(p); // Add the product to the main products list
+	                            products.add(p); 
 
 	                            if ("Exterior".equals(Catin)) {
-	                                productsExterior.add(p); // Add to the exterior products list if it's an exterior product
+	                                productsExterior.add(p);
 	                            }
 	                            if ("Interior".equals(Catin)) {
-	                                productsInterior.add(p); // Add to the exterior products list if it's an exterior product
+	                                productsInterior.add(p); 
 	                            }
 	                            if ("Electronic".equals(Catin)) {
-	                                productsElectronic.add(p); // Add to the exterior products list if it's an exterior product
+	                                productsElectronic.add(p); 
 	                            }
 	                            
 	                    	
@@ -435,13 +426,13 @@ public class Main {
 		                        String iddin = scc.next();
 		                        product.deleteProduct(iddin);
 
-		                        // You should also remove the product from the main list 'products'
+		                       
 		                        for (product prod : products) {
 		                            if (prod.id.equals(iddin)) {
 		                                products.remove(prod);
 		                                productsInterior.remove(prod);
 		                                
-		                                break; // Exit the loop once the product is found and removed
+		                                break; 
 		                            }
 		                        }
 		                        break;
@@ -450,9 +441,7 @@ public class Main {
 		                    	 System.out.print("Enter id of Interior Product you need to update: ");
 			                        String idddin = scc.next();
 			                        
-			                    //    for (int l = 0; l < productsInterior.size(); l++) {
-	            		          //      if (productsExterior.get(l).id.equals(idddin)) {
-	            		                	
+			               
 	            		                
 			                        
 			                        
@@ -467,13 +456,13 @@ public class Main {
 			                        System.out.print("Enter Category of Interior Productt you need to update: ");
 			                        String Categorieeen = scc.next();
 			                        System.out.print("Enter image URL of Interior Product you need to update: ");
-			                        String imageen = scc.next(); // You'll need to get the image URL from the user
+			                        String imageen = scc.next(); 
 
-			                        // Call the updateProduct method with the image parameter
+			                       
 			                        p.updateProduct(idddin, descriptionnen, priceeen, availaben, Categorieeen, imageen);
 
 
-			            		            // Use the 'id' to find the correct product to remove from other lists
+			            		          
 			            		            for (int j = 0; j <  productsInterior.size(); j++) {
 			            		                if ( productsInterior.get(j).id.equals(idddin)) {
 			            		                	 productsInterior.remove(j);
@@ -494,10 +483,10 @@ public class Main {
 			            		                    break;
 			            		                }
 			            		            }
-			                        // Remove the old product from the main products list
+			                       
 			                       
 
-			                        // Add the updated product to the appropriate category list
+			                        
 			                        if ("Exterior".equals(Categorieeen)) {
 			                            productsExterior.add(p);
 			                        } else if ("Interior".equals(Categorieeen)) {
@@ -509,10 +498,7 @@ public class Main {
 			                        break;
 	            		              
 			                        
-			                        
-	            		         //       }
-	            		                
-			                      //  }
+			                    
 			                        
 		                    	
 		                    	
@@ -545,16 +531,16 @@ public class Main {
 		                           
 		                            
 		                           
-		                            products.add(p); // Add the product to the main products list
+		                            products.add(p); 
 
 		                            if ("Exterior".equals(Catelec)) {
-		                                productsExterior.add(p); // Add to the exterior products list if it's an exterior product
+		                                productsExterior.add(p); 
 		                            }
 		                            if ("Interior".equals(Catelec)) {
-		                                productsInterior.add(p); // Add to the exterior products list if it's an exterior product
+		                                productsInterior.add(p); 
 		                            }
 		                            if ("Electronic".equals(Catelec)) {
-		                                productsElectronic.add(p); // Add to the exterior products list if it's an exterior product
+		                                productsElectronic.add(p); 
 		                            }
 		                            
 		                    	
@@ -570,13 +556,13 @@ public class Main {
 			                        String iddelec = scc.next();
 			                        product.deleteProduct(iddelec);
 
-			                        // You should also remove the product from the main list 'products'
+			                      
 			                        for (product prod : products) {
 			                            if (prod.id.equals(iddelec)) {
 			                                products.remove(prod);
 			                                productsElectronic.remove(prod);
 			                                
-			                                break; // Exit the loop once the product is found and removed
+			                                break; 
 			                            }
 			                        }
 			                        break;
@@ -587,9 +573,7 @@ public class Main {
 		                    	System.out.print("Enter id of Electronic  Product you need to update: ");
 		                        String idddelec = scc.next();
 		                        
-		                     //   for (int l = 0; l < productsElectronic .size(); l++) {
-            		           //     if (productsExterior.get(l).id.equals(idddelec)) {
-            		                	
+		                 
             		                
 		                        
 		                        
@@ -604,13 +588,13 @@ public class Main {
 		                        System.out.print("Enter Category of Electronic  Product you need to update: ");
 		                        String Categorieeel = scc.next();
 		                        System.out.print("Enter image URL of Electronic  Product you need to update: ");
-		                        String imageel = scc.next(); // You'll need to get the image URL from the user
+		                        String imageel = scc.next(); 
 
-		                        // Call the updateProduct method with the image parameter
+		                        
 		                        p.updateProduct(idddelec, descriptionnel, priceeel, availabel, Categorieeel, imageel);
 
 
-		            		            // Use the 'id' to find the correct product to remove from other lists
+		            		         
 		            		            for (int j = 0; j <  productsElectronic.size(); j++) {
 		            		                if ( productsElectronic.get(j).id.equals(idddelec)) {
 		            		                	 productsElectronic.remove(j);
@@ -631,10 +615,10 @@ public class Main {
 		            		                    break;
 		            		                }
 		            		            }
-		                        // Remove the old product from the main products list
+		                     
 		                       
 
-		                        // Add the updated product to the appropriate category list
+		                      
 		                        if ("Exterior".equals(Categorieeel)) {
 		                            productsExterior.add(p);
 		                        } else if ("Interior".equals(Categorieeel)) {
@@ -647,10 +631,7 @@ public class Main {
             		              
 		                        
 		                        
-            		      //          }
-            		                
-		                    //    }
-		                        
+            		     
 
 		                            
 		                    case 21:
@@ -661,7 +642,7 @@ public class Main {
 		                    	if (sch.isEmpty()) {
 		                    	    System.out.println("There are no appointments available.");
 		                    	} else {
-		                    	    // Iterate through the sch ArrayList and print each element
+		                    	 
 		                    	    for (int i = 0; i < sch.size(); i++) {
 		                    	        System.out.println( "" + sch.get(i));
 		                    	    }
@@ -689,15 +670,15 @@ public class Main {
 		                        System.out.print("Enter updated name of product that you want to install: ");
 		                        String newDetail = scc.next();
 
-		                        // Construct the old and new appointments
+		                      
 		                        String oldAppointment = "date: " + oldDate + " time: " + oldTime + " detail: " + oldDetail + " for customer: " + emailUpdate;
 		                        String newAppointment = "date: " + newDate + " time: " + newTime + " detail: " + newDetail + " for customer: " + emailUpdate;
 
-		                        // Update the appointment in 'appo' list
+		                      
 		                        Installer.updateappointment(emailUpdate, oldDate, oldTime, oldDetail, newDate, newTime, newDetail);
 
 
-		                        // Update the appointment in 'appoin' list
+		                    
 		                        for (int i = 0; i < appoin.size(); i++) {
 		                            if (appoin.get(i).equals(oldAppointment)) {
 		                                appoin.set(i, newAppointment);
@@ -718,14 +699,14 @@ public class Main {
 		                        System.out.print("Enter name of product of this appointment to be deleted: ");
 		                        String detailToDelete = scc.next();
 
-		                        // Delete the appointment from 'appoin' list
+		            
 		                        String appointmentToDelete = "date: " + dateToDelete + " time: " + timeToDelete + " detail: " + detailToDelete + " for customer: " + emailDelete;
 
 		                        if (appoin.contains(appointmentToDelete)) {
 		                            appoin.remove(appointmentToDelete);
 		                        }
 
-		                        // Call the 'Installer.deleteappointment' function
+		                    
 		                        boolean isDeleted = Installer.deleteappointment(emailDelete, dateToDelete, timeToDelete, detailToDelete);
 
 		                        if (isDeleted) {
@@ -743,10 +724,10 @@ public class Main {
 		                        String addtime = scc.next();
 		                        String d = addap + "\t" + addtime;
 
-		                        // Call your method to add the appointment
+		                       
 		                        Installer.scheduleapp(addap, addtime);
 
-		                        // Add the appointment to the sch ArrayList
+		                      
 		                        sch.add(d);
 		                        break;
 
@@ -761,10 +742,10 @@ public class Main {
 		                        System.out.print("Enter new Time of the appointment: ");
 		                        String newTimee = scc.next();
 
-		                        // Call your method to update the appointment
+		                       
 		                        Installer.updateappo(oldDatee, oldTimee, newDatee, newTimee);
 
-		                        // Update the sch ArrayList with the new appointment details
+		                       
 		                        sch.remove(oldDatee + "\t" + oldTimee);
 		                        sch.add(newDatee + "\t" + newTimee);
 		                        break;
@@ -775,10 +756,10 @@ public class Main {
 		                        System.out.print("Enter Time of the appointment to be deleted: ");
 		                        String deleteTime = scc.next();
 
-		                        // Call your method to delete the appointment
+		                      
 		                        Installer.deleteappo(deleteDate, deleteTime);
 
-		                        // Remove the appointment from the sch ArrayList
+		                     
 		                        sch.remove(deleteDate + "\t" + deleteTime);
 		                        break;
 		                	   
@@ -798,26 +779,26 @@ public class Main {
 		                        String mostBoughtProduct = null;
 		                        int maxQuantityAcrossCustomers = 0;
 
-		                        // Iterate through all products in the store
+		                        
 		                        
 		                        for (product productInCart : bag) {
 		                            int totalQuantity = 0;
 
-		                            // Iterate through the shopping bags of all customers
+		                          
 		                            for (product productInBag : bag) {
 		                                if (productInBag.getId().equals(productInCart.getId())) {
-		                                    totalQuantity += productInBag.getQuantity(); // Use the getQuantity method
+		                                    totalQuantity += productInBag.getQuantity(); 
 		                                }
 		                            }
 
-		                            // Update the most bought product if the total quantity is greater than the current max
+		                         
 		                            if (totalQuantity > maxQuantityAcrossCustomers) {
 		                                mostBoughtProduct = productInCart.getDescription();
 		                                maxQuantityAcrossCustomers = totalQuantity;
 		                            }
 		                        }
 
-		                        // Print the most bought product information
+		                      
 		                        if (mostBoughtProduct != null) {
 		                            System.out.println("4.The most bought product is : " + mostBoughtProduct);
 		                            System.out.println("5.Total quantity sold for this most bought product : " + maxQuantityAcrossCustomers);
@@ -885,7 +866,7 @@ public class Main {
                         	
 	                    
 	                            
-	                            // Prompt the user for their email (identifier)
+	                           
 	                           
 	                            boolean instfound = false;
 	                     
@@ -905,7 +886,7 @@ public class Main {
                         	
                         	
                         	if (allemail.contains(w1)) {
-                        	    // Prompt the installer for updated profile information
+                        	  
                         	    System.out.print("Enter new password: ");
                         	    String newPassword = scc.next();
                         	    System.out.print("Enter new phone: ");
@@ -915,7 +896,7 @@ public class Main {
                         	    System.out.print("Enter new address: ");
                         	    String newAddress = scc.next();
 
-                        	    // Call the editProfile method with the identifier w1
+                        	   
                         	    Installer.editProfile(w1, newPassword, newPhone, newName, newAddress);
 
                         	    System.out.println("Profile updated successfully!");
@@ -933,19 +914,14 @@ public class Main {
 	                            
 	                            break;
 	                        case 4:
-//	                        	  System.out.print("Enter Email of user you want to apply the installation: ");
-//	                                String em = scc.next();
-//	                        	
+                        	
 	                            
 	                            System.out.print("Enter Date: ");
                                 String datepr = scc.next();
                                 System.out.print("Enter Time: ");
                                 String timepr= scc.next();
-//                                System.out.print("Enter name of product that you want to install it : ");
-//                                String decpr= scc.next();
                                 String s=datepr+"\t"+timepr;
                             	sch.add(s);
-//                            appoin.add(Installer.appointment(datepr,timepr,decpr,em));
                             	System.out.println("Your APPOINTMENTS: ");
 	                        	for (String appointment : sch) {
 	                        	    System.out.println(appointment);
@@ -1028,11 +1004,9 @@ public class Main {
 	                            flaguser = true;
 	                            userType = 3;
 
-	                            // Increment customercount only when a new account is created
 	                            customercount++;
 	                        }
 	                    }
-	                  //  else {
 	                        if (flaguser) {
 	                        	
 	                        	
@@ -1064,9 +1038,9 @@ public class Main {
 	                                System.out.print("Enter the name of the product: ");
 	                                String description = scc.next();
 	                                System.out.print("Enter the Quantity of the product: ");
-	                                int quantity = scc.nextInt(); // Read an integer for quantity
+	                                int quantity = scc.nextInt(); 
 
-	                                // Find the product with the given ID and description in the products list
+	                             
 	                                product selectedProduct = null;
 	                                for (product pp : products) {
 	                                    if (pp.getId().equals(id) && pp.getDescription().equals(description)) {
@@ -1076,14 +1050,13 @@ public class Main {
 	                                }
 
 	                                if (selectedProduct != null) {
-	                                    // Set the email and quantity for the selected product
+	                              
 	                                    selectedProduct.setEmail(emails);
 	                                    selectedProduct.setQuantity(quantity);
 
-	                                    // Add the selected product to the 'bag'.
+	                               
 	                                    bag.add(selectedProduct);
 
-	                                    // Confirm that the product has been added to the 'bag'.
 	                                    System.out.println("Product has been added to your bag :)");
 	                                } else {
 	                                    System.out.println("The product with the provided ID and description does not exist in the product list.");
@@ -1095,12 +1068,11 @@ public class Main {
 	                                	String productIDToDelete = scc.next();
 	                                	boolean productFound = false;
 
-	                                	// Iterate through the 'bag' list to find and remove the product.
 	                                	for (product productInCart : bag) {
 	                                	    if (productInCart.id.equals(productIDToDelete) && productInCart.email.equals(emails)) {
 	                                	        bag.remove(productInCart);
 	                                	        productFound = true;
-	                                	        break; // Exit the loop after removing the product.
+	                                	        break;
 	                                	    }
 	                                	}
 
@@ -1126,7 +1098,6 @@ public class Main {
 	                                        if (productInCart.getemail().equals(emails)) {
 	                                        	
 	                                        	
-	                                            // Display the order details with tabs
 	                                            System.out.print("Product ID: " + productInCart.getId() + "\t");
 	                                            System.out.print("Product name: " + productInCart.getDescription() + "\t");
 	                                            System.out.print("Product Price: " + productInCart.getPrices() + "\t");
@@ -1175,9 +1146,8 @@ public class Main {
 	                                    System.out.print("Enter your email: ");
 	                                    String userEmail = scc.next();
 
-	                                    // Check if the provided email exists in the 'emails' list
 	                                    if (allemail.contains(userEmail)) {
-	                                        // Prompt the customer for updated profile information
+	                                      
 	                                        System.out.print("Enter new password: ");
 	                                        String newPassword = scc.next();
 	                                        System.out.print("Enter new phone: ");
@@ -1189,7 +1159,6 @@ public class Main {
 	                                        System.out.print("Enter new age: ");
 	                                        String newAge = scc.next();
 
-	                                        // Call the editProfile method with the identifier email
 	                                        user.editProfile(userEmail, newPassword, newPhone, newName, newAddress, newAge);
 
 	                                        System.out.println("Profile updated successfully!");
@@ -1204,7 +1173,6 @@ public class Main {
 	                                case 6:
 	                                   
 	                                    
-	                                    // Prompt the user for their email (identifier)
 	                                   
 	                                    boolean userFound = false;
 	                             
@@ -1224,7 +1192,6 @@ public class Main {
 	                                    if (sch.isEmpty()) {
 	                                        System.out.println("There are no appointments available.");
 	                                    } else {
-	                                        // Iterate through the sch ArrayList and check availability
 	                                        System.out.print("Enter the Date when you want to apply the installation : ");
 	                                        String datepr = scc.next();
 	                                        System.out.print("Enter Time when you want to apply the installation : ");
@@ -1232,11 +1199,11 @@ public class Main {
 
 	                                        String g = datepr + "\t" + timepr;
 
-	                                        boolean appointmentAvailable = false; // Flag to track availability
+	                                        boolean appointmentAvailable = false; 
 
 	                                        for (int i = 0; i < sch.size(); i++) {
 	                                            if (sch.get(i).equals(g)) {
-	                                                // Appointment is available
+	                                               
 	                                                appointmentAvailable = true;
 	                                                System.out.println("It's an available appointment ");
 	                                                System.out.print("Enter your Email ");
@@ -1249,12 +1216,12 @@ public class Main {
 	                                                try {
 														sendEmail.sendemail("ayamoinn95@gmail.com", "1","installer");
 													} catch (MessagingException e) {
-														// TODO Auto-generated catch block
+													
 														e.printStackTrace();
 													}
 	                                                
 	                                                
-	                                                break; // Break out of the loop once an available appointment is found
+	                                                break; 
 	                                            }
 	                                        }
 
@@ -1288,16 +1255,16 @@ public class Main {
 	                                    System.out.print("Enter Category : ");
 	                                    String category = scc.next();
 	                                    
-	                                    // Call the filterProductByCategory method and store the result in a list
+	                              
 	                                    List<product> filteredProducts = product.filterProductByCategory(category);
 
-	                                    // Print the filtered products
+	                                  
 	                                    if (filteredProducts.isEmpty()) {
 	                                        System.out.println("No products found for the specified category.");
 	                                    } else {
 	                                        System.out.println("Filtered Products:");
 	                                        for (product filteredProduct : filteredProducts) {
-	                                            // Display the details of each filtered product
+	                                           
 	                                            System.out.print("Product ID: " + filteredProduct.getId()+ "\t");
 	                                            System.out.print("Product Description: " + filteredProduct.getDescription()+ "\t");
 	                                            System.out.print("Product Price: " + filteredProduct.getPrices());
@@ -1313,16 +1280,16 @@ public class Main {
 	                                    System.out.print("Enter product name :");
 	                                    String name = scc.next();
 
-	                                    // Call the filterProductByname method and store the result in a list
+	                                 
 	                                    List<product> filteredProductname = product.filterProductByname(name);
 
-	                                    // Print the filtered products
+	                                  
 	                                    if (filteredProductname.isEmpty()) {
 	                                        System.out.println("No products found for the specified name.");
 	                                    } else {
 	                                        System.out.println("Filtered Products:");
 	                                        for (product filteredProduct : filteredProductname) {
-	                                            // Display the details of each filtered product
+	                                          
 	                                            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
 	                                            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
 	                                            System.out.print("Product Price: " + filteredProduct.getPrices());
@@ -1337,16 +1304,13 @@ public class Main {
 	                                    System.out.print("Enter Availability:");
 	                                    String availability = scc.next();
 
-	                                    // Call the filterProductByAvailability method and store the result in a list
 	                                    List<product> filteredProductAvailability = product.filterProductByAvailability(availability);
 
-	                                    // Print the filtered products
 	                                    if (filteredProductAvailability.isEmpty()) {
 	                                        System.out.println("No products found for the specified availability.");
 	                                    } else {
 	                                        System.out.println("Filtered Products:");
 	                                        for (product filteredProduct : filteredProductAvailability) {
-	                                            // Display the details of each filtered product
 	                                            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
 	                                            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
 	                                            System.out.print("Product Price: " + filteredProduct.getPrices());
@@ -1366,16 +1330,13 @@ public class Main {
 	                            	 
 	                            	    
 
-	                            	    // Call the filterProductByAvailability method and store the result in a list
 	                            	    List<product> filteredProductprice= product.filterProductByprice(min,max);
 
-	                            	    // Print the filtered products
 	                            	    if (filteredProductprice.isEmpty()) {
 	                            	        System.out.println("No products found for the specified range");
 	                            	    } else {
 	                            	        System.out.println("Filtered Products:");
 	                            	        for (product filteredProduct : filteredProductprice) {
-	                            	            // Display the details of each filtered product
 	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
 	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
 	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
@@ -1390,7 +1351,6 @@ public class Main {
 	                            	
 	                            	  
 	                              case 13:
-	                            	  //Searching Products by category and price"
 	                            	  
 	                            	  
 	                            	  
@@ -1406,16 +1366,13 @@ public class Main {
 	                            	 
 	                            	    
 
-	                            	    // Call the filterProductByAvailability method and store the result in a list
 	                            	    List<product> filteredProductpriceandcat= product.filterProductcatprice(cat, minn, maxx);
 
-	                            	    // Print the filtered products
 	                            	    if (filteredProductpriceandcat.isEmpty()) {
 	                            	        System.out.println("No products found ");
 	                            	    } else {
 	                            	        System.out.println("Filtered Products:");
 	                            	        for (product filteredProduct : filteredProductpriceandcat) {
-	                            	            // Display the details of each filtered product
 	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
 	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
 	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
@@ -1438,7 +1395,6 @@ public class Main {
 	                            	  
 	                            	 
 	                              case 14:
-	                            	//  Searching Products by name and price
 	                            	  
 	                            	  
 	                             	  
@@ -1453,16 +1409,13 @@ public class Main {
 	                            	 
 	                            	    
 
-	                            	    // Call the filterProductByAvailability method and store the result in a list
 	                            	    List<product> filteredProductpriceandname= product.filterProductnameprice(namee, minnn, maxxx);
 
-	                            	    // Print the filtered products
 	                            	    if (filteredProductpriceandname.isEmpty()) {
 	                            	        System.out.println("No products found ");
 	                            	    } else {
 	                            	        System.out.println("Filtered Products:");
 	                            	        for (product filteredProduct : filteredProductpriceandname) {
-	                            	            // Display the details of each filtered product
 	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
 	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
 	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
@@ -1475,7 +1428,6 @@ public class Main {
 	                            	    
 	                            	  
 	                              case 15:
-	                            	  //Searching Products by availablity and price
 	                             	  System.out.print("Enter min price range:");
 	                            	    String minnnn = scc.next();
 	                             
@@ -1487,16 +1439,13 @@ public class Main {
 	                            	 
 	                            	    
 
-	                            	    // Call the filterProductByAvailability method and store the result in a list
 	                            	    List<product> filteredProductpriceandavailablity= product.filterProductavaprice(availablity, minnnn, maxxxx);
 
-	                            	    // Print the filtered products
 	                            	    if (filteredProductpriceandavailablity.isEmpty()) {
 	                            	        System.out.println("No products found ");
 	                            	    } else {
 	                            	        System.out.println("Filtered Products:");
 	                            	        for (product filteredProduct : filteredProductpriceandavailablity) {
-	                            	            // Display the details of each filtered product
 	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
 	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
 	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
@@ -1512,8 +1461,6 @@ public class Main {
 	                            	  
 	                            	  
 	                              case 16:
-	                            	  //Searching Products by category and name 
-	                            	  // filterProductBycatgoryandname(String category, String name)
 	                            	  
 	                             	  System.out.print("Enter name of product :");
 	                            	    String proname= scc.next();
@@ -1521,16 +1468,13 @@ public class Main {
 	                            	    System.out.print("Enter Category:");
 	                            	    String catg = scc.next();
 	                            	   
-	                            	    // Call the filterProductByAvailability method and store the result in a list
 	                            	    List<product> filteredProductcatgandname= product.filterProductBycatgoryandname(catg, proname);
 
-	                            	    // Print the filtered products
 	                            	    if (filteredProductcatgandname.isEmpty()) {
 	                            	        System.out.println("No products found ");
 	                            	    } else {
 	                            	        System.out.println("Filtered Products:");
 	                            	        for (product filteredProduct :filteredProductcatgandname) {
-	                            	            // Display the details of each filtered product
 	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
 	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
 	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
@@ -1542,8 +1486,7 @@ public class Main {
 	                            	    break;
 	                            	    
 	                              case 17:
-	                            	  // Searching Products by availablity and name
-	                            	  //filterProductBynameandavay(String availability, String name) 
+	                            	
 	                            	  
 	                            	  System.out.print("Enter name of product :");
 	                            	    String prodname= scc.next();
@@ -1551,16 +1494,13 @@ public class Main {
 	                            	    System.out.print("Enter availablity:");
 	                            	    String ava = scc.next();
 	                            	   
-	                            	    // Call the filterProductByAvailability method and store the result in a list
 	                            	    List<product> filteredProductavaandname= product.filterProductBynameandavay(ava, prodname);
 
-	                            	    // Print the filtered products
 	                            	    if (filteredProductavaandname.isEmpty()) {
 	                            	        System.out.println("No products found ");
 	                            	    } else {
 	                            	        System.out.println("Filtered Products:");
 	                            	        for (product filteredProduct :filteredProductavaandname) {
-	                            	            // Display the details of each filtered product
 	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
 	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
 	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
@@ -1573,25 +1513,20 @@ public class Main {
 	                              case 18:
 	                            	  
 	                            	 
-	                            	  // Searching Products by category and availablity
-	                            	  //filterProductBycatgoryandavay(String category, String availability)
-	                            	  
+	                            	
 	                            	  System.out.print("Enter Category :");
 	                            	    String prodcat= scc.next();
 	                             
 	                            	    System.out.print("Enter availablity:");
 	                            	    String proava = scc.next();
 	                            	   
-	                            	    // Call the filterProductByAvailability method and store the result in a list
 	                            	    List<product> filterProductBycatgoryandavay= product.filterProductBycatgoryandavay(prodcat, proava);
 
-	                            	    // Print the filtered products
 	                            	    if (filterProductBycatgoryandavay.isEmpty()) {
 	                            	        System.out.println("No products found ");
 	                            	    } else {
 	                            	        System.out.println("Filtered Products:");
 	                            	        for (product filteredProduct :filterProductBycatgoryandavay) {
-	                            	            // Display the details of each filtered product
 	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
 	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
 	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
@@ -1605,7 +1540,6 @@ public class Main {
 	                            	  if (sch.isEmpty()) {
 	                            		    System.out.println("There are no appointments available.");
 	                            		} else {
-	                            		    // Iterate through the sch ArrayList and print each element
 	                            		    for (int i = 0; i < sch.size(); i++) {
 	                            		        System.out.println("" + sch.get(i));
 	                            		    }
@@ -1625,7 +1559,7 @@ public class Main {
 	                            
 	                            
 	                            
-	                                   // }
+	                                 
 	                                }
 	                            } 
 	                else {
@@ -1682,7 +1616,6 @@ public class Main {
 	    int selection;
 	    Scanner sc = new Scanner(System.in);
 	    
-	  //  System.out.printf("An exception occurred with message: %s%n", "your_message");
 	    System.out.printf("%s%n", STR);
 	    System.out.println("★        Welcome:            ★");
 	    System.out.printf("%s%n", STR);
@@ -1752,7 +1685,6 @@ public class Main {
 	    
 	    
 	    
-	   // System.out.printf("★%s25-%sMain Menu %s%s ★%n", S1, S1, TT, TT);
 	    
 	   
 	    System.out.println("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★★ ★ ★ ★ ★ ★   ");
@@ -1802,7 +1734,6 @@ public class Main {
 
 	    
 	    
-	   // System.out.printf("★%-2s9-%-21s★%n", "", " Main Menu ");
 	   
 	    
 	    System.out.println("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★  ");
@@ -1824,7 +1755,6 @@ public class Main {
 	    System.out.println("★    3- View installation requests ★");
 	    System.out.println("★    4- schedule appointments      ★");
 	    System.out.println("★    5- view My appointments      ★");
-	  //  System.out.println("★    5- Main Menu        ★");
 	   
 	    System.out.println("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ");
 	    System.out.println(OPT);
@@ -1871,7 +1801,6 @@ public class Main {
 	    String hh = n.next();
 	    ff.setemail(hh);
 
-	    // Ask for the password and confirm password
 	    System.out.print("Password : ");
 	    String password = n.next();
 	    
@@ -1879,10 +1808,10 @@ public class Main {
 	    String confirmPassword = n.next();
 	    
 	    if (password.equals(confirmPassword)) {
-	        ff.setPass(password);  // Set the password only if it matches the confirmation
+	        ff.setPass(password);  
 	    } else {
 	        System.out.println("Passwords do not match. Account creation failed.");
-	        return null; // Return null or handle the failed creation as needed
+	        return null; 
 	    }
 
 	    if (!user.passu.contains(ff.getPass())) {
