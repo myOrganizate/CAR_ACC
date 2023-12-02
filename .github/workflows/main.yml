@@ -3,7 +3,7 @@ name: GitHub Actions Maven Build Example
 on:
   push:
     branches:
-      - lujain
+       [lujain]
 
 jobs:
   build-on_ubuntu:
