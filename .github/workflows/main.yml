@@ -3,13 +3,13 @@ name: GitHub Actions Maven Build Example
 on:
   push:
     branches:
-       [lujain]
+       [main]
 
 jobs:
   build-on_ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - name: Step 1 - Checkout lujain branch from GitHub
+      - name: Step 1 - Checkout main branch from GitHub
         uses: actions/checkout@v2 
 
       - name: Step 2 - Set up Java
