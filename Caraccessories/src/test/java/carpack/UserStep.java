@@ -11,18 +11,21 @@ public class UserStep {
 	static boolean fvieworder;
 	static boolean fviewhis;
 	
-	@When("the Customer with email {string} can edit his profile newpass {string}, newPhone {string}, newName {string}, newAddress {string}, newAge {string}")
-	public void the_Customer_can_edit_his_profile(String email, String newPass, String newPhone, String newName, String newAddress, String newAge) {
-	    // Implement the code to edit the customer's profile with the provided information.
-		if(LoginStep.flag) {
-			LoginStep.U.editProfile(email, newPass, newPhone, newName, newAddress, newAge);
-			fupdate=true;
-			
-		}
+	
+	@When("the Customer with email {string} can edit his profile newpass{string},newPhone{string},newName{string},newAddress{string},newAge{string}")
+	public void the_Customer_with_email_can_edit_his_profile(String email, String newPass, String newPhone, String newName, String newAddress, String newAge) {
+	    if (LoginStep.flag) {
+	        LoginStep.U.editProfile(email, newPass, newPhone, newName, newAddress, newAge);
+	        fupdate = true;
+	    }
 	}
+
+	
 	@Then("Customers can edit their profiles")
 	public void customers_can_edit_their_profiles() {
 	    // Write code here that turns the phrase above into concrete actions
+		
+		
 	    assertTrue(fupdate&&LoginStep.flag);
 	}
 

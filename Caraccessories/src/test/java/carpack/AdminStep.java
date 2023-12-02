@@ -160,13 +160,17 @@ public class AdminStep {
 	    
 	}
 
-	@When("Admin can Schedule  appointment for Customer  with email {string}  date {string}, time {string}, and product to install {string}")
-	public void admin_can_Schedule_appointment_for_Customer_with_email_date_time_and_product_to_install(String string, String string2, String string3, String string4) {
+	@When("Admin can Schedule  appointment with  date {string}, time {string}")
+	public void admin_can_Schedule_appointment_with_date_time(String string, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
 		if(LoginStep.flagadmin) {
-			LoginStep.I.appointment( string2, string3, string4,string);
+			
+			LoginStep.I.scheduleapp(string, string2);
 			app=true;
-			}
+	}
+
+		
+			
 	   
 	}
 
@@ -193,16 +197,31 @@ public class AdminStep {
 		assertTrue(ins&&LoginStep.flagadmin);
 	    
 	}
-
-	@When("Admin can update  appointment for Customer  with email {string}  date {string}, time {string}, and product to install {string}")
-	public void admin_can_update_appointment_for_Customer_with_email_date_time_and_product_to_install(String string, String string2, String string3, String string4) {
+	
+	
+	@When("Admin can update appointment from date {string}, time {string} to date {string}, time {string}")
+	public void admin_can_update_appointment_from_date_time_to_date_time(String string, String string2, String string3, String string4) {
 	    // Write code here that turns the phrase above into concrete actions
 		if(LoginStep.flagadmin) {
-			LoginStep.I.updateappointment(string, string2, string3, string4);
+			LoginStep.I.updateappo(string, string2, string3, string4);
 			upapp=true;
-			}
+			
+		}
 	    
+	
+		
+		
+		
 	}
+
+
+
+	
+	
+	
+	
+
+	
 
 	@Then("Admin can update appointment successfully")
 	public void admin_can_update_appointment_successfully() {
@@ -211,16 +230,20 @@ public class AdminStep {
 	 
 	}
 
-	@When("Admin can delete  appointment for Customer  with email {string}  date {string}, time {string}, and product to install {string}")
-	public void admin_can_delete_appointment_for_Customer_with_email_date_time_and_product_to_install(String string, String string2, String string3, String string4) {
+	@When("Admin can delete  appointment date {string}, time {string}")
+	public void admin_can_delete_appointment_date_time(String string, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
 		
 		if(LoginStep.flagadmin) {
-			LoginStep.I.deleteappointment(string, string2, string3, string4);
+			LoginStep.I.deleteappo(string, string2);
 			delapp=true;
-			}
+			
+		}
 	    
+	   
 	}
+	
+	
 
 	@Then("Admin can delete appointment successfully")
 	public void admin_can_delete_appointment_successfully() {

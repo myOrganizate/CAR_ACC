@@ -27,11 +27,14 @@ public class product {
 		 static List<product> prodInterior =new ArrayList<product>() ;
 		 static List<product> prodExterior =new ArrayList<product>() ;
 		 static List<product> prodElectronic =new ArrayList<product>() ;
+		 
 		 static boolean fexist;
 		 static String fint;
 		 static String fextt;
 		 static String felec;
 		 static List<product> order =new ArrayList<product>();
+		 private int quantity;
+		 
 	
 	
 	
@@ -60,9 +63,9 @@ public class product {
 	 public product() { 
          this.id="1";
          this.description="car light";
-      this.prices="200$";
+      this.prices="200";
          this.image="im1";
-         this.availability="In Stock ";
+         this.availability="yes";
          this.Categories="Electronic";
         
        
@@ -135,67 +138,90 @@ public class product {
 	 public void updateProduct(String idd, String description, String prices, String availability, String Categorie, String image) {
 		    for (int i = 0; i < prod.size(); i++) {
 		        if (prod.get(i).id.equals(idd)) {
+		            // Remove the old product from the appropriate category list
+		            if ("Exterior".equals(prod.get(i).Categories)) {
+		                prodExterior.remove(prod.get(i));
+		            } else if ("Interior".equals(prod.get(i).Categories)) {
+		                prodInterior.remove(prod.get(i));
+		            } else if ("Electronic".equals(prod.get(i).Categories)) {
+		                prodElectronic.remove(prod.get(i));
+		            }
+
+		            // Update the product attributes
 		            prod.get(i).id = idd;
 		            prod.get(i).description = description;
 		            prod.get(i).prices = prices;
 		            prod.get(i).availability = availability;
-
-		            // Update the category
 		            prod.get(i).Categories = Categorie;
-
-		            // Update the image (if required)
 		            prod.get(i).image = image;
 
-		            // Check the new category and add the product to the appropriate list
-		            if (Categorie.equals("Exterior")) {
+		            // Add the updated product to the appropriate category list
+		            if ("Exterior".equals(Categorie)) {
 		                prodExterior.add(prod.get(i));
-		            } else if (Categorie.equals("Interior")) {
+		            } else if ("Interior".equals(Categorie)) {
 		                prodInterior.add(prod.get(i));
-		            } else if (Categorie.equals("Electronic")) {
+		            } else if ("Electronic".equals(Categorie)) {
 		                prodElectronic.add(prod.get(i));
 		            }
 		        }
 		    }
 		}
 	 
+	  public String getId() {
+	        return id;
+	    }
+
+	    // Getter for the description
+	    public String getDescription() {
+	        return description;
+	    }
+	    public String getemail() {
+	        return email != null ? email : ""; // Return the email or an empty string if it's null
+	    }
+	    public void setEmail(String email) {
+	        this.email = email;
+	    }
+	 
+	 
+	 
+	 
+	 
+	 
+	
+	 
 	 public static void deleteProduct(String id) {
+		    // Remove the product from the 'prod' list
 		    for (int i = 0; i < prod.size(); i++) {
-		        if (prod.isEmpty()) {
-		            break;
-		        } else if (prod.get(i).id.equals(id)) {
+		        if (prod.get(i).id.equals(id)) {
 		            prod.remove(i);
-
-		            // Use the 'id' to find the correct product to remove from other lists
-		            for (int j = 0; j < prodInterior.size(); j++) {
-		                if (prodInterior.get(j).id.equals(id)) {
-		                    prodInterior.remove(j);
-		                    break;
-		                }
-		            }
-
-		            for (int j = 0; j < prodExterior.size(); j++) {
-		                if (prodExterior.get(j).id.equals(id)) {
-		                    prodExterior.remove(j);
-		                    break;
-		                }
-		            }
-
-		            for (int j = 0; j < prodElectronic.size(); j++) {
-		                if (prodElectronic.get(j).id.equals(id)) {
-		                    prodElectronic.remove(j);
-		                    break;
-		                }
-		            }
-		        
-	
-	 
-	 
-	
+		            break; // Exit the loop once the product is found and removed
 		        }
 		    }
-	
 
-}
+		    // Remove the product from the 'prodInterior' list
+		    for (int j = 0; j < prodInterior.size(); j++) {
+		        if (prodInterior.get(j).id.equals(id)) {
+		            prodInterior.remove(j);
+		            break; // Exit the loop once the product is found and removed
+		        }
+		    }
+
+		    // Remove the product from the 'prodExterior' list
+		    for (int j = 0; j < prodExterior.size(); j++) {
+		        if (prodExterior.get(j).id.equals(id)) {
+		            prodExterior.remove(j);
+		            break; // Exit the loop once the product is found and removed
+		        }
+		    }
+
+		    // Remove the product from the 'prodElectronic' list
+		    for (int j = 0; j < prodElectronic.size(); j++) {
+		        if (prodElectronic.get(j).id.equals(id)) {
+		            prodElectronic.remove(j);
+		            break; // Exit the loop once the product is found and removed
+		        }
+		    }
+		}
 
 
 	
@@ -283,6 +309,8 @@ public class product {
 	
 
 }
+	
+	
 	
 	
 	
@@ -411,14 +439,286 @@ public class product {
 	
 	
 	
- public void filter(String s) {
-	 
-	
-	 
- }
-	
-	
 
+ public String getPrices() {
+     return prices;
+ }
+
+ public String getImage() {
+     return image;
+ }
+
+ public String getCategories() {
+     return Categories;
+ }
+
+ public static List<product> filterProductcatprice(String category, String minPrice, String maxPrice) {
+	    List<product> filteredProducts = new ArrayList<product>();
+
+	    for (product product : prod) {
+	        String productPrice = product.getPrice();
+	        if (product.getCategory().equals(category) && isPriceInRange(productPrice, minPrice, maxPrice)) {
+	            filteredProducts.add(product);
+	        }
+	    }
+
+	    // Print the filtered products
+//	    for (product filteredProduct : filteredProducts) {
+//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
+//	        System.out.print("Product Category: " + filteredProduct.getCategory() + "\t");
+//	        System.out.println("Product Price: " + filteredProduct.getPrice());
+//	        // Add any other relevant information here
+//	    }
+
+	    return filteredProducts;
+	}
+ 
+ 
+ public static  List<product>filterProductnameprice(String description, String minPrice, String maxPrice) {
+	    List<product> filteredProducts = new ArrayList<product>();
+
+	    for (product product : prod) {
+	        String productDescription = product.getDescription();
+	        String productPrice = product.getPrice();
+	        
+	        if (productDescription.equals(description) && isPriceInRange(productPrice, minPrice, maxPrice)) {
+	            filteredProducts.add(product);
+	        }
+	    }
+
+	    // Print the filtered products
+//	    for (product filteredProduct : filteredProducts) {
+//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
+//	        System.out.print("Product Category: " + filteredProduct.getCategory() + "\t");
+//	        System.out.println("Product Price: " + filteredProduct.getPrice());
+//	        // Add any other relevant information here
+//	    }
+
+	    return filteredProducts;
+	}
+ 
+ 
+ public static List<product>filterProductavaprice(String availability, String minPrice, String maxPrice) {
+	    List<product> filteredProducts = new ArrayList<product>();
+
+	    for (product product : prod) {
+	        String productavailability = product.getAvailability();
+	        String productPrice = product.getPrice();
+	        
+	        if (productavailability.equals(availability) && isPriceInRange(productPrice, minPrice, maxPrice)) {
+	            filteredProducts.add(product);
+	        }
+	    }
+
+	    // Print the filtered products
+//	    for (product filteredProduct : filteredProducts) {
+//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
+//	        System.out.print("Product Category: " + filteredProduct.getCategory() + "\t");
+//	        System.out.println("Product Price: " + filteredProduct.getPrice());
+//	        // Add any other relevant information here
+//	    }
+
+	    return filteredProducts;
+	}
+ 
+
+ 
+ public static  List<product> filterProductBynameandavay(String availability, String name) {
+	    List<product> filteredProducts = new ArrayList<product>();
+
+	    for (product product : prod) {
+	        if (product.getDescription().equalsIgnoreCase(name) && product.getAvailability().equalsIgnoreCase(availability)) {
+	            filteredProducts.add(product);
+	        }
+	    }
+
+	    // Print the filtered products
+//	    for (product filteredProduct : filteredProducts) {
+//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
+//	        System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
+//	        System.out.print("Product Price: " + filteredProduct.getPrices() + "\t");
+//	        System.out.println("Product Availability: " + filteredProduct.getAvailability());
+//	        // Add any other relevant information here
+//	    }
+
+	    return filteredProducts;
+	}
+ 
+ public  static  List<product> filterProductBycatgoryandname(String category, String name) {
+	    List<product> filteredProducts = new ArrayList<product>();
+
+	    for (product product : prod) {
+	        if (product.getCategories().equalsIgnoreCase(category) && product.getDescription().equalsIgnoreCase(name)) {
+	            filteredProducts.add(product);
+	        }
+	    }
+
+	    // Print the filtered products
+//	    for (product filteredProduct : filteredProducts) {
+//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
+//	        System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
+//	        System.out.print("Product Price: " + filteredProduct.getPrices() + "\t");
+//	        System.out.println("Product Availability: " + filteredProduct.getAvailability());
+//	        // Add any other relevant information here
+//	    }
+
+	    return filteredProducts;
+	}
+ 
+ 
+ 
+ 
+ 
+ public static  List<product> filterProductBycatgoryandavay(String category, String availability) {
+	    List<product> filteredProducts = new ArrayList<product>();
+
+	    for (product product : prod) {
+	        if (product.getCategories().equalsIgnoreCase(category) && product.getAvailability().equalsIgnoreCase(availability)) {
+	            filteredProducts.add(product);
+	        }
+	    }
+
+	    // Print the filtered products
+//	    for (product filteredProduct : filteredProducts) {
+//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
+//	        System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
+//	        System.out.print("Product Price: " + filteredProduct.getPrices() + "\t");
+//	        System.out.println("Product Availability: " + filteredProduct.getAvailability());
+//	        // Add any other relevant information here
+//	    }
+
+	    return filteredProducts;
+	}
+ public String getAvailability() {
+     return availability;
+ }
+ 
+ 
+ public static List<product> filterProductByprice(String minPrice, String maxPrice) {
+	    List<product> filteredProducts = new ArrayList<product>();
+
+	    for (product product : prod) {
+	        String productPrice = product.getPrice();
+
+	        if (isPriceInRange(productPrice, minPrice, maxPrice)) {
+	            filteredProducts.add(product);
+	        }
+	    }
+
+	    // Print the filtered products
+//	    for (product filteredProduct : filteredProducts) {
+//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
+//	        System.out.print("Product Category: " + filteredProduct.getCategory() + "\t");
+//	        System.out.println("Product Price: " + filteredProduct.getPrice());
+//	        // Add any other relevant information here
+//	    }
+
+	    return filteredProducts;
+	}
+ public static List<product> filterProductByname(String name) {
+	    List<product> filteredProducts = new ArrayList<product>();
+
+	    for (product product : prod) {
+	        String productName = product.getDescription();
+
+	        if (productName.equalsIgnoreCase(name)) {
+	            filteredProducts.add(product);
+	        }
+	    }
+
+	    // Print the filtered products
+//	    for (product filteredProduct : filteredProducts) {
+//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
+//	        System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
+//	        System.out.println("Product Price: " + filteredProduct.getPrices());
+//	        // Add any other relevant information here
+//	    }
+
+	    return filteredProducts;
+	}
+
+ 
+ public static List<product> filterProductByCategory(String category) {
+	    List<product> filteredProducts = new ArrayList<product>();
+
+	    List<product> productList = getProductListByCategory(category);
+
+	    // You can directly return the filtered list without printing
+	    return productList;
+	}
+
+ private  static List<product> getProductListByCategory(String category) {
+	    if ("interior".equalsIgnoreCase(category)) {
+	        return prodInterior;
+	    } else if ("exterior".equalsIgnoreCase(category)) {
+	        return prodExterior;
+	    } else if ("electronic".equalsIgnoreCase(category)) {
+	        return prodElectronic;
+	    } else {
+	        return new ArrayList<product>(); // or throw an exception for unknown category
+	    }
+	}
+ public static List<product> filterProductByAvailability(String availability) {
+	    List<product> filteredProducts = new ArrayList<product>();
+
+	    for (product product : prod) {
+	        String productAvailability = product.getAvailability();
+
+	        if (productAvailability.equalsIgnoreCase(availability)) {
+	            filteredProducts.add(product);
+	        }
+	    }
+
+	    // Print the filtered products
+//	    for (product filteredProduct : filteredProducts) {
+//	        System.out.print("Product Name: " + filteredProduct.getDescription() + "\t");
+//	        System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
+//	        System.out.println("Product Price: " + filteredProduct.getPrices());
+	        // Add any other relevant information here
+//	    }
+
+	    return filteredProducts;
+	}
+ public int getQuantity() {
+     return quantity;
+ }
+
+ public void setQuantity(int quantity) {
+     this.quantity = quantity;
+ }
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+	public String getCategory() {
+	    return Categories;
+	}
+
+	public String getPrice() {
+	    return prices;
+	}
+
+	private static boolean isPriceInRange(String productPrice, String minPrice, String maxPrice) {
+	    try {
+	        double price = Double.parseDouble(productPrice);
+	        double min = Double.parseDouble(minPrice);
+	        double max = Double.parseDouble(maxPrice);
+	        return price >= min && price <= max;
+	    } catch (NumberFormatException e) {
+	        // Handle the case where price or minPrice or maxPrice is not a valid number
+	        return false;
+	    }
+	}
 
 
 

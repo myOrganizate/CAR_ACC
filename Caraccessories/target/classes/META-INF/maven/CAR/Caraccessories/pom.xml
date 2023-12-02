@@ -34,10 +34,5 @@
 
 
 
-   	<dependency>
-   		<groupId>Sakancom</groupId>
-   		<artifactId>SakancomProject</artifactId>
-   		<version>0.0.1-SNAPSHOT</version>
-   	</dependency>
    </dependencies> 
 </project>

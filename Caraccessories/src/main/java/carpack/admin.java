@@ -55,6 +55,7 @@ public class admin {
 		
 		return 0;
 	}
+	
 	/*
 	
 	public void createpro(String id,String description,String prices,String availability,String Categories) {
