@@ -15,7 +15,8 @@ jobs:
       - name: Step 2 - Set up Java
         uses: actions/setup-java@v2
         with:
-          java-version: '11.0'  
+          distribution: 'adopt'  # Specify the distribution, e.g., 'adopt' or 'temurin'
+          java-version: '11'  # Specify the Java version, e.g., '11'
 
       - name: Step 3 - Build Maven Project
         run: mvn --batch-mode -DskipTests package 
