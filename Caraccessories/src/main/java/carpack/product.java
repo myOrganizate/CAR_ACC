@@ -1,6 +1,7 @@
 package carpack;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -34,6 +35,8 @@ public class product {
 		 static String felec;
 		 static List<product> order =new ArrayList<product>();
 		 private int quantity;
+		 private static final Logger logger = Logger.getLogger(Installer.class.getName());
+
 		 
 	
 	
@@ -365,7 +368,7 @@ public class product {
 			 
 		}
 		
-		 System.out.println(a);
+		logger.info(a);
 		
 		
 	}
@@ -381,21 +384,21 @@ public class product {
 	    for (int i = 0; i < prodExterior.size(); i++) {
 	        String a = "Product : " + prodExterior.get(i).id + " " + prodExterior.get(i).description + " " + prodExterior.get(i).prices + " " +
 	        		prodExterior.get(i).availability + " " + prodExterior.get(i).Categories;
-	        System.out.println(a);
+	        logger.info(a);
 	    }
 	}
 	public static void printprodInterior() {
 	    for (int i = 0; i < prodInterior.size(); i++) {
 	        String a = "Product : " + prodInterior.get(i).id + " " + prodInterior.get(i).description + " " + prodInterior.get(i).prices + " " +
 	        		prodInterior.get(i).availability + " " + prodInterior.get(i).Categories;
-	        System.out.println(a);
+	        logger.info(a);
 	    }
 	}
 	public static void printprodElectronic() {
 	    for (int i = 0; i < prodElectronic.size(); i++) {
 	        String a = "Product : " + prodElectronic.get(i).id + " " + prodElectronic.get(i).description + " " + prodElectronic.get(i).prices + " " +
 	        		prodElectronic.get(i).availability + " " + prodElectronic.get(i).Categories;
-	        System.out.println(a);
+	        logger.info(a);
 	    }
 	}
 	
@@ -417,9 +420,9 @@ public class product {
 	public static void vieworder(String customerEmail) {
 	    for (product orderedProduct : order) {
 	        if (orderedProduct.email.equals(customerEmail)) {
-	            System.out.println("Product ID: " + orderedProduct.id);
-	            System.out.println("Description: " + orderedProduct.description);
-	            System.out.println("Price: " + orderedProduct.prices);
+	        	logger.info("Product ID: " + orderedProduct.id);
+	            logger.info("Description: " + orderedProduct.description);
+	            logger.info("Price: " + orderedProduct.prices);
 	        }
 	    }
 	}

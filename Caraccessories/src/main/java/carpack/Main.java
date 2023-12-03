@@ -19,6 +19,8 @@ public class Main {
 	static int maxQuantityAcrossCustomers = 0;
 	static int customercount=0;
 	static int installercount=0;
+	 private static final Logger logger = Logger.getLogger(Installer.class.getName());
+
 	
 	
 	
@@ -73,9 +75,9 @@ public class Main {
 
 	        if (userselected == 1) {
 	            int userselected1 = 0;
-	            System.out.print(ayy);
+	            logger.info(ayy);
 	            String a1 = scc.next();
-	            System.out.print(ayy1);
+	            logger.info(ayy1);
 	            String a2 = scc.next();
 	            if (aa.checkemail(a1) == 1 && aa.checkpass(a2) == 1) {
 	                flagadmin = true;
@@ -92,17 +94,17 @@ public class Main {
 	                            break;
 
 	                        case 2:
-	                            System.out.print("Enter email of Customer you need to add: ");
+	                        	logger.info("Enter email of Customer you need to add: ");
 	                            String e = scc.next();
-	                            System.out.print("Enter pass of Customer you need to add: ");
+	                            logger.info("Enter pass of Customer you need to add: ");
 	                           String pp = scc.next();
-	                            System.out.print("Enter phone of Customer you need to add: ");
+	                           logger.info("Enter phone of Customer you need to add: ");
 	                            String ph = scc.next();
-	                            System.out.print("Enter name of Customer you need to add: ");
+	                            logger.info("Enter name of Customer you need to add: ");
 	                            String n = scc.next();
-	                            System.out.print("Enter address of Customer you need to add: ");
+	                            logger.info("Enter address of Customer you need to add: ");
 	                            String add = scc.next();
-	                            System.out.print("Enter age of Customer you need to add: ");
+	                            logger.info("Enter age of Customer you need to add: ");
 	                            String ag = scc.next();
 
 	                            cc = new user(e, pp, add, n, ph, ag); 
@@ -113,23 +115,23 @@ public class Main {
 		                        
 		                        
 		                    case 3:
-		                    	 System.out.print("Enter email of Customer you need to delete : ");
+		                    	logger.info("Enter email of Customer you need to delete : ");
 		                    	 String cuss = scc.next();
 		                    	 
 		                        r.deleteCustomer(cuss);
 		                        break;
 		                    case 4:
-		                    	 System.out.print("Enter email of Customer you need to update: ");
+		                    	logger.info("Enter email of Customer you need to update: ");
 		                    	 String cp = scc.next();
 		                    	 
 		                    	 
-		                    	 System.out.print("Enter new name to update: ");
+		                    	 logger.info("Enter new name to update: ");
 		                    	 String cn = scc.next();
-		                    	 System.out.print("Enter new age to update: ");
+		                    	 logger.info("Enter new age to update: ");
 		                    	 String ca = scc.next();
-		                    	 System.out.print("Enter new address to update: ");
+		                    	 logger.info("Enter new address to update: ");
 		                    	 String cad = scc.next();
-		                    	 System.out.print("Enter new phone to update: ");
+		                    	 logger.info("Enter new phone to update: ");
 		                    	 String cd = scc.next();
 		                    	 
 		                    	
@@ -139,12 +141,12 @@ public class Main {
 		                        break;
 		                    case 5:
 		                        if (products.isEmpty()) {
-		                            System.out.println("No products available.");
+		                        	logger.info("No products available.");
 		                        } else {
 		                            for (int i = 0; i < products.size(); i++) {
 		                                String a = "Product : " + products.get(i).id + " " + products.get(i).description + " " + products.get(i).prices + " " +
 		                                           products.get(i).availability + " " + products.get(i).Categories;
-		                                System.out.println(a);
+		                                logger.info(a);
 		                            }
 		                        }
 		                        break;
@@ -152,18 +154,18 @@ public class Main {
 		                  
 		                        
 		                    case 6:
-		                       System.out.print("Enter id of Product you need to add: ");
+		                    	logger.info("Enter id of Product you need to add: ");
 		                        String id = scc.next();
-		                        System.out.print("Enter description of Product you need to add: ");
+		                        logger.info("Enter description of Product you need to add: ");
 		                        String desc = scc.next();
-		                        System.out.print("Enter prices of Product you need to add: ");
+		                        logger.info("Enter prices of Product you need to add: ");
 		                        String prices = scc.next();
-		                        System.out.print("Enter availability of Product you need to add: ");
+		                        logger.info("Enter availability of Product you need to add: ");
 		                        String availability = scc.next();
-		                        System.out.print("Enter Categories of Product you need to add: ");
+		                        logger.info("Enter Categories of Product you need to add: ");
 		                        String Catttt = scc.next();
 
-		                        System.out.print("Enter image of Product you need to add: ");
+		                        logger.info("Enter image of Product you need to add: ");
 		                        String imagg = scc.next();
 
 		                        p = new product(id, desc, prices, availability, Catttt, imagg);
@@ -190,7 +192,7 @@ public class Main {
 	                            
 	                            
 		                    case 7:
-		                        System.out.print("Enter id of Product you need to delete: ");
+		                    	logger.info("Enter id of Product you need to delete: ");
 		                        String idd = scc.next();
 		                        product.deleteProduct(idd);
 
@@ -204,17 +206,17 @@ public class Main {
 		                     
 		                
 		                    case 8:
-		                        System.out.print("Enter id of Product you need to update: ");
+		                        logger.info("Enter id of Product you need to update: ");
 		                        String iddd = scc.next();
-		                        System.out.print("Enter description of Product you need to update: ");
+		                        logger.info("Enter description of Product you need to update: ");
 		                        String descriptionn = scc.next();
-		                        System.out.print("Enter price of Product you need to update: ");
+		                        logger.info("Enter price of Product you need to update: ");
 		                        String pricee = scc.next();
-		                        System.out.print("Enter availability of Product you need to update: ");
+		                        logger.info("Enter availability of Product you need to update: ");
 		                        String availab = scc.next();
-		                        System.out.print("Enter Category of Product you need to update: ");
+		                        logger.info("Enter Category of Product you need to update: ");
 		                        String Categoriee = scc.next();
-		                        System.out.print("Enter image URL of Product you need to update: ");
+		                        logger.info("Enter image URL of Product you need to update: ");
 		                        String image = scc.next(); 
 
 		                        p.updateProduct(iddd, descriptionn, pricee, availab, Categoriee, image);
@@ -256,24 +258,24 @@ public class Main {
 			                       for(int i=0;i<productsExterior.size();i++) {
 			                    	   String a = "Product : " +productsExterior.get(i).id + " " + productsExterior.get(i).description + " " + productsExterior.get(i).prices + " " +
 			                    			   productsExterior.get(i).availability + " " + productsExterior.get(i).Categories;
-			               	        System.out.println(a);
+			               	        logger.info(a+ "\n");
 			                       }
 		                        break;
 		                    	
 		                    	
 		                    case 10:
 		                    	
-		                    	 System.out.print("Enter id of Exterior Product you need to add: ");
+		                    	 logger.info("Enter id of Exterior Product you need to add: ");
 			                        String idex = scc.next();
-			                        System.out.print("Enter description of Exterior Product you need to add: ");
+			                        logger.info("Enter description of Exterior Product you need to add: ");
 			                        String descex = scc.next();
-			                        System.out.print("Enter prices of Exterior Product you need to add: ");
+			                        logger.info("Enter prices of Exterior Product you need to add: ");
 			                        String pricesex = scc.next();
-			                        System.out.print("Enter availability of Exterior Product you need to add: ");
+			                        logger.info("Enter availability of Exterior Product you need to add: ");
 			                        String availabilityex = scc.next();
 			                      
 			                        String Catex ="Exterior";
-			                        System.out.print("Enter image of  Exterior Product you need to add: ");
+			                        logger.info("Enter image of  Exterior Product you need to add: ");
 			                        String imagex = scc.next();
 			                       
 			                        
@@ -297,7 +299,7 @@ public class Main {
 		                    	break;
 		                    case 11:
 		                    
-		                        System.out.print("Enter id of Exterior  Product you need to delete: ");
+		                        logger.info("Enter id of Exterior  Product you need to delete: ");
 		                        String iddex = scc.next();
 		                        product.deleteProduct(iddex);
 
@@ -313,20 +315,20 @@ public class Main {
 		                        break;
 		                    case 12:
 		                    	
-		                    	System.out.print("Enter id of Exterior Product you need to update: ");
+		                    	logger.info("Enter id of Exterior Product you need to update: ");
 		                    	String idddex = scc.next();
 
 		                    	
 
-		                    	System.out.print("Enter description of Exterior Product you need to update: ");
+		                    	logger.info("Enter description of Exterior Product you need to update: ");
 		                    	String descriptionnex = scc.next();
-		                    	System.out.print("Enter price of Exterior Product you need to update: ");
+		                    	logger.info("Enter price of Exterior Product you need to update: ");
 		                    	String priceeex = scc.next();
-		                    	System.out.print("Enter availability of Exterior Product you need to update: ");
+		                    	logger.info("Enter availability of Exterior Product you need to update: ");
 		                    	String availabex = scc.next();
-		                    	System.out.print("Enter Category of Exterior Product you need to update: ");
+		                    	logger.info("Enter Category of Exterior Product you need to update: ");
 		                    	String Categorieeex = scc.next();
-		                    	System.out.print("Enter image URL of Exterior Product you need to update: ");
+		                    	logger.info("Enter image URL of Exterior Product you need to update: ");
 		                    	String imageex = scc.next();
 
 		                    	
@@ -378,7 +380,7 @@ public class Main {
 		                    	  for(int i=0;i<productsInterior.size();i++) {
 			                    	   String a = "Product : " +productsInterior.get(i).id + " " + productsInterior.get(i).description + " " + productsInterior.get(i).prices + " " +
 			                    			   productsInterior.get(i).availability + " " + productsInterior.get(i).Categories;
-			               	        System.out.println(a);
+			               	        logger.info(a+ "\n");
 			                       }
 		                        break;
 		                    	
@@ -388,17 +390,17 @@ public class Main {
 		                    	
 		                    	
 		                    case 14:
-		                    	System.out.print("Enter id of Interior Product you need to add: ");
+		                    	logger.info("Enter id of Interior Product you need to add: ");
 		                        String idin = scc.next();
-		                        System.out.print("Enter description of Interior Product you need to add: ");
+		                        logger.info("Enter description of Interior Product you need to add: ");
 		                        String descin = scc.next();
-		                        System.out.print("Enter prices of Interior Product you need to add: ");
+		                        logger.info("Enter prices of Interior Product you need to add: ");
 		                        String pricesin = scc.next();
-		                        System.out.print("Enter availability of Interiorr Product you need to add: ");
+		                        logger.info("Enter availability of Interiorr Product you need to add: ");
 		                        String availabilityin = scc.next();
 		                      
 		                        String Catin ="Interior";
-		                        System.out.print("Enter image of  Interior Product you need to add: ");
+		                        logger.info("Enter image of  Interior Product you need to add: ");
 		                        String imagin = scc.next();
 		                       
 		                        
@@ -422,7 +424,7 @@ public class Main {
 	                    	break;
 		                    	
 		                    case 15:
-		                    	System.out.print("Enter id of Interior Product you need to delete: ");
+		                    	logger.info("Enter id of Interior Product you need to delete: ");
 		                        String iddin = scc.next();
 		                        product.deleteProduct(iddin);
 
@@ -438,7 +440,7 @@ public class Main {
 		                        break;
 		                    	
 		                    case 16:
-		                    	 System.out.print("Enter id of Interior Product you need to update: ");
+		                    	 logger.info("Enter id of Interior Product you need to update: ");
 			                        String idddin = scc.next();
 			                        
 			               
@@ -447,15 +449,15 @@ public class Main {
 			                        
 			                        
 			                        
-			                        System.out.print("Enter description of Interior Product you need to update: ");
+			                        logger.info("Enter description of Interior Product you need to update: ");
 			                        String descriptionnen = scc.next();
-			                        System.out.print("Enter price of Interior  Product you need to update: ");
+			                        logger.info("Enter price of Interior  Product you need to update: ");
 			                        String priceeen = scc.next();
-			                        System.out.print("Enter availability of Interior Product you need to update: ");
+			                        logger.info("Enter availability of Interior Product you need to update: ");
 			                        String availaben = scc.next();
-			                        System.out.print("Enter Category of Interior Productt you need to update: ");
+			                        logger.info("Enter Category of Interior Productt you need to update: ");
 			                        String Categorieeen = scc.next();
-			                        System.out.print("Enter image URL of Interior Product you need to update: ");
+			                        logger.info("Enter image URL of Interior Product you need to update: ");
 			                        String imageen = scc.next(); 
 
 			                       
@@ -508,22 +510,22 @@ public class Main {
 		                    	  for(int i=0;i<productsElectronic.size();i++) {
 			                    	   String a = "Product : " +productsElectronic.get(i).id + " " + productsElectronic.get(i).description + " " + productsElectronic.get(i).prices + " " +
 			                    			   productsElectronic.get(i).availability + " " + productsElectronic.get(i).Categories;
-			               	        System.out.println(a);
+			               	        logger.info(a+ "\n");
 			                       }
 		                       
 		                    	break;
 		                    case 18 :
-		                    	 System.out.print("Enter id of Electronic Product you need to add: ");
+		                    	 logger.info("Enter id of Electronic Product you need to add: ");
 			                        String idelc = scc.next();
-			                        System.out.print("Enter description of Electronic Product you need to add: ");
+			                        logger.info("Enter description of Electronic Product you need to add: ");
 			                        String descelec = scc.next();
-			                        System.out.print("Enter prices of Electronic Product you need to add: ");
+			                        logger.info("Enter prices of Electronic Product you need to add: ");
 			                        String priceselec = scc.next();
-			                        System.out.print("Enter availability of Electronic Product you need to add: ");
+			                        logger.info("Enter availability of Electronic Product you need to add: ");
 			                        String availabilityelec = scc.next();
 			                      
 			                        String Catelec ="Electronic";
-			                        System.out.print("Enter image of  Electronic Product you need to add: ");
+			                        logger.info("Enter image of  Electronic Product you need to add: ");
 			                        String imagelec = scc.next();
 			                       
 			                        
@@ -552,7 +554,7 @@ public class Main {
 		                    case 19:
 		                    	
 		                    	
-		                    	 System.out.print("Enter id of Electronic  Product you need to delete: ");
+		                    	 logger.info("Enter id of Electronic  Product you need to delete: ");
 			                        String iddelec = scc.next();
 			                        product.deleteProduct(iddelec);
 
@@ -570,7 +572,7 @@ public class Main {
 			                        
 			                        
 		                    case 20 :
-		                    	System.out.print("Enter id of Electronic  Product you need to update: ");
+		                    	logger.info("Enter id of Electronic  Product you need to update: ");
 		                        String idddelec = scc.next();
 		                        
 		                 
@@ -579,15 +581,15 @@ public class Main {
 		                        
 		                        
 		                        
-		                        System.out.print("Enter description of Electronic  Product you need to update: ");
+		                        logger.info("Enter description of Electronic  Product you need to update: ");
 		                        String descriptionnel = scc.next();
-		                        System.out.print("Enter price of Electronic  Product you need to update: ");
+		                        logger.info("Enter price of Electronic  Product you need to update: ");
 		                        String priceeel = scc.next();
-		                        System.out.print("Enter availability of Electronic  Product you need to update: ");
+		                        logger.info("Enter availability of Electronic  Product you need to update: ");
 		                        String availabel = scc.next();
-		                        System.out.print("Enter Category of Electronic  Product you need to update: ");
+		                        logger.info("Enter Category of Electronic  Product you need to update: ");
 		                        String Categorieeel = scc.next();
-		                        System.out.print("Enter image URL of Electronic  Product you need to update: ");
+		                        logger.info("Enter image URL of Electronic  Product you need to update: ");
 		                        String imageel = scc.next(); 
 
 		                        
@@ -640,11 +642,11 @@ public class Main {
 		                    		
                                 
 		                    	if (sch.isEmpty()) {
-		                    	    System.out.println("There are no appointments available.");
+		                    	    logger.info("There are no appointments available."+ "\n");
 		                    	} else {
 		                    	 
 		                    	    for (int i = 0; i < sch.size(); i++) {
-		                    	        System.out.println( "" + sch.get(i));
+		                    	        logger.info( "" + sch.get(i)+ "\n");
 		                    	    }
 		                    	}
 	                            break;
@@ -654,20 +656,20 @@ public class Main {
                                
 		                    case 22:
 		                
-		                        System.out.print("Enter Email of user for appointment update: ");
+		                        logger.info("Enter Email of user for appointment update: ");
 		                        String emailUpdate = scc.next();
-		                        System.out.print("Enter the old Date of the appointment: ");
+		                        logger.info("Enter the old Date of the appointment: ");
 		                        String oldDate = scc.next();
-		                        System.out.print("Enter the old Time of the appointment: ");
+		                        logger.info("Enter the old Time of the appointment: ");
 		                        String oldTime = scc.next();
-		                        System.out.print("Enter the old name of product: ");
+		                        logger.info("Enter the old name of product: ");
 		                        String oldDetail = scc.next();
 		                        
-		                        System.out.print("Enter the new Date for the appointment: ");
+		                        logger.info("Enter the new Date for the appointment: ");
 		                        String newDate = scc.next();
-		                        System.out.print("Enter the new Time for the appointment: ");
+		                        logger.info("Enter the new Time for the appointment: ");
 		                        String newTime = scc.next();
-		                        System.out.print("Enter updated name of product that you want to install: ");
+		                        logger.info("Enter updated name of product that you want to install: ");
 		                        String newDetail = scc.next();
 
 		                      
@@ -686,17 +688,17 @@ public class Main {
 		                            }
 		                        }
 
-		                        System.out.println("Appointment updated successfully: " + newAppointment);
+		                        logger.info("Appointment updated successfully: " + newAppointment+ "\n");
 		                        break;
 		                    	
 		                    case 23:
-		                        System.out.print("Enter Email of user for appointment deletion: ");
+		                        logger.info("Enter Email of user for appointment deletion: ");
 		                        String emailDelete = scc.next();
-		                        System.out.print("Enter Date of the appointment to be deleted: ");
+		                        logger.info("Enter Date of the appointment to be deleted: ");
 		                        String dateToDelete = scc.next();
-		                        System.out.print("Enter Time of the appointment to be deleted: ");
+		                        logger.info("Enter Time of the appointment to be deleted: ");
 		                        String timeToDelete = scc.next();
-		                        System.out.print("Enter name of product of this appointment to be deleted: ");
+		                        logger.info("Enter name of product of this appointment to be deleted: ");
 		                        String detailToDelete = scc.next();
 
 		            
@@ -710,17 +712,17 @@ public class Main {
 		                        boolean isDeleted = Installer.deleteappointment(emailDelete, dateToDelete, timeToDelete, detailToDelete);
 
 		                        if (isDeleted) {
-		                            System.out.println("Appointment deleted successfully.");
+		                            logger.info("Appointment deleted successfully."+ "\n");
 		                        } else {
-		                            System.out.println("No matching appointment found for deletion.");
+		                            logger.info("No matching appointment found for deletion."+ "\n");
 		                        }
 		                        break;
 		                        
 		                    	
 		                    case 24:
-		                        System.out.print("Enter Date of the appointment to be added: ");
+		                        logger.info("Enter Date of the appointment to be added: ");
 		                        String addap = scc.next();
-		                        System.out.print("Enter Time of the appointment to be added: ");
+		                        logger.info("Enter Time of the appointment to be added: ");
 		                        String addtime = scc.next();
 		                        String d = addap + "\t" + addtime;
 
@@ -732,14 +734,14 @@ public class Main {
 		                        break;
 
 		                    case 25:
-		                        System.out.print("Enter old Date of the appointment: ");
+		                        logger.info("Enter old Date of the appointment: ");
 		                        String oldDatee = scc.next();
-		                        System.out.print("Enter old Time of the appointment: ");
+		                        logger.info("Enter old Time of the appointment: ");
 		                        String oldTimee = scc.next();
 
-		                        System.out.print("Enter new Date of the appointment: ");
+		                        logger.info("Enter new Date of the appointment: ");
 		                        String newDatee = scc.next();
-		                        System.out.print("Enter new Time of the appointment: ");
+		                        logger.info("Enter new Time of the appointment: ");
 		                        String newTimee = scc.next();
 
 		                       
@@ -751,9 +753,9 @@ public class Main {
 		                        break;
 
 		                    case 26:
-		                        System.out.print("Enter Date of the appointment to be deleted: ");
+		                        logger.info("Enter Date of the appointment to be deleted: ");
 		                        String deleteDate = scc.next();
-		                        System.out.print("Enter Time of the appointment to be deleted: ");
+		                        logger.info("Enter Time of the appointment to be deleted: ");
 		                        String deleteTime = scc.next();
 
 		                      
@@ -765,15 +767,15 @@ public class Main {
 		                	   
 		                     
 		                    case 27:
-		                        System.out.println("  * * * * * * * * * * * * * * * *REPORT * * * * * * * * * * * * * * * * * * * * * * * * * *");
+		                        logger.info("  * * * * * * * * * * * * * * * *REPORT * * * * * * * * * * * * * * * * * * * * * * * * * *"+ "\n");
 
-		                        System.out.println("1.Total number of customer: " +customercount );
-		                        System.out.println("2.Total number of installer: " +installercount );
-		                        System.out.println("3.count of buy product : " +buycount );
+		                        logger.info("1.Total number of customer: " +customercount+ "\n" );
+		                        logger.info("2.Total number of installer: " +installercount+ "\n" );
+		                        logger.info("3.count of buy product : " +buycount+ "\n" );
 		                        
 		                        
-		                        System.out.println("4.Total Installation request count : " + reqcount);
-		                        System.out.println("5.Total profit : " + Totalprofit);
+		                        logger.info("4.Total Installation request count : " + reqcount+ "\n");
+		                        logger.info("5.Total profit : " + Totalprofit+ "\n");
 
 		                        
 		                        String mostBoughtProduct = null;
@@ -800,12 +802,12 @@ public class Main {
 
 		                      
 		                        if (mostBoughtProduct != null) {
-		                            System.out.println("4.The most bought product is : " + mostBoughtProduct);
-		                            System.out.println("5.Total quantity sold for this most bought product : " + maxQuantityAcrossCustomers);
+		                            logger.info("4.The most bought product is : " + mostBoughtProduct+ "\n");
+		                            logger.info("5.Total quantity sold for this most bought product : " + maxQuantityAcrossCustomers+ "\n");
 		                        } else {
-		                            System.out.println("No products have been bought yet.");
+		                            logger.info("No products have been bought yet."+ "\n");
 		                        }
-		                        System.out.println("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
+		                        logger.info("  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"+ "\n");
 		                        break;
 		                     
 		                     
@@ -813,13 +815,13 @@ public class Main {
 		                        
 		            
 		                    default:
-		                        System.out.println("Thank you");
+		                        logger.info("Thank you"+ "\n");
 		                        break;
 		                }
 		            }
 	                else {
-		                System.out.println("Your USERNAME or PASSWORD is incorrect");
-		                System.out.println("Please try again");
+		                logger.info("Your USERNAME or PASSWORD is incorrect"+ "\n");
+		                logger.info("Please try again"+ "\n");
 		            }
 		        } while (userselected1 < 28);{    
 	       			 
@@ -844,9 +846,9 @@ public class Main {
 	         if (userselected == 2) {
 	            int userselected2 = 0;
 
-	            System.out.print(ayy);
+	            logger.info(ayy);
 	            String w1 = scc.next();
-	            System.out.print(ayy1);
+	            logger.info(ayy1);
 	            String w2 = scc.next();
 	            if (w.checkemail(w1) == 1 && w.checkpass(w2) == 1) {
 	                flagworker = true;
@@ -873,7 +875,7 @@ public class Main {
 	                            instfound=Installer.printProfile(w1);
 	                       
 	                            if (!instfound) {
-	                                System.out.println("Email not found. Please provide a valid email.");
+	                                logger.info("Email not found. Please provide a valid email."+ "\n");
 	                            }
 	                            break;    
                             
@@ -887,51 +889,51 @@ public class Main {
                         	
                         	if (allemail.contains(w1)) {
                         	  
-                        	    System.out.print("Enter new password: ");
+                        	    logger.info("Enter new password: ");
                         	    String newPassword = scc.next();
-                        	    System.out.print("Enter new phone: ");
+                        	    logger.info("Enter new phone: ");
                         	    String newPhone = scc.next();
-                        	    System.out.print("Enter new name: ");
+                        	    logger.info("Enter new name: ");
                         	    String newName = scc.next();
-                        	    System.out.print("Enter new address: ");
+                        	    logger.info("Enter new address: ");
                         	    String newAddress = scc.next();
 
                         	   
                         	    Installer.editProfile(w1, newPassword, newPhone, newName, newAddress);
 
-                        	    System.out.println("Profile updated successfully!");
+                        	    logger.info("Profile updated successfully!"+ "\n");
                         	} else {
-                        	    System.out.println("Email not found. Please provide a valid email.");
+                        	    logger.info("Email not found. Please provide a valid email."+ "\n");
                         	}
                               break;
                        
 	                        case 3:
 	                        	
-	                        	System.out.println("ALL Request: ");
+	                        	logger.info("ALL Request: "+ "\n");
 	                        	for (String appointment : appoin) {
-	                        	    System.out.println(appointment);
+	                        	    logger.info(appointment+ "\n");
 	                        	}
 	                            
 	                            break;
 	                        case 4:
                         	
 	                            
-	                            System.out.print("Enter Date: ");
+	                            logger.info("Enter Date: ");
                                 String datepr = scc.next();
-                                System.out.print("Enter Time: ");
+                                logger.info("Enter Time: ");
                                 String timepr= scc.next();
                                 String s=datepr+"\t"+timepr;
                             	sch.add(s);
-                            	System.out.println("Your APPOINTMENTS: ");
+                            	logger.info("Your APPOINTMENTS: "+ "\n");
 	                        	for (String appointment : sch) {
-	                        	    System.out.println(appointment);
+	                        	    logger.info(appointment+ "\n");
 	                        	}
                             	break;
 	                           
 	                     case 5:
-	                    	 System.out.println("Your APPOINTMENTS: ");
+	                    	 logger.info("Your APPOINTMENTS: "+ "\n");
 	                        	for (String appointment : sch) {
-	                        	    System.out.println(appointment);
+	                        	    logger.info(appointment+ "\n");
 	                        	}
 	                       	
 	                       	break;
@@ -940,12 +942,12 @@ public class Main {
 	                   	        
 	                       
 	                        default:
-	                            System.out.println("Welcome ");
+	                            logger.info("Welcome "+ "\n");
 	                            break;
 	                    }
 	                } else {
-	                    System.out.println("Your USERNAME or PASSWORD is incorrect");
-	                    System.out.println("Please try again");
+	                    logger.info("Your USERNAME or PASSWORD is incorrect"+ "\n");
+	                    logger.info("Please try again"+ "\n");
 	                    break;
 	                }
 
@@ -959,7 +961,7 @@ public class Main {
 	        		}
 	            
 
-	            System.out.println("");
+	            logger.info(""+ "\n");
 	        }
 	        
 	        
@@ -970,9 +972,9 @@ public class Main {
 	        
 	         if (userselected == 3) {
 	        	 
-	            System.out.println("1- You have an account");
-	            System.out.println("2- Create account");
-	            System.out.print("Your option is: ");
+	            logger.info("1- You have an account"+ "\n");
+	            logger.info("2- Create account"+ "\n");
+	            logger.info("Your option is: ");
 	            int x = scc.nextInt();
 
 	            int userselected3 = 0;
@@ -985,11 +987,11 @@ public class Main {
 	                if (x == 1) {
 	                	
 	                    if (!flagaccount) {
-	                        System.out.print(ayy);
+	                        logger.info(ayy);
 	                        cc1 = scc.next();
 	                        emails = cc1;
 	                       
-	                        System.out.print(ayy1);
+	                        logger.info(ayy1);
 	                        cc2 = scc.next();
 	                        flagaccount = true;
 	                        
@@ -1019,12 +1021,12 @@ public class Main {
 	                            
 	                            case 1:
 	                            	   if (products.isEmpty()) {
-	   		                            System.out.println("No products available.");
+	   		                            logger.info("No products available."+ "\n");
 	   		                        } else {
 	   		                            for (int i = 0; i < products.size(); i++) {
 	   		                                String a = "Product : " + products.get(i).id + " " + products.get(i).description + " " + products.get(i).prices + " " +
 	   		                                           products.get(i).availability + " " + products.get(i).Categories;
-	   		                                System.out.println(a);
+	   		                                logger.info(a+ "\n");
 	   		                            }
 	   		                        }
 	   		                        break;
@@ -1033,11 +1035,11 @@ public class Main {
 	                            
 	                                
 	                            case 2:
-	                                System.out.print("Enter the ID of the product: ");
+	                                logger.info("Enter the ID of the product: ");
 	                                String id = scc.next();
-	                                System.out.print("Enter the name of the product: ");
+	                                logger.info("Enter the name of the product: ");
 	                                String description = scc.next();
-	                                System.out.print("Enter the Quantity of the product: ");
+	                                logger.info("Enter the Quantity of the product: ");
 	                                int quantity = scc.nextInt(); 
 
 	                             
@@ -1057,14 +1059,14 @@ public class Main {
 	                               
 	                                    bag.add(selectedProduct);
 
-	                                    System.out.println("Product has been added to your bag :)");
+	                                    logger.info("Product has been added to your bag :)"+ "\n");
 	                                } else {
-	                                    System.out.println("The product with the provided ID and description does not exist in the product list.");
+	                                    logger.info("The product with the provided ID and description does not exist in the product list."+ "\n");
 	                                }
 	                                break;
 	                                
 	                            case 3:
-	                                	System.out.print("Enter the ID of the product you want to delete from the Shopping Cart: ");
+	                                	logger.info("Enter the ID of the product you want to delete from the Shopping Cart: ");
 	                                	String productIDToDelete = scc.next();
 	                                	boolean productFound = false;
 
@@ -1077,9 +1079,9 @@ public class Main {
 	                                	}
 
 	                                	if (productFound) {
-	                                	    System.out.println("Product has been successfully removed from your Shopping Cart.");
+	                                	    logger.info("Product has been successfully removed from your Shopping Cart."+ "\n");
 	                                	} else {
-	                                	    System.out.println("Product with ID " + productIDToDelete + " was not found in your Shopping Cart.");
+	                                	    logger.info("Product with ID " + productIDToDelete + " was not found in your Shopping Cart."+ "\n");
 	                                	}
 	                                	
 	                                  
@@ -1090,7 +1092,7 @@ public class Main {
 	                                    
 	                                    
 	                                
-	                                    System.out.println(" Shopping cart to customer with email: " + emails);
+	                                    logger.info(" Shopping cart to customer with email: " + emails+ "\n");
 	                                    
 	                                    for (product productInCart : bag) {
 	                                    	
@@ -1098,15 +1100,15 @@ public class Main {
 	                                        if (productInCart.getemail().equals(emails)) {
 	                                        	
 	                                        	
-	                                            System.out.print("Product ID: " + productInCart.getId() + "\t");
-	                                            System.out.print("Product name: " + productInCart.getDescription() + "\t");
-	                                            System.out.print("Product Price: " + productInCart.getPrices() + "\t");
+	                                            logger.info("Product ID: " + productInCart.getId() + "\t");
+	                                            logger.info("Product name: " + productInCart.getDescription() + "\t");
+	                                            logger.info("Product Price: " + productInCart.getPrices() + "\t");
 	                                            buycount++;
 	                                            int price = Integer.parseInt(productInCart.getPrices());
 	                                            Totalprofit += price * productInCart.getQuantity();
 	                                            
-	                                            System.out.print("Product Image: " + productInCart.getImage() + "\t");
-	                                            System.out.println("Product Category: " + productInCart.getCategories());
+	                                            logger.info("Product Image: " + productInCart.getImage() + "\t");
+	                                            logger.info("Product Category: " + productInCart.getCategories()+ "\n");
 	                                            
 	                                          
 
@@ -1117,10 +1119,10 @@ public class Main {
 	                                    
 
 	                                    if (!ordersFound) {
-	                                        System.out.println("No orders found for the customer with email: " + emails);
+	                                        logger.info("No orders found for the customer with email: " + emails+ "\n");
 	                                    }
 	                                    
-	                                    System.out.println(" Do you want to confirm your order? Enter yes or no: ");
+	                                    logger.info(" Do you want to confirm your order? Enter yes or no: "+ "\n");
 	                                    String conf = scc.next();
 
 	                                    if (conf.equals("yes")) {
@@ -1131,8 +1133,8 @@ public class Main {
 	                                        } catch (MessagingException e) {
 	                                            e.printStackTrace();
 	                                        }
-	                                    	 System.out.println("Your purchases price: " + Totalprofit);
-	                                    	 System.out.println("Total number of products bought: " + buycount);
+	                                    	 logger.info("Your purchases price: " + Totalprofit+ "\n");
+	                                    	 logger.info("Total number of products bought: " + buycount+ "\n");
 	                                    }
 	                                    else {
 	                                    	
@@ -1143,27 +1145,27 @@ public class Main {
 	                                    
 	                                    
 	                                case 5:
-	                                    System.out.print("Enter your email: ");
+	                                    logger.info("Enter your email: ");
 	                                    String userEmail = scc.next();
 
 	                                    if (allemail.contains(userEmail)) {
 	                                      
-	                                        System.out.print("Enter new password: ");
+	                                        logger.info("Enter new password: ");
 	                                        String newPassword = scc.next();
-	                                        System.out.print("Enter new phone: ");
+	                                        logger.info("Enter new phone: ");
 	                                        String newPhone = scc.next();
-	                                        System.out.print("Enter new name: ");
+	                                        logger.info("Enter new name: ");
 	                                        String newName = scc.next();
-	                                        System.out.print("Enter new address: ");
+	                                        logger.info("Enter new address: ");
 	                                        String newAddress = scc.next();
-	                                        System.out.print("Enter new age: ");
+	                                        logger.info("Enter new age: ");
 	                                        String newAge = scc.next();
 
 	                                        user.editProfile(userEmail, newPassword, newPhone, newName, newAddress, newAge);
 
-	                                        System.out.println("Profile updated successfully!");
+	                                        logger.info("Profile updated successfully!"+ "\n");
 	                                    } else {
-	                                        System.out.println("Email not found. Please provide a valid email.");
+	                                        logger.info("Email not found. Please provide a valid email."+ "\n");
 	                                    }
 	                                    break;
 	                                	
@@ -1179,7 +1181,7 @@ public class Main {
 	                                    userFound=user.printProfile(emails);
 	                               
 	                                    if (!userFound) {
-	                                        System.out.println("Email not found. Please provide a valid email.");
+	                                        logger.info("Email not found. Please provide a valid email."+ "\n");
 	                                    }
 	                                    break;
 	                                    
@@ -1190,11 +1192,11 @@ public class Main {
 	                                	
 	                                	
 	                                    if (sch.isEmpty()) {
-	                                        System.out.println("There are no appointments available.");
+	                                        logger.info("There are no appointments available."+ "\n");
 	                                    } else {
-	                                        System.out.print("Enter the Date when you want to apply the installation : ");
+	                                        logger.info("Enter the Date when you want to apply the installation : ");
 	                                        String datepr = scc.next();
-	                                        System.out.print("Enter Time when you want to apply the installation : ");
+	                                        logger.info("Enter Time when you want to apply the installation : ");
 	                                        String timepr = scc.next();
 
 	                                        String g = datepr + "\t" + timepr;
@@ -1205,10 +1207,10 @@ public class Main {
 	                                            if (sch.get(i).equals(g)) {
 	                                               
 	                                                appointmentAvailable = true;
-	                                                System.out.println("It's an available appointment ");
-	                                                System.out.print("Enter your Email ");
+	                                                logger.info("It's an available appointment "+ "\n");
+	                                                logger.info("Enter your Email ");
 	                                                String em = scc.next();
-	                                                System.out.print("Enter name of product that you want to install: ");
+	                                                logger.info("Enter name of product that you want to install: ");
 	                                                String decpr = scc.next();
 	                                                reqcount++;
 	                                                appoin.add(Installer.appointment(datepr, timepr, decpr, em));
@@ -1226,7 +1228,7 @@ public class Main {
 	                                        }
 
 	                                        if (!appointmentAvailable) {
-	                                            System.out.println("It's an unavailable appointment ");
+	                                            logger.info("It's an unavailable appointment "+ "\n");
 	                                        }
 	                                    }
 	                                    break;
@@ -1239,20 +1241,20 @@ public class Main {
 	                                		
 	                                		 boolean found = false;
 
-	                                    System.out.print("Your Installation Services : ");
+	                                    logger.info("Your Installation Services : ");
 	                                    for (String installation : appoin) {
 	                                        if (installation.contains("for customer: " + emails)) {
-	                                            System.out.println(installation);
+	                                            logger.info(installation+ "\n");
 	                                            found = true;
 	                                        }
 	                                    }
 
 	                                    if (!found) {
-	                                        System.out.println("No installation services found for the specified customer.");
+	                                        logger.info("No installation services found for the specified customer."+ "\n");
 	                                    }
 	                                    break;
 	                                case 9:
-	                                    System.out.print("Enter Category : ");
+	                                    logger.info("Enter Category : ");
 	                                    String category = scc.next();
 	                                    
 	                              
@@ -1260,24 +1262,24 @@ public class Main {
 
 	                                  
 	                                    if (filteredProducts.isEmpty()) {
-	                                        System.out.println("No products found for the specified category.");
+	                                        logger.info("No products found for the specified category."+ "\n");
 	                                    } else {
-	                                        System.out.println("Filtered Products:");
+	                                        logger.info("Filtered Products:"+ "\n");
 	                                        for (product filteredProduct : filteredProducts) {
 	                                           
-	                                            System.out.print("Product ID: " + filteredProduct.getId()+ "\t");
-	                                            System.out.print("Product Description: " + filteredProduct.getDescription()+ "\t");
-	                                            System.out.print("Product Price: " + filteredProduct.getPrices());
-	                                            System.out.print("Product Availability: " + filteredProduct.getAvailability()+ "\t");
-	                                            System.out.print("Product Category: " + filteredProduct.getCategories()+ "\t");
-	                                            System.out.println();
+	                                            logger.info("Product ID: " + filteredProduct.getId()+ "\t");
+	                                            logger.info("Product Description: " + filteredProduct.getDescription()+ "\t");
+	                                            logger.info("Product Price: " + filteredProduct.getPrices());
+	                                            logger.info("Product Availability: " + filteredProduct.getAvailability()+ "\t");
+	                                            logger.info("Product Category: " + filteredProduct.getCategories()+ "\t");
+	                                            logger.info( "\n");
 	                                
 	                                            
 	                                        }
 	                                    }
 	                                    break;
 	                                case 10:
-	                                    System.out.print("Enter product name :");
+	                                    logger.info("Enter product name :");
 	                                    String name = scc.next();
 
 	                                 
@@ -1285,47 +1287,47 @@ public class Main {
 
 	                                  
 	                                    if (filteredProductname.isEmpty()) {
-	                                        System.out.println("No products found for the specified name.");
+	                                        logger.info("No products found for the specified name."+ "\n");
 	                                    } else {
-	                                        System.out.println("Filtered Products:");
+	                                        logger.info("Filtered Products:"+ "\n");
 	                                        for (product filteredProduct : filteredProductname) {
 	                                          
-	                                            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
-	                                            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
-	                                            System.out.print("Product Price: " + filteredProduct.getPrices());
-	                                            System.out.print("Product Availability: " + filteredProduct.getAvailability() + "\t");
-	                                            System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-	                                            System.out.println();
+	                                            logger.info("Product ID: " + filteredProduct.getId() + "\t");
+	                                            logger.info("Product Description: " + filteredProduct.getDescription() + "\t");
+	                                            logger.info("Product Price: " + filteredProduct.getPrices());
+	                                            logger.info("Product Availability: " + filteredProduct.getAvailability() + "\t");
+	                                            logger.info("Product Category: " + filteredProduct.getCategories() + "\t");
+	                                            logger.info("\n");
 	                                            
 	                                        }
 	                                    }
 	                                    break;
 	                                case 11:
-	                                    System.out.print("Enter Availability:");
+	                                    logger.info("Enter Availability:");
 	                                    String availability = scc.next();
 
 	                                    List<product> filteredProductAvailability = product.filterProductByAvailability(availability);
 
 	                                    if (filteredProductAvailability.isEmpty()) {
-	                                        System.out.println("No products found for the specified availability.");
+	                                        logger.info("No products found for the specified availability."+ "\n");
 	                                    } else {
-	                                        System.out.println("Filtered Products:");
+	                                        logger.info("Filtered Products:"+ "\n");
 	                                        for (product filteredProduct : filteredProductAvailability) {
-	                                            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
-	                                            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
-	                                            System.out.print("Product Price: " + filteredProduct.getPrices());
-	                                            System.out.print("Product Availability: " + filteredProduct.getAvailability() + "\t");
-	                                            System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-	                                            System.out.println();
+	                                            logger.info("Product ID: " + filteredProduct.getId() + "\t");
+	                                            logger.info("Product Description: " + filteredProduct.getDescription() + "\t");
+	                                            logger.info("Product Price: " + filteredProduct.getPrices());
+	                                            logger.info("Product Availability: " + filteredProduct.getAvailability() + "\t");
+	                                            logger.info("Product Category: " + filteredProduct.getCategories() + "\t");
+	                                            logger.info("\n");
 	                                        }
 	                                    }
 	                                    break;
 	                            	  
 	                              case 12:
-	                            	   System.out.print("Enter min price range:");
+	                            	   logger.info("Enter min price range:");
 	                            	    String min = scc.next();
 	                             
-	                            	    System.out.print("Enter max price range:");
+	                            	    logger.info("Enter max price range:");
 	                            	    String max = scc.next();
 	                            	 
 	                            	    
@@ -1333,16 +1335,16 @@ public class Main {
 	                            	    List<product> filteredProductprice= product.filterProductByprice(min,max);
 
 	                            	    if (filteredProductprice.isEmpty()) {
-	                            	        System.out.println("No products found for the specified range");
+	                            	        logger.info("No products found for the specified range"+ "\n");
 	                            	    } else {
-	                            	        System.out.println("Filtered Products:");
+	                            	        logger.info("Filtered Products:"+ "\n");
 	                            	        for (product filteredProduct : filteredProductprice) {
-	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
-	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
-	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
-	                            	            System.out.print("Product Availability: " + filteredProduct.getAvailability() + "\t");
-	                            	            System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-	                            	            System.out.println();
+	                            	            logger.info("Product ID: " + filteredProduct.getId() + "\t");
+	                            	            logger.info("Product Description: " + filteredProduct.getDescription() + "\t");
+	                            	            logger.info("Product Price: " + filteredProduct.getPrices());
+	                            	            logger.info("Product Availability: " + filteredProduct.getAvailability() + "\t");
+	                            	            logger.info("Product Category: " + filteredProduct.getCategories() + "\t");
+	                            	            logger.info("\n");
 	                            	        }
 	                            	    }
 	                            	    break;
@@ -1355,12 +1357,12 @@ public class Main {
 	                            	  
 	                            	  
 	                            	  
-	                            	  System.out.print("Enter min price range:");
+	                            	  logger.info("Enter min price range:");
 	                            	    String minn = scc.next();
 	                             
-	                            	    System.out.print("Enter max price range:");
+	                            	    logger.info("Enter max price range:");
 	                            	    String maxx = scc.next();
-	                            	    System.out.print("Enter Category:");
+	                            	    logger.info("Enter Category:");
 	                            	    String cat= scc.next();
 	                            	 
 	                            	 
@@ -1369,16 +1371,16 @@ public class Main {
 	                            	    List<product> filteredProductpriceandcat= product.filterProductcatprice(cat, minn, maxx);
 
 	                            	    if (filteredProductpriceandcat.isEmpty()) {
-	                            	        System.out.println("No products found ");
+	                            	        logger.info("No products found "+ "\n");
 	                            	    } else {
-	                            	        System.out.println("Filtered Products:");
+	                            	        logger.info("Filtered Products:"+ "\n");
 	                            	        for (product filteredProduct : filteredProductpriceandcat) {
-	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
-	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
-	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
-	                            	            System.out.print("Product Availability: " + filteredProduct.getAvailability() + "\t");
-	                            	            System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-	                            	            System.out.println();
+	                            	            logger.info("Product ID: " + filteredProduct.getId() + "\t");
+	                            	            logger.info("Product Description: " + filteredProduct.getDescription() + "\t");
+	                            	            logger.info("Product Price: " + filteredProduct.getPrices());
+	                            	            logger.info("Product Availability: " + filteredProduct.getAvailability() + "\t");
+	                            	            logger.info("Product Category: " + filteredProduct.getCategories() + "\t");
+	                            	            logger.info("\n");
 	                            	        }
 	                            	    }
 	                            	    break;
@@ -1398,12 +1400,12 @@ public class Main {
 	                            	  
 	                            	  
 	                             	  
-	                            	  System.out.print("Enter min price range:");
+	                            	  logger.info("Enter min price range:");
 	                            	    String minnn = scc.next();
 	                             
-	                            	    System.out.print("Enter max price range:");
+	                            	    logger.info("Enter max price range:");
 	                            	    String maxxx = scc.next();
-	                            	    System.out.print("Enter product name:");
+	                            	    logger.info("Enter product name:");
 	                            	    String namee= scc.next();
 	                            	 
 	                            	 
@@ -1412,28 +1414,28 @@ public class Main {
 	                            	    List<product> filteredProductpriceandname= product.filterProductnameprice(namee, minnn, maxxx);
 
 	                            	    if (filteredProductpriceandname.isEmpty()) {
-	                            	        System.out.println("No products found ");
+	                            	        logger.info("No products found "+ "\n");
 	                            	    } else {
-	                            	        System.out.println("Filtered Products:");
+	                            	        logger.info("Filtered Products:"+ "\n");
 	                            	        for (product filteredProduct : filteredProductpriceandname) {
-	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
-	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
-	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
-	                            	            System.out.print("Product Availability: " + filteredProduct.getAvailability() + "\t");
-	                            	            System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-	                            	            System.out.println();
+	                            	            logger.info("Product ID: " + filteredProduct.getId() + "\t");
+	                            	            logger.info("Product Description: " + filteredProduct.getDescription() + "\t");
+	                            	            logger.info("Product Price: " + filteredProduct.getPrices());
+	                            	            logger.info("Product Availability: " + filteredProduct.getAvailability() + "\t");
+	                            	            logger.info("Product Category: " + filteredProduct.getCategories() + "\t");
+	                            	            logger.info("\n");
 	                            	        }
 	                            	    }
 	                            	    break;
 	                            	    
 	                            	  
 	                              case 15:
-	                             	  System.out.print("Enter min price range:");
+	                             	  logger.info("Enter min price range:");
 	                            	    String minnnn = scc.next();
 	                             
-	                            	    System.out.print("Enter max price range:");
+	                            	    logger.info("Enter max price range:");
 	                            	    String maxxxx = scc.next();
-	                            	    System.out.print("Enter availablity:");
+	                            	    logger.info("Enter availablity:");
 	                            	    String availablity= scc.next();
 	                            	 
 	                            	 
@@ -1442,16 +1444,16 @@ public class Main {
 	                            	    List<product> filteredProductpriceandavailablity= product.filterProductavaprice(availablity, minnnn, maxxxx);
 
 	                            	    if (filteredProductpriceandavailablity.isEmpty()) {
-	                            	        System.out.println("No products found ");
+	                            	        logger.info("No products found "+ "\n");
 	                            	    } else {
-	                            	        System.out.println("Filtered Products:");
+	                            	        logger.info("Filtered Products:"+ "\n");
 	                            	        for (product filteredProduct : filteredProductpriceandavailablity) {
-	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
-	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
-	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
-	                            	            System.out.print("Product Availability: " + filteredProduct.getAvailability() + "\t");
-	                            	            System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-	                            	            System.out.println();
+	                            	            logger.info("Product ID: " + filteredProduct.getId() + "\t");
+	                            	            logger.info("Product Description: " + filteredProduct.getDescription() + "\t");
+	                            	            logger.info("Product Price: " + filteredProduct.getPrices());
+	                            	            logger.info("Product Availability: " + filteredProduct.getAvailability() + "\t");
+	                            	            logger.info("Product Category: " + filteredProduct.getCategories() + "\t");
+	                            	            logger.info("\n");
 	                            	        }
 	                            	    }
 	                            	    break;
@@ -1462,25 +1464,25 @@ public class Main {
 	                            	  
 	                              case 16:
 	                            	  
-	                             	  System.out.print("Enter name of product :");
+	                             	  logger.info("Enter name of product :");
 	                            	    String proname= scc.next();
 	                             
-	                            	    System.out.print("Enter Category:");
+	                            	    logger.info("Enter Category:");
 	                            	    String catg = scc.next();
 	                            	   
 	                            	    List<product> filteredProductcatgandname= product.filterProductBycatgoryandname(catg, proname);
 
 	                            	    if (filteredProductcatgandname.isEmpty()) {
-	                            	        System.out.println("No products found ");
+	                            	        logger.info("No products found "+ "\n");
 	                            	    } else {
-	                            	        System.out.println("Filtered Products:");
+	                            	        logger.info("Filtered Products:"+ "\n");
 	                            	        for (product filteredProduct :filteredProductcatgandname) {
-	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
-	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
-	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
-	                            	            System.out.print("Product Availability: " + filteredProduct.getAvailability() + "\t");
-	                            	            System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-	                            	            System.out.println();
+	                            	            logger.info("Product ID: " + filteredProduct.getId() + "\t");
+	                            	            logger.info("Product Description: " + filteredProduct.getDescription() + "\t");
+	                            	            logger.info("Product Price: " + filteredProduct.getPrices());
+	                            	            logger.info("Product Availability: " + filteredProduct.getAvailability() + "\t");
+	                            	            logger.info("Product Category: " + filteredProduct.getCategories() + "\t");
+	                            	            logger.info("\n");
 	                            	        }
 	                            	    }
 	                            	    break;
@@ -1488,25 +1490,25 @@ public class Main {
 	                              case 17:
 	                            	
 	                            	  
-	                            	  System.out.print("Enter name of product :");
+	                            	  logger.info("Enter name of product :");
 	                            	    String prodname= scc.next();
 	                             
-	                            	    System.out.print("Enter availablity:");
+	                            	    logger.info("Enter availablity:");
 	                            	    String ava = scc.next();
 	                            	   
 	                            	    List<product> filteredProductavaandname= product.filterProductBynameandavay(ava, prodname);
 
 	                            	    if (filteredProductavaandname.isEmpty()) {
-	                            	        System.out.println("No products found ");
+	                            	        logger.info("No products found "+ "\n");
 	                            	    } else {
-	                            	        System.out.println("Filtered Products:");
+	                            	        logger.info("Filtered Products:"+ "\n");
 	                            	        for (product filteredProduct :filteredProductavaandname) {
-	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
-	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
-	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
-	                            	            System.out.print("Product Availability: " + filteredProduct.getAvailability() + "\t");
-	                            	            System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-	                            	            System.out.println();
+	                            	            logger.info("Product ID: " + filteredProduct.getId() + "\t");
+	                            	            logger.info("Product Description: " + filteredProduct.getDescription() + "\t");
+	                            	            logger.info("Product Price: " + filteredProduct.getPrices());
+	                            	            logger.info("Product Availability: " + filteredProduct.getAvailability() + "\t");
+	                            	            logger.info("Product Category: " + filteredProduct.getCategories() + "\t");
+	                            	            logger.info("\n");
 	                            	        }
 	                            	    }
 	                            	    break;
@@ -1514,34 +1516,34 @@ public class Main {
 	                            	  
 	                            	 
 	                            	
-	                            	  System.out.print("Enter Category :");
+	                            	  logger.info("Enter Category :");
 	                            	    String prodcat= scc.next();
 	                             
-	                            	    System.out.print("Enter availablity:");
+	                            	    logger.info("Enter availablity:");
 	                            	    String proava = scc.next();
 	                            	   
 	                            	    List<product> filterProductBycatgoryandavay= product.filterProductBycatgoryandavay(prodcat, proava);
 
 	                            	    if (filterProductBycatgoryandavay.isEmpty()) {
-	                            	        System.out.println("No products found ");
+	                            	        logger.info("No products found "+ "\n");
 	                            	    } else {
-	                            	        System.out.println("Filtered Products:");
+	                            	        logger.info("Filtered Products:"+ "\n");
 	                            	        for (product filteredProduct :filterProductBycatgoryandavay) {
-	                            	            System.out.print("Product ID: " + filteredProduct.getId() + "\t");
-	                            	            System.out.print("Product Description: " + filteredProduct.getDescription() + "\t");
-	                            	            System.out.print("Product Price: " + filteredProduct.getPrices());
-	                            	            System.out.print("Product Availability: " + filteredProduct.getAvailability() + "\t");
-	                            	            System.out.print("Product Category: " + filteredProduct.getCategories() + "\t");
-	                            	            System.out.println();
+	                            	            logger.info("Product ID: " + filteredProduct.getId() + "\t");
+	                            	            logger.info("Product Description: " + filteredProduct.getDescription() + "\t");
+	                            	            logger.info("Product Price: " + filteredProduct.getPrices());
+	                            	            logger.info("Product Availability: " + filteredProduct.getAvailability() + "\t");
+	                            	            logger.info("Product Category: " + filteredProduct.getCategories() + "\t");
+	                            	            logger.info("\n");
 	                            	        }
 	                            	    }
 	                            	    break;	
 	                              case 19:
 	                            	  if (sch.isEmpty()) {
-	                            		    System.out.println("There are no appointments available.");
+	                            		    logger.info("There are no appointments available."+ "\n");
 	                            		} else {
 	                            		    for (int i = 0; i < sch.size(); i++) {
-	                            		        System.out.println("" + sch.get(i));
+	                            		        logger.info("" + sch.get(i)+ "\n");
 	                            		    }
 	                            		}
 	                            	  break;
@@ -1602,30 +1604,24 @@ public class Main {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 	}
+	  
 	
 	public static int firstMenu() {
 	    int selection;
 	    Scanner sc = new Scanner(System.in);
 	    
-	    System.out.printf("%s%n", STR);
-	    System.out.println("★        Welcome:            ★");
-	    System.out.printf("%s%n", STR);
-	    System.out.println("★        Login as :          ★");
-	    System.out.println("★        1- Admin            ★");
-	    System.out.println("★        2- Installer        ★");
-	    System.out.println("★        3- Customer         ★");
-	    System.out.println("★        4- Exit             ★");
-	    System.out.printf("%s%n", STR);
-	    System.out.print(OPT);
+	    logger.info(String.format("%s%n", STR + "\n"));
+	    logger.info("★        Welcome:            ★"+ "\n");
+	    logger.info(String.format("%s%n", STR));
+	    logger.info("★        Login as :          ★"+ "\n");
+	    logger.info("★        1- Admin            ★"+ "\n");
+	    logger.info("★        2- Installer        ★"+ "\n");
+	    logger.info("★        3- Customer         ★"+ "\n");
+	    logger.info("★        4- Exit             ★"+ "\n");
+	    logger.info(String.format("%s%n", STR+ "\n"));
+	    logger.info(OPT);
 	    
 	    selection = sc.nextInt();
 	    
@@ -1637,58 +1633,58 @@ public class Main {
 	    int selection;
 	    Scanner sc = new Scanner(System.in);
 
-	    System.out.println("          Admin");
-	    System.out.println("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★★ ★ ★ ★ ★ ★   ");
-	    System.out.printf("★%s1-%sShow customer%s                         ★ %n", S1, S1, TT);
-	    System.out.printf("★%s2-%sAdd new Customer%s                         ★ %n", S1, S1, TT);
-	    System.out.printf("★%s3-%sDelete Customer%s                         ★ %n", S1, S1, TT);
-	    System.out.printf("★%s4-%sUpdate Customer %s                         ★ %n", S1, S1, TT);
+	    logger.info("          Admin"+"\n");
+	    logger.info("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★★ ★ ★ ★ ★ ★   "+"\n");
+	    logger.info(String.format("★%s1-%sShow customer%s                         ★ %n", S1, S1, TT));
+	    logger.info(String.format("★%s2-%sAdd new Customer%s                         ★ %n", S1, S1, TT));
+	    logger.info(String.format("★%s3-%sDelete Customer%s                         ★ %n", S1, S1, TT));
+	    logger.info(String.format("★%s4-%sUpdate Customer %s                         ★ %n", S1, S1, TT));
 	      
 	    
 	    
-	    System.out.printf("★%s5-%sShow Product list %s                         ★ %n", S1, S1, TT);
-	    System.out.printf("★%s6-%sAdd Product %s                         ★ %n", S1, S1, TT);
-	    System.out.printf("★%s7-%sDelete Product %s                         ★ %n", S1, S1, TT);
-	    System.out.printf("★%s8-%sUpdate Product %s                         ★ %n", S1, S1, TT);
+	    logger.info(String.format("★%s5-%sShow Product list %s                         ★ %n", S1, S1, TT));
+	    logger.info(String.format("★%s6-%sAdd Product %s                         ★ %n", S1, S1, TT));
+	    logger.info(String.format("★%s7-%sDelete Product %s                         ★ %n", S1, S1, TT));
+	    logger.info(String.format("★%s8-%sUpdate Product %s                         ★ %n", S1, S1, TT));
 	    
-	    System.out.printf("★%s9-%sShow Exterior Product list %s         ★ %n", S1, S1, TT);
-	   System.out.printf("★%s10-%sAdd Exterior Product %s                 ★ %n", S1, S1, TT);
-	   System.out.printf("★%s11-%sDelete  Exterior Product %s                 ★ %n", S1, S1, TT);
-	   System.out.printf("★%s12-%sUpdate Exterior Product %s                 ★ %n", S1, S1, TT);
+	    logger.info(String.format("★%s9-%sShow Exterior Product list %s         ★ %n", S1, S1, TT));
+	   logger.info(String.format("★%s10-%sAdd Exterior Product %s                 ★ %n", S1, S1, TT));
+	   logger.info(String.format("★%s11-%sDelete  Exterior Product %s                 ★ %n", S1, S1, TT));
+	   logger.info(String.format("★%s12-%sUpdate Exterior Product %s                 ★ %n", S1, S1, TT));
 	   
 	    
-	    System.out.printf("★%s13-%sShow Interior Product list %s         ★ %n", S1, S1, TT);
-	    System.out.printf("★%s14-%sAdd Interior Product %s                 ★ %n", S1, S1, TT);
-	   System.out.printf("★%s15-%sDelete  Interior Product %s                 ★  %n", S1, S1, TT);
-	    System.out.printf("★%s16-%sUpdate Interior Product %s                 ★%n", S1, S1, TT);
+	    logger.info(String.format("★%s13-%sShow Interior Product list %s         ★ %n", S1, S1, TT));
+	    logger.info(String.format("★%s14-%sAdd Interior Product %s                 ★ %n", S1, S1, TT));
+	   logger.info(String.format("★%s15-%sDelete  Interior Product %s                 ★  %n", S1, S1, TT));
+	    logger.info(String.format("★%s16-%sUpdate Interior Product %s                 ★%n", S1, S1, TT));
 	    
 	    
 	    
-	    System.out.printf("★%s17-%sShow Electronic Product list %s         ★ %n", S1, S1, TT);
-	    System.out.printf("★%s18-%sAdd Electronic Product %s                 ★ %n", S1, S1, TT);
-	    System.out.printf("★%s19-%sDelete Electronic Product %s         ★%n", S1, S1, TT);
-	    System.out.printf("★%s20-%sUpdate Electronic Product %s         ★   %n", S1, S1, TT);
+	    logger.info(String.format("★%s17-%sShow Electronic Product list %s         ★ %n", S1, S1, TT));
+	    logger.info(String.format("★%s18-%sAdd Electronic Product %s                 ★ %n", S1, S1, TT));
+	    logger.info(String.format("★%s19-%sDelete Electronic Product %s         ★%n", S1, S1, TT));
+	    logger.info(String.format("★%s20-%sUpdate Electronic Product %s         ★   %n", S1, S1, TT));
 	   
-	    System.out.printf("★%s21-%sview installation appointments %s%s ★ %n", S1, S1, TT, TT);
+	    logger.info(String.format("★%s21-%sview installation appointments %s%s ★ %n", S1, S1, TT, TT));
 	    
-	    System.out.printf("★%s22-%supdate installation request %s%s ★%n", S1, S1, TT, TT);
-	    System.out.printf("★%s23-%sdelete installation request  %s%s ★%n", S1, S1, TT, TT);
+	    logger.info(String.format("★%s22-%supdate installation request %s%s ★%n", S1, S1, TT, TT));
+	    logger.info(String.format("★%s23-%sdelete installation request  %s%s ★%n", S1, S1, TT, TT));
 	    
-	    System.out.printf("★%s24-%sadd installation appointments %s%s ★%n", S1, S1, TT, TT);
-	    System.out.printf("★%s25-%supdate installation appointments %s%s ★%n", S1, S1, TT, TT);
-	    System.out.printf("★%s26-%sdelete installation appointments %s%s ★%n", S1, S1, TT, TT);
+	    logger.info(String.format("★%s24-%sadd installation appointments %s%s ★%n", S1, S1, TT, TT));
+	    logger.info(String.format("★%s25-%supdate installation appointments %s%s ★%n", S1, S1, TT, TT));
+	    logger.info(String.format("★%s26-%sdelete installation appointments %s%s ★%n", S1, S1, TT, TT));
 	   
-	    System.out.printf("★%s27-%sview report                %s%s ★%n", S1, S1, TT, TT);
-	    
-	   
-	    
-	    
-	    
-	    
+	    logger.info(String.format("★%s27-%sview report                %s%s ★%n", S1, S1, TT, TT));
 	    
 	   
-	    System.out.println("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★★ ★ ★ ★ ★ ★   ");
-	    System.out.print(OPT);
+	    
+	    
+	    
+	    
+	    
+	   
+	    logger.info("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★★ ★ ★ ★ ★ ★   "+"\n");
+	    logger.info(OPT);
 	    selection = sc.nextInt();
 
 	    return selection;
@@ -1700,35 +1696,35 @@ public class Main {
 	    int selection;
 	    Scanner sc = new Scanner(System.in);
 
-	    System.out.println("            Customer");
-	    System.out.println("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★  ");
+	    logger.info("            Customer"+"\n");
+	    logger.info("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★  "+"\n");
 	    
 	    
-       System.out.printf("★%-2s1-%-21s                              ★%n", "", "Browse products");
-	    System.out.printf("★%-2s2-%-21s                       ★%n", "", "Add product to Shopping cart");
-	    System.out.printf("★%-2s3-%-21s                  ★%n", "", "Delete Product from Shopping cart");
-	    System.out.printf("★%-2s4-%-21s                              ★%n", "", "View My Shopping cart");
-	    System.out.printf("★%-2s5-%-21s                              ★%n", "", "edit profile");
-	    System.out.printf("★%-2s6-%-21s                              ★%n", "", "My profile");
-	    System.out.printf("★%-2s7-%-21s  ★%n", "", "request installation services for certain product");
-	    System.out.printf("★%-2s8-%-21s                ★%n", "", "Print My All Installation Services ");
+       logger.info(String.format("★%-2s1-%-21s                              ★%n", "", "Browse products"));
+	    logger.info(String.format("★%-2s2-%-21s                       ★%n", "", "Add product to Shopping cart"));
+	    logger.info(String.format("★%-2s3-%-21s                  ★%n", "", "Delete Product from Shopping cart"));
+	    logger.info(String.format("★%-2s4-%-21s                              ★%n", "", "View My Shopping cart"));
+	    logger.info(String.format("★%-2s5-%-21s                              ★%n", "", "edit profile"));
+	    logger.info(String.format("★%-2s6-%-21s                              ★%n", "", "My profile"));
+	    logger.info(String.format("★%-2s7-%-21s  ★%n", "", "request installation services for certain product"));
+	    logger.info(String.format("★%-2s8-%-21s                ★%n", "", "Print My All Installation Services "));
 	    
 
-	    System.out.printf("★%-2s9-%-21s                ★%n", "", "filter Products By Category\t");
-	    System.out.printf("★%-2s10-%-21s                ★%n", "", "filter Products By Name \t\t");
-	    System.out.printf("★%-2s11-%-21s                ★%n", "", "filter Products By Availability\t");
-	    System.out.printf("★%-2s12-%-21s                ★%n", "", "filter Products By price\t\t");
+	    logger.info(String.format("★%-2s9-%-21s                ★%n", "", "filter Products By Category\t"));
+	    logger.info(String.format("★%-2s10-%-21s                ★%n", "", "filter Products By Name \t\t"));
+	    logger.info(String.format("★%-2s11-%-21s                ★%n", "", "filter Products By Availability\t"));
+	    logger.info(String.format("★%-2s12-%-21s                ★%n", "", "filter Products By price\t\t"));
 	    
 	    
 	    
-    System.out.printf("★%-2s13-%-21s          ★%n", "", "Searching Products by category and price");
-   System.out.printf("★%-2s14-%-21s             ★%n", "", " Searching Products by name and price");
-   System.out.printf("★%-2s15-%-21s      ★%n", "", " Searching Products by availablity and price");
-   System.out.printf("★%-2s16-%-21s          ★%n", "", "Searching Products by category and name ");
-	    System.out.printf("★%-2s17-%-21s       ★%n", "", " Searching Products by availablity and name");
+    logger.info(String.format("★%-2s13-%-21s          ★%n", "", "Searching Products by category and price"));
+   logger.info(String.format("★%-2s14-%-21s             ★%n", "", " Searching Products by name and price"));
+   logger.info(String.format("★%-2s15-%-21s      ★%n", "", " Searching Products by availablity and price"));
+   logger.info(String.format("★%-2s16-%-21s          ★%n", "", "Searching Products by category and name "));
+	    logger.info(String.format("★%-2s17-%-21s       ★%n", "", " Searching Products by availablity and name"));
 	    
-	    System.out.printf("★%-2s18-%-21s    ★%n", "", "Searching Products by category and availablity");
-	    System.out.printf("★%-2s19-%-21s       ★%n", "", "view installer availability and appointment");
+	    logger.info(String.format("★%-2s18-%-21s    ★%n", "", "Searching Products by category and availablity"));
+	    logger.info(String.format("★%-2s19-%-21s       ★%n", "", "view installer availability and appointment"));
 	    
 
 
@@ -1736,8 +1732,8 @@ public class Main {
 	    
 	   
 	    
-	    System.out.println("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★  ");
-	    System.out.println(OPT);
+	    logger.info("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★  "+"\n");
+	    logger.info(OPT+"\n");
 
 	    selection = sc.nextInt();
 
@@ -1748,16 +1744,16 @@ public class Main {
 	    int selection;
 	    Scanner sc = new Scanner(System.in);
 	   
-	    System.out.println("            Installer");
-	    System.out.println("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ");
-	    System.out.println("★    1- My profile                 ★");
-	    System.out.println("★    2- edit profile               ★");
-	    System.out.println("★    3- View installation requests ★");
-	    System.out.println("★    4- schedule appointments      ★");
-	    System.out.println("★    5- view My appointments      ★");
+	    logger.info("            Installer"+ "\n");
+	    logger.info("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ "+ "\n");
+	    logger.info("★    1- My profile                 ★"+ "\n");
+	    logger.info("★    2- edit profile               ★"+ "\n");
+	    logger.info("★    3- View installation requests ★"+ "\n");
+	    logger.info("★    4- schedule appointments      ★"+ "\n");
+	    logger.info("★    5- view My appointments      ★"+ "\n");
 	   
-	    System.out.println("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ");
-	    System.out.println(OPT);
+	    logger.info("★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ "+ "\n");
+	    logger.info(OPT+ "\n");
 
 	    selection = sc.nextInt();
 	    
@@ -1785,32 +1781,32 @@ public class Main {
 	public static String createAccountCus() {
 	    user ff = new user();
 	    Scanner n = new Scanner(System.in);
-	    System.out.println("Welcome");
-	    System.out.println("You are now in the create account page.");
-	    System.out.println("Enter your information");
-	    System.out.print("Phone : ");
+	    logger.info("Welcome"+ "\n");
+	    logger.info("You are now in the create account page."+ "\n");
+	    logger.info("Enter your information"+ "\n");
+	    logger.info("Phone : ");
 	    ff.phone = n.next();
-	    System.out.print("Name : ");
+	    logger.info("Name : ");
 	    ff.name = n.next();
-	    System.out.print("Address : ");
+	    logger.info("Address : ");
 	    ff.address = n.next();
-	    System.out.print("Age: ");
+	    logger.info("Age: ");
 	    ff.age = n.next();
 
-	    System.out.print("Email : ");
+	    logger.info("Email : ");
 	    String hh = n.next();
 	    ff.setemail(hh);
 
-	    System.out.print("Password : ");
+	    logger.info("Password : ");
 	    String password = n.next();
 	    
-	    System.out.print("Confirm password : ");
+	    logger.info("Confirm password : ");
 	    String confirmPassword = n.next();
 	    
 	    if (password.equals(confirmPassword)) {
 	        ff.setPass(password);  
 	    } else {
-	        System.out.println("Passwords do not match. Account creation failed.");
+	        logger.info("Passwords do not match. Account creation failed."+ "\n");
 	        return null; 
 	    }
 

@@ -1,9 +1,7 @@
 package carpack;
 
 import java.util.List;
-
-
-
+import java.util.logging.Logger;
 import java.util.ArrayList;
 import carpack.Installer;
 
@@ -11,6 +9,8 @@ import carpack.Installer;
 
 
 public class user {
+	 private static final Logger logger = Logger.getLogger(Installer.class.getName());
+
 
 		
 	static 	boolean y;
@@ -269,11 +269,11 @@ public class user {
 			    useru.addAll(uniqueCustomers);
 			    
 			    if (useru.isEmpty()) {
-			        System.out.println("No customers available to delete.");
+			    	logger.info("No customers available to delete.");
 			    } else {
 			    	for (user customer : useru) {
 			    	    String j = "Customer: " + "Name: " + customer.name + " Phone: " + customer.phone + " Address: " + customer.address + " Age: " + customer.age;
-			    	    System.out.println(j);
+			    	    logger.info(j);
 			    	
 			        }
 			    }
@@ -301,13 +301,13 @@ public class user {
 				if (useru.get(i).getemail().equals(email)) {
 						
 					    	
-				    System.out.println("User Profile:");
-				    System.out.println("Email: " + email);
-				    System.out.println("Password: " + useru.get(i).passs);
-				    System.out.println("Phone: " + useru.get(i).phone);
-				    System.out.println("Name: " + useru.get(i).name);
-				    System.out.println("Address: " + useru.get(i).address);
-				    System.out.println("Age: " + useru.get(i).age);
+					logger.info("User Profile:");
+					logger.info("Email: " + email);
+					logger.info("Password: " + useru.get(i).passs);
+					logger.info("Phone: " + useru.get(i).phone);
+					logger.info("Name: " + useru.get(i).name);
+					logger.info("Address: " + useru.get(i).address);
+					logger.info("Age: " + useru.get(i).age);
 				    y= true;
 				    
 					    }

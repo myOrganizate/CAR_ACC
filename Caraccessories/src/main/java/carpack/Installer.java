@@ -2,6 +2,7 @@ package carpack;
 
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 import java.util.List;
 
 public class Installer {
@@ -16,18 +17,25 @@ public class Installer {
 	 int isIns=0;
 	 static List<String> emailI =new ArrayList<String>();
 	 static List<String> passI =new ArrayList<String>();
-	 static  List<String> appo =new ArrayList<String>();
-	 static List<Installer>Instu = new ArrayList<Installer>();
+	 static final List<String> appo =new ArrayList<String>();
+	 static List<Installer> installerList = new ArrayList<Installer>();
 	 static List<String> phone1 =new ArrayList<String>() ;
 	 static String b;
 	 private String emaill;
 		private String passs;
 		public String date;
-		String detail;
+		
 		static String app;
 		String time;
 		static boolean y;
 		static List<String> scheapp =new ArrayList<String>();
+	    private static final String DETAIL_LABEL = " detail: ";
+	    private static final String DATE_LABEL = "date: ";
+	    private static final String TIME_LABEL = " time: ";
+	    private static final String CUSTOMER_LABEL = " for customer: ";
+	    private static final Logger logger = Logger.getLogger(Installer.class.getName());
+
+
 		
 	
 	
@@ -38,8 +46,8 @@ public class Installer {
 			passs=pa;
 			emailI.add(em);
 			passI.add(pa);
-			if(!Instu.contains(this))
-				Instu.add(this);
+			if(!installerList.contains(this))
+				installerList.add(this);
 		
 		}
 		 public Installer() {
@@ -51,8 +59,8 @@ public class Installer {
 				passI.add("ayaaya1");
 				emaill="ayamoinn95@gmail.com";
 				passs="ayaaya1";
-				if(!Instu.contains(this))
-					Instu.add(this);
+				if(!installerList.contains(this))
+					installerList.add(this);
 			}
 		
 		public String getemail() {
@@ -96,7 +104,7 @@ public class Installer {
 		}
 		public static String appointment(String date, String time, String detail, String email) {
 		
-		    app = "date: " + date + " time: " + time + " detail: " + detail + " for customer: " + email;
+		    app = DATE_LABEL + date + TIME_LABEL + time + DETAIL_LABEL + detail  + CUSTOMER_LABEL+ email;
 
 		    if (!appo.contains(app)) {
 		        appo.add(app);
@@ -106,8 +114,8 @@ public class Installer {
 		
 		
 		public static String updateappointment(String email, String olddate, String oldtime, String olddetail, String newdate, String newtime, String newdetail) {
-		    String oldAppointment = "date: " + olddate + " time: " + oldtime + " detail: " + olddetail + " for customer: " + email;
-		    String newAppointment = "date: " + newdate + " time: " + newtime + " detail: " + newdetail + " for customer: " + email;
+		    String oldAppointment = DATE_LABEL  + olddate + TIME_LABEL + oldtime + DETAIL_LABEL + olddetail  + CUSTOMER_LABEL+ email;
+		    String newAppointment = DATE_LABEL + newdate + TIME_LABEL + newtime + DETAIL_LABEL + newdetail + CUSTOMER_LABEL + email;
 
 		    for (int i = 0; i < appo.size(); i++) {
 		        String appointment = appo.get(i);
@@ -122,7 +130,7 @@ public class Installer {
 		
 		
 		public static boolean deleteappointment(String email, String date, String time, String detail) {
-		    String appointmentToDelete = "date: " + date + " time: " + time + " detail: " + detail + " for customer: " + email;
+		    String appointmentToDelete = DATE_LABEL  + date + TIME_LABEL + time + DETAIL_LABEL + detail  + CUSTOMER_LABEL + email;
 		    
 		    if (appo.contains(appointmentToDelete)) {
 		        appo.remove(appointmentToDelete);
@@ -146,34 +154,34 @@ public class Installer {
 		
 		
 		
-		public static void Viewinstallationreq(String email) {
+		public  void viewInstallationReq(String email) {
 		    boolean found = false;
 		    for (String installation : appo) {
 		        if (installation.contains("for customer: " + email)) {
-		            System.out.println(installation);
+		        	 logger.info(installation);
 		            found = true;
 		        }
 		    }
 		    if (!found) {
-		        System.out.println("No installation requests found for customer with email: " + email);
+		    	logger.info("No installation requests found for customer with email: " + email);
 		    }
 		}
 		
         
 		 public static boolean printProfile(String email) {
 			 
-			 for(int i=0;i<Instu.size();i++) {
+			 for(int i=0;i<installerList.size();i++) {
 				 
 				 
 				
-				    if (Instu.get(i).getemail().equals(email)) {
+				    if (installerList.get(i).getemail().equals(email)) {
 				    	
-			    System.out.println("Installer Profile:");
-			    System.out.println("Email: " + email);
-			    System.out.println("Password: " + Instu.get(i).passs);
-			    System.out.println("Phone: " + Instu.get(i).phone);
-			    System.out.println("Name: " + Instu.get(i).name);
-			    System.out.println("Address: " + Instu.get(i).address);
+				   logger.info("Installer Profile:");
+				   logger.info("Email: " + email);
+				   logger.info("Password: " + installerList.get(i).passs);
+				   logger.info("Phone: " + installerList.get(i).phone);
+				   logger.info("Name: " + installerList.get(i).name);
+				   logger.info("Address: " + installerList.get(i).address);
 			
 			    y= true;
 			    
@@ -190,7 +198,7 @@ public class Installer {
 		 }
 		
 		 public static void editProfile(String email, String newPassword, String newPhone, String newName, String newAddress) {
-			    for (Installer installer : Instu) {
+			    for (Installer installer : installerList) {
 			        if (installer.getemail().equals(email)) {
 			            installer.setemail(email);
 			            installer.setPass(newPassword);
@@ -222,9 +230,9 @@ public class Installer {
 			
 		    if (!scheapp.contains(s)) {
 		        scheapp.add(s);
-		        System.out.println("Appointment scheduled successfully.");
+		        logger.info("Appointment scheduled successfully.");
 		    } else {
-		        System.out.println("Appointment already exists at this date and time.");
+		    	logger.info("Appointment already exists at this date and time.");
 		    }
 		}
 		public static void deleteappo(String date, String time) {
@@ -233,9 +241,9 @@ public class Installer {
 		   
 		    if (scheapp.contains(s)) {
 		        scheapp.remove(s);
-		        System.out.println("Appointment deleted successfully.");
+		        logger.info("Appointment deleted successfully.");
 		    } else {
-		        System.out.println("Appointment not found at this date and time.");
+		    	logger.info("Appointment not found at this date and time.");
 		    }
 		}
 
@@ -247,9 +255,9 @@ public class Installer {
 		    if (scheapp.contains(sOld)) {
 		        scheapp.remove(sOld);
 		        scheapp.add(sNew);
-		        System.out.println("Appointment updated successfully.");
+		        logger.info("Appointment updated successfully.");
 		    } else {
-		        System.out.println("Appointment not found at the old date and time.");
+		    	logger.info("Appointment not found at the old date and time.");
 		    }
 		}
 		 public int checkPhone(String num)
