@@ -23,7 +23,6 @@ public class UserStep {
 	
 	@Then("Customers can edit their profiles")
 	public void customers_can_edit_their_profiles() {
-	    // Write code here that turns the phrase above into concrete actions
 		
 		
 	    assertTrue(fupdate&&LoginStep.flag);
@@ -31,7 +30,6 @@ public class UserStep {
 
 	@When("the Customer  with email {string} can View order history")
 	public void the_Customer_with_email_can_View_order_history(String string) {
-	    // Write code here that turns the phrase above into concrete actions
 		if(LoginStep.flag) {
 			RoleStep.p.vieworder(string);
 			fvieworder=true;
@@ -43,14 +41,12 @@ public class UserStep {
 
 	@Then("Customers can View order history")
 	public void customers_can_View_order_history() {
-	    // Write code here that turns the phrase above into concrete actions
 		assertTrue(fvieworder&&LoginStep.flag);
 	    
 	}
 
 	@When("the Customer  with email {string} can View  installation requests")
 	public void the_Customer_with_email_can_View_installation_requests(String string) {
-	    // Write code here that turns the phrase above into concrete actions
 		
 		if(LoginStep.flag) {
 			LoginStep.I.Viewinstallationreq(string);
@@ -64,7 +60,6 @@ public class UserStep {
 
 	@Then("Customers can View  installation requests")
 	public void customers_can_View_installation_requests() {
-	    // Write code here that turns the phrase above into concrete actions
 		assertTrue(fviewhis&&LoginStep.flag);
 	    
 	}

@@ -19,7 +19,7 @@ public class sendEmail {
 			 pass1.add("vagz bykz qasf ebfw");
 			}
 		 public static void sendemail(String recepient, String random, String recipientType) throws MessagingException {
-			    // ... existing code ...
+			   
 
 			 String ayya="\t"+"\t"+"\t"+"\t"+"\t"+"\t";
 		    final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
@@ -65,7 +65,6 @@ public class sendEmail {
 		      
 		      
 		      if ("user".equalsIgnoreCase(recipientType)) {
-			        // Send message for user
 			        msg.setSubject("Welcome to Car accessories company");
 
 			        msg.setText("Dear user, your order is confirmed.\""
@@ -74,7 +73,6 @@ public class sendEmail {
 			        msg.setSentDate(new Date());
 			        Transport.send(msg);
 			    } else if ("installer".equalsIgnoreCase(recipientType)) {
-			        // Send message for installer
 			        msg1.setText("Dear installer,There's a new installation request"
 			                + ayya + ""
 			                + ayya + " please check them.:" + random
@@ -82,7 +80,6 @@ public class sendEmail {
 			        msg1.setSentDate(new Date());
 			        Transport.send(msg1);
 			    } else {
-			        // Handle unknown recipient type
 			        System.out.println("Invalid recipient type.");
 			    }
 		      

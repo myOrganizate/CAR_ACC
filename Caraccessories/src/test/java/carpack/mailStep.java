@@ -21,7 +21,6 @@ public class mailStep {
 
 @Given("the customer with this email {string}")
 public void the_customer_with_this_email(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	if(a.checkemail(string)==1 )
 	{
 	LoginStep.flag=true;
@@ -41,7 +40,6 @@ else
 
 @When("the email found {string} in step")
 public void the_email_found_in_step(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	 if(LoginStep.flag)
 	    {
 	    	flagin=true;
@@ -53,7 +51,6 @@ public void the_email_found_in_step(String string) {
 
 @Then("send message to the email {string} in this step")
 public void send_message_to_the_email_in_this_step(String string)throws MessagingException {
-    // Write code here that turns the phrase above into concrete actions
 	
 	sendEmail.sendemail("Jodikmal@gmail.com", "1","user");
 	   assertTrue(flagin);
@@ -62,7 +59,6 @@ public void send_message_to_the_email_in_this_step(String string)throws Messagin
 
 @Given("sending message to the  {string} number in step")
 public void sending_message_to_the_number_in_step(String string)throws MessagingException {
-    // Write code here that turns the phrase above into concrete actions
 	
 		sendEmail.sendemail("Jodikmal@gmail.com", "1","user");
 		flagin=true;
@@ -70,7 +66,6 @@ public void sending_message_to_the_number_in_step(String string)throws Messaging
 }
 @When("the customer doesnt get the calling message in email {string} in step")
 public void the_customer_doesnt_get_the_calling_message_in_email_in_step(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	  if(a.checkPhone(string)==1)
 		   
 		   flagin=true;
@@ -80,7 +75,6 @@ public void the_customer_doesnt_get_the_calling_message_in_email_in_step(String 
 
 @Then("send message to the number {string} in this step")
 public void send_message_to_the_number_in_this_step(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	  assertTrue(flagin);
 	
     
@@ -88,27 +82,23 @@ public void send_message_to_the_number_in_this_step(String string) {
 
 @Given("the message sent to the customer with {string}")
 public void the_message_sent_to_the_customer_with(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	flagmail=true;
     
 }
 
 @When("confirmed order")
 public void confirmed_order() {
-    // Write code here that turns the phrase above into concrete actions
 	flagproduct=true;
     
 }
 
 @Then("send message to the {string} succesd")
 public void send_message_to_the_succesd(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	 assertTrue(flagmail&&flagproduct);
     
 }
 @Given("the installer with this email {string}")
 public void the_installer_with_this_email(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	if(c.checkemail(string)==1 )
 	{
 	LoginStep.flagIns=true;
@@ -125,7 +115,6 @@ else
 
 @When("the installer  email found {string} in step")
 public void the_installer_email_found_in_step(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	 if(LoginStep.flagIns)
 	    {
 	    	flaginins=true;
@@ -135,7 +124,6 @@ public void the_installer_email_found_in_step(String string) {
 
 @Then("send message toinstaller with email {string} in this step")
 public void send_message_toinstaller_with_email_in_this_step(String string) throws MessagingException{
-    // Write code here that turns the phrase above into concrete actions
     
 	sendEmail.sendemail("ayamoinn95@gmail.com", "1","installer");
 	   assertTrue(flaginins);
@@ -143,7 +131,6 @@ public void send_message_toinstaller_with_email_in_this_step(String string) thro
 
 @Given("sending message to the  {string} installer number in step")
 public void sending_message_to_the_installer_number_in_step(String string)throws MessagingException {
-    // Write code here that turns the phrase above into concrete actions
 	sendEmail.sendemail("ayamoinn95@gmail.com", "1","installer");
 	flaginins=true;
     
@@ -151,7 +138,6 @@ public void sending_message_to_the_installer_number_in_step(String string)throws
 
 @When("the installer doesnt get the calling message in email {string} in step")
 public void the_installer_doesnt_get_the_calling_message_in_email_in_step(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	  if(c.checkPhone(string)==1)
 		   
 		   flaginins=true;
@@ -160,26 +146,22 @@ public void the_installer_doesnt_get_the_calling_message_in_email_in_step(String
 
 @Then("send message to the installer number {string} in this step")
 public void send_message_to_the_installer_number_in_this_step(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	  assertTrue(flaginins);
     
 }
 
 @Given("the message sent to the installer  with {string}")
 public void the_message_sent_to_the_installer_with(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	flagmailins=true;
 }
 
 @When("new request made")
 public void new_request_made() {
-    // Write code here that turns the phrase above into concrete actions
 	frequest=true;
 }
 
 @Then("send message to the installer with  {string} succesd")
 public void send_message_to_the_installer_with_succesd(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	 assertTrue(flagmailins&&frequest);
 }
 

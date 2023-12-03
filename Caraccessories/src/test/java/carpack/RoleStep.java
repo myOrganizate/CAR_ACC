@@ -121,7 +121,6 @@ public class RoleStep {
 
 @Given("the admin is login with email {string} and password {string}")
 public void the_admin_is_login_with_email_and_password(String string, String string2) {
-    // Write code here that turns the phrase above into concrete actions
 	
 	if(string.equals("lujain@gmail.com")) {
 		LoginStep.is_admin=true;
@@ -139,7 +138,6 @@ public void the_admin_is_login_with_email_and_password(String string, String str
 
 @When("the admin adds an Interior product with id {string}, name {string}, price {string}, availability {string}, category {string}, and image {string}")
 public void the_admin_adds_an_Interior_product_with_id_name_price_availability_category_and_image(String string, String string2, String string3, String string4, String string5, String string6) {
-    // Write code here that turns the phrase above into concrete actions
 	
 	if(LoginStep.flagadmin) {
 	faddInterior=true;
@@ -150,7 +148,6 @@ public void the_admin_adds_an_Interior_product_with_id_name_price_availability_c
 
 @Then("the admin successfully adds the Interior product")
 public void the_admin_successfully_adds_the_Interior_product() {
-    // Write code here that turns the phrase above into concrete actions
 	assertTrue(faddInterior&&LoginStep.flagadmin);
 	
 }
@@ -159,7 +156,6 @@ public void the_admin_successfully_adds_the_Interior_product() {
 
 @When("the admin adds an Exterior product with id {string}, name {string}, price {string}, availability {string}, category {string}, and image {string}")
 public void the_admin_adds_an_Exterior_product_with_id_name_price_availability_category_and_image(String string, String string2, String string3, String string4, String string5, String string6) {
-    // Write code here that turns the phrase above into concrete actions
 	
 	if(LoginStep.flagadmin) {
 	faddExterior=true;
@@ -169,7 +165,6 @@ public void the_admin_adds_an_Exterior_product_with_id_name_price_availability_c
 
 @Then("the admin successfully adds the Exterior product")
 public void the_admin_successfully_adds_the_Exterior_product() {
-    // Write code here that turns the phrase above into concrete actions
 	assertTrue(faddExterior&&LoginStep.flagadmin);
     
 }
@@ -178,7 +173,6 @@ public void the_admin_successfully_adds_the_Exterior_product() {
 
 @When("the admin adds an Electronic product with id {string}, name {string}, price {string}, availability {string}, category {string}, and image {string}")
 public void the_admin_adds_an_Electronic_product_with_id_name_price_availability_category_and_image(String string, String string2, String string3, String string4, String string5, String string6) {
-    // Write code here that turns the phrase above into concrete actions
 
 	if(LoginStep.flagadmin) {
 	faddElec=true;
@@ -188,7 +182,6 @@ public void the_admin_adds_an_Electronic_product_with_id_name_price_availability
 
 @Then("the admin successfully adds the Electronic product")
 public void the_admin_successfully_adds_the_Electronic_product() {
-    // Write code here that turns the phrase above into concrete actions
     
 	assertTrue(faddElec&&LoginStep.flagadmin);
 	
@@ -198,7 +191,6 @@ public void the_admin_successfully_adds_the_Electronic_product() {
 
 @When("the admin creates a Customer with email {string}, password {string}, phone {string}, name {string}, address {string}, and age {string}")
 public void the_admin_creates_a_Customer_with_email_password_phone_name_address_and_age(String string, String string2, String string3, String string4, String string5, String string6) {
-    // Write code here that turns the phrase above into concrete actions
 	
 	
 	if(LoginStep.flagadmin) {
@@ -209,7 +201,6 @@ public void the_admin_creates_a_Customer_with_email_password_phone_name_address_
 
 @Then("the admin successfully creates the Customer")
 public void the_admin_successfully_creates_the_Customer() {
-    // Write code here that turns the phrase above into concrete actions
 	assertTrue(faddcus&&LoginStep.flagadmin);
 	
    
@@ -222,7 +213,6 @@ public void the_admin_successfully_creates_the_Customer() {
 
 @When("the admin updates the Customer with email {string} by changing phone to {string} ,name to {string}, address to {string}, and age to {string}")
 public void the_admin_updates_the_Customer_with_email_by_changing_phone_to_name_to_address_to_and_age_to(String string, String string2, String string3, String string4, String string5) {
-    // Write code here that turns the phrase above into concrete actions
    
 	if(LoginStep.flagadmin) {
 		faupdus=true;
@@ -239,7 +229,6 @@ public void the_admin_updates_the_Customer_with_email_by_changing_phone_to_name_
 
 @Then("the admin successfully updates the Customer")
 public void the_admin_successfully_updates_the_Customer() {
-    // Write code here that turns the phrase above into concrete actions
 	assertTrue(faupdus&&LoginStep.flagadmin);
     
 }
@@ -247,7 +236,6 @@ public void the_admin_successfully_updates_the_Customer() {
 
 @When("the admin deletes the Customer with email {string}")
 public void the_admin_deletes_the_Customer_with_email(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	if(LoginStep.flagadmin) {
 		fdelcus=true;
 		LoginStep.U.deleteCustomer(string);
@@ -261,14 +249,12 @@ public void the_admin_deletes_the_Customer_with_email(String string) {
 
 @Then("the admin successfully deletes the Customer")
 public void the_admin_successfully_deletes_the_Customer() {
-    // Write code here that turns the phrase above into concrete actions
 	assertTrue(fdelcus&&LoginStep.flagadmin);
    
 }
 
 @Given("the Customer is login with email {string} and password {string}")
 public void the_Customer_is_login_with_email_and_password(String string, String string2) {
-    // Write code here that turns the phrase above into concrete actions
 	
 	
 
@@ -302,7 +288,6 @@ public void the_Customer_is_login_with_email_and_password(String string, String 
 
 @When("the Customer browses products")
 public void the_Customer_browses_products() {
-    // Write code here that turns the phrase above into concrete actions
 	
 	if(LoginStep.flag) {
 	p.printProduct();
@@ -314,7 +299,6 @@ public void the_Customer_browses_products() {
 
 @Then("the Customer successfully browses products")
 public void the_Customer_successfully_browses_products() {
-    // Write code here that turns the phrase above into concrete actions
 	
 	assertTrue(fbrowpro&&LoginStep.flag);
     
@@ -323,7 +307,6 @@ public void the_Customer_successfully_browses_products() {
 
 @When("the Customer  with email {string} makes a purchase for product with id {string}")
 public void the_Customer_with_email_makes_a_purchase_for_product_with_id(String string, String string2) {
-    // Write code here that turns the phrase above into concrete actions
     
 	if(LoginStep.flag) {
 		p.order(string2, string);
@@ -343,7 +326,6 @@ public void the_Customer_successfully_makes_a_purchase() {
 }
 @When("the Customer  with email {string} can views orders")
 public void the_Customer_with_email_can_views_orders(String string) {
-    // Write code here that turns the phrase above into concrete actions
 	  
 		if(LoginStep.flag) {
 			p.vieworder(string);
@@ -359,14 +341,12 @@ public void the_Customer_with_email_can_views_orders(String string) {
 
 @Then("the Customer successfully views orders")
 public void the_Customer_successfully_views_orders() {
-    // Write code here that turns the phrase above into concrete actions
 	assertTrue(fvieworder&&LoginStep.flag);
    
 }
 
 @Given("the Installer is login with email {string} and password {string}")
 public void the_Installer_is_login_with_email_and_password(String string, String string2) {
-    // Write code here that turns the phrase above into concrete actions
 	
 	
 	if( LoginStep.I.checkpass(string2)==1 && LoginStep.I.checkemail(string)==1 ) {
@@ -380,7 +360,6 @@ public void the_Installer_is_login_with_email_and_password(String string, String
 
 @When("the Installer views installation requests")
 public void the_Installer_views_installation_requests() {
-    // Write code here that turns the phrase above into concrete actions
 	if(LoginStep.flagIns) {
 	fins=true;
 	LoginStep.I.Viewinstallationreq();
@@ -391,7 +370,6 @@ public void the_Installer_views_installation_requests() {
 
 @Then("the Installer successfully views installation requests")
 public void the_Installer_successfully_views_installation_requests() {
-    // Write code here that turns the phrase above into concrete actions
 	assertTrue(fins&&LoginStep.flagIns);
 	
 }
@@ -400,7 +378,6 @@ public void the_Installer_successfully_views_installation_requests() {
 
 @When("the Installer schedules an appointment with date {string}, time {string}")
 public void the_Installer_schedules_an_appointment_with_date_time(String string, String string2) {
-    // Write code here that turns the phrase above into concrete actions
 	if(LoginStep.flagIns) {
 		fapp=true;
 		LoginStep.I.scheduleapp(string, string2);
@@ -413,7 +390,6 @@ public void the_Installer_schedules_an_appointment_with_date_time(String string,
 
 @Then("the Installer successfully schedules an appointment")
 public void the_Installer_successfully_schedules_an_appointment() {
-    // Write code here that turns the phrase above into concrete actions
 	assertTrue(fapp&&LoginStep.flagIns);
 }
 
