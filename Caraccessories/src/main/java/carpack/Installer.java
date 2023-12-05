@@ -1,9 +1,13 @@
 package carpack;
 
 
+
 import java.util.ArrayList;
 import java.util.logging.Logger;
 import java.util.List;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Installer {
 	
@@ -154,7 +158,7 @@ public class Installer {
 		
 		
 		
-		public  void viewInstallationReq(String email) {
+		public  void viewInstallationRequestsByEmail(String email) {
 		    boolean found = false;
 		    for (String installation : appo) {
 		        if (installation.contains("for customer: " + email)) {
@@ -174,14 +178,22 @@ public class Installer {
 				 
 				 
 				
-				    if (installerList.get(i).getemail().equals(email)) {
-				    	
-				   logger.info("Installer Profile:");
-				   logger.info("Email: " + email);
-				   logger.info("Password: " + installerList.get(i).passs);
-				   logger.info("Phone: " + installerList.get(i).phone);
-				   logger.info("Name: " + installerList.get(i).name);
-				   logger.info("Address: " + installerList.get(i).address);
+				 if (installerList.get(i).getemail().equals(email)) {
+					    String profileInfo = String.format("Installer Profile:%n" +
+					            "Email: %s%n" +
+					            "Password: %s%n" +
+					            "Phone: %s%n" +
+					            "Name: %s%n" +
+					            "Address: %s%n",
+					            installerList.get(i).getemail(),
+					            installerList.get(i).getPass(),
+					            installerList.get(i).phone,
+					            installerList.get(i).name,
+					            installerList.get(i).address);
+
+					    if (logger.isLoggable(Level.INFO)) {
+					        logger.info(profileInfo);
+					    }
 			
 			    y= true;
 			    
