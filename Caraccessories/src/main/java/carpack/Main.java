@@ -33,6 +33,25 @@ public class Main {
 	    private static final String NO_PRODUCTS_FOUND_MESSAGE = "No products found ";
 	    private static final String MAX_PRICE_PROMPT = "Enter max price range:";
 	    private static final String MIN_PRICE_PROMPT = "Enter min price range:";
+	    private static final String ELECTRONIC_LABEL = "Electronic";
+	    private static final String INTERIOR_LABEL = "Interior";
+	    private static final String EXTERIOR_LABEL = "Exterior";
+	    private static final String PRODUCT_FORMAT = "Product : %s %s %s %s %s%n";
+	    private static final String TIME_LABEL = "time:";
+	    private static final String FOR_CUSTOMER_LABEL = " for customer: ";
+	    private static final String DATE_LABEL = "date: ";
+	    private static final String DETAIL_LABEL = " detail: ";
+	   
+
+
+
+
+
+
+
+
+
+
 	    
 	   
 
@@ -208,13 +227,13 @@ public class Main {
 	                           
 	                            products.add(p); 
 
-	                            if ("Exterior".equals(Catttt)) {
+	                            if (EXTERIOR_LABEL.equals(Catttt)) {
 	                                productsExterior.add(p); 
 	                            }
-	                            if ("Interior".equals(Catttt)) {
+	                            if (INTERIOR_LABEL.equals(Catttt)) {
 	                                productsInterior.add(p); 
 	                            }
-	                            if ("Electronic".equals(Catttt)) {
+	                            if (ELECTRONIC_LABEL.equals(Catttt)) {
 	                                productsElectronic.add(p); 
 	                            }
 	                            
@@ -274,18 +293,18 @@ public class Main {
 		            		            }
 		                       
 
-		                        if ("Exterior".equals(Categoriee)) {
+		                        if (EXTERIOR_LABEL.equals(Categoriee)) {
 		                            productsExterior.add(p);
-		                        } else if ("Interior".equals(Categoriee)) {
+		                        } else if (INTERIOR_LABEL.equals(Categoriee)) {
 		                            productsInterior.add(p);
-		                        } else if ("Electronic".equals(Categoriee)) {
+		                        } else if (ELECTRONIC_LABEL.equals(Categoriee)) {
 		                            productsElectronic.add(p);
 		                        }
 		                        break;
 		                        
 		                    case 9:
 		                        for (int i = 0; i < productsExterior.size(); i++) {
-		                            String logMessage = String.format("Product : %s %s %s %s %s%n",
+		                            String logMessage = String.format(PRODUCT_FORMAT ,
 		                                    productsExterior.get(i).id,
 		                                    productsExterior.get(i).description,
 		                                    productsExterior.get(i).prices,
@@ -307,7 +326,7 @@ public class Main {
 			                        logger.info("Enter availability of Exterior Product you need to add: ");
 			                        String availabilityex = scc.next();
 			                      
-			                        String Catex ="Exterior";
+			                        String Catex =EXTERIOR_LABEL;
 			                        logger.info("Enter image of  Exterior Product you need to add: ");
 			                        String imagex = scc.next();
 			                       
@@ -318,13 +337,13 @@ public class Main {
 		                           
 		                            products.add(p); 
 
-		                            if ("Exterior".equals(Catex)) {
+		                            if (EXTERIOR_LABEL.equals(Catex)) {
 		                                productsExterior.add(p); 
 		                            }
-		                            if ("Interior".equals(Catex)) {
+		                            if (INTERIOR_LABEL.equals(Catex)) {
 		                                productsInterior.add(p); 
 		                            }
-		                            if ("Electronic".equals(Catex)) {
+		                            if (ELECTRONIC_LABEL.equals(Catex)) {
 		                                productsElectronic.add(p); 
 		                            }
 		                            
@@ -393,11 +412,11 @@ public class Main {
 		                    	}
 
 		                    	
-		                    	if ("Exterior".equals(Categorieeex)) {
+		                    	if (EXTERIOR_LABEL.equals(Categorieeex)) {
 		                    	    productsExterior.add(new product(idddex, descriptionnex, priceeex, availabex, Categorieeex, imageex));
-		                    	} else if ("Interior".equals(Categorieeex)) {
+		                    	} else if (INTERIOR_LABEL.equals(Categorieeex)) {
 		                    	    productsInterior.add(new product(idddex, descriptionnex, priceeex, availabex, Categorieeex, imageex));
-		                    	} else if ("Electronic".equals(Categorieeex)) {
+		                    	} else if (ELECTRONIC_LABEL.equals(Categorieeex)) {
 		                    	    productsElectronic.add(new product(idddex, descriptionnex, priceeex, availabex, Categorieeex, imageex));
 		                    	}
 	            		                
@@ -410,7 +429,7 @@ public class Main {
 		                    	
 		                    case 13:
 		                        for (int i = 0; i < productsInterior.size(); i++) {
-		                            String logMessage = String.format("Product : %s %s %s %s %s%n",
+		                            String logMessage = String.format(PRODUCT_FORMAT ,
 		                                    productsInterior.get(i).id,
 		                                    productsInterior.get(i).description,
 		                                    productsInterior.get(i).prices,
@@ -436,7 +455,7 @@ public class Main {
 		                        logger.info("Enter availability of Interiorr Product you need to add: ");
 		                        String availabilityin = scc.next();
 		                      
-		                        String Catin ="Interior";
+		                        String Catin =INTERIOR_LABEL;
 		                        logger.info("Enter image of  Interior Product you need to add: ");
 		                        String imagin = scc.next();
 		                       
@@ -447,13 +466,13 @@ public class Main {
 	                           
 	                            products.add(p); 
 
-	                            if ("Exterior".equals(Catin)) {
+	                            if (EXTERIOR_LABEL.equals(Catin)) {
 	                                productsExterior.add(p);
 	                            }
-	                            if ("Interior".equals(Catin)) {
+	                            if (INTERIOR_LABEL.equals(Catin)) {
 	                                productsInterior.add(p); 
 	                            }
-	                            if ("Electronic".equals(Catin)) {
+	                            if (ELECTRONIC_LABEL.equals(Catin)) {
 	                                productsElectronic.add(p); 
 	                            }
 	                            
@@ -526,11 +545,11 @@ public class Main {
 			                       
 
 			                        
-			                        if ("Exterior".equals(Categorieeen)) {
+			                        if (EXTERIOR_LABEL.equals(Categorieeen)) {
 			                            productsExterior.add(p);
-			                        } else if ("Interior".equals(Categorieeen)) {
+			                        } else if (INTERIOR_LABEL.equals(Categorieeen)) {
 			                            productsInterior.add(p);
-			                        } else if ("Electronic".equals(Categorieeen)) {
+			                        } else if (ELECTRONIC_LABEL.equals(Categorieeen)) {
 			                            productsElectronic.add(p);
 			                        }
 	            		                
@@ -542,7 +561,7 @@ public class Main {
 		                    	
 		                    case 17:
 		                        for (int i = 0; i < productsElectronic.size(); i++) {
-		                            String logMessage = String.format("Product : %s %s %s %s %s%n",
+		                            String logMessage = String.format(PRODUCT_FORMAT ,
 		                                    productsElectronic.get(i).id,
 		                                    productsElectronic.get(i).description,
 		                                    productsElectronic.get(i).prices,
@@ -563,7 +582,7 @@ public class Main {
 			                        logger.info("Enter availability of Electronic Product you need to add: ");
 			                        String availabilityelec = scc.next();
 			                      
-			                        String Catelec ="Electronic";
+			                        String Catelec =ELECTRONIC_LABEL;
 			                        logger.info("Enter image of  Electronic Product you need to add: ");
 			                        String imagelec = scc.next();
 			                       
@@ -574,13 +593,13 @@ public class Main {
 		                           
 		                            products.add(p); 
 
-		                            if ("Exterior".equals(Catelec)) {
+		                            if (EXTERIOR_LABEL.equals(Catelec)) {
 		                                productsExterior.add(p); 
 		                            }
-		                            if ("Interior".equals(Catelec)) {
+		                            if (INTERIOR_LABEL.equals(Catelec)) {
 		                                productsInterior.add(p); 
 		                            }
-		                            if ("Electronic".equals(Catelec)) {
+		                            if (ELECTRONIC_LABEL.equals(Catelec)) {
 		                                productsElectronic.add(p); 
 		                            }
 		                            
@@ -660,11 +679,11 @@ public class Main {
 		                       
 
 		                      
-		                        if ("Exterior".equals(Categorieeel)) {
+		                        if (EXTERIOR_LABEL.equals(Categorieeel)) {
 		                            productsExterior.add(p);
-		                        } else if ("Interior".equals(Categorieeel)) {
+		                        } else if (INTERIOR_LABEL.equals(Categorieeel)) {
 		                            productsInterior.add(p);
-		                        } else if ("Electronic".equals(Categorieeel)) {
+		                        } else if (ELECTRONIC_LABEL.equals(Categorieeel)) {
 		                            productsElectronic.add(p);
 		                        }
             		                
@@ -712,8 +731,8 @@ public class Main {
 		                        String newDetail = scc.next();
 
 		                      
-		                        String oldAppointment = "date: " + oldDate + " time: " + oldTime + " detail: " + oldDetail + " for customer: " + emailUpdate;
-		                        String newAppointment = "date: " + newDate + " time: " + newTime + " detail: " + newDetail + " for customer: " + emailUpdate;
+		                        String oldAppointment = DATE_LABEL + oldDate + TIME_LABEL + oldTime + DETAIL_LABEL + oldDetail + FOR_CUSTOMER_LABEL + emailUpdate;
+		                        String newAppointment = DATE_LABEL + newDate + TIME_LABEL + newTime + DETAIL_LABEL + newDetail + FOR_CUSTOMER_LABEL + emailUpdate;
 
 		                      
 		                        Installer.updateappointment(emailUpdate, oldDate, oldTime, oldDetail, newDate, newTime, newDetail);
@@ -741,7 +760,7 @@ public class Main {
 		                        String detailToDelete = scc.next();
 
 		            
-		                        String appointmentToDelete = "date: " + dateToDelete + " time: " + timeToDelete + " detail: " + detailToDelete + " for customer: " + emailDelete;
+		                        String appointmentToDelete = DATE_LABEL + dateToDelete + TIME_LABEL + timeToDelete + DETAIL_LABEL + detailToDelete + FOR_CUSTOMER_LABEL + emailDelete;
 
 		                        if (appoin.contains(appointmentToDelete)) {
 		                            appoin.remove(appointmentToDelete);
@@ -1280,7 +1299,7 @@ public class Main {
 
 	                                    logger.info("Your Installation Services : ");
 	                                    for (String installation : appoin) {
-	                                        if (installation.contains("for customer: " + emails)) {
+	                                        if (installation.contains(FOR_CUSTOMER_LABEL + emails)) {
 	                                            logger.info(installation+ "\n");
 	                                            found = true;
 	                                        }
@@ -1584,6 +1603,9 @@ public class Main {
 	                            		    }
 	                            		}
 	                            	  break;
+	                              default:
+	  	                            logger.info("Welcome "+ "\n");
+	  	                            break;
 	                                		
 	                                		
 	                                		

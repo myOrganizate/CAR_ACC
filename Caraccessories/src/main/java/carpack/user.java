@@ -14,13 +14,12 @@ public class user {
 
 		
 	static 	boolean y;
-		 String name;
-		  String address; 
-		  String age;
-		  String phone;
+		
+		
 		  String app;
 		  private static final String DEFAULT_PASSWORD = "useruser";
 		  private static final String DEFAULT_EMAIL = "Jodikmal@gmail.com";
+		  
 
 
 		
@@ -34,9 +33,15 @@ public class user {
 		 static List<user> useru = new ArrayList<user>();
 		 static List<product> order =new ArrayList<product>();
 		 
+		
 		 
-		 private  static String emaill;
-			private static  String passs;
+		 String name;
+		     String address;
+		    private String emaill; // Assuming a typo, perhaps you meant 'email'
+		    private String passs;
+		     String phone;
+		     String age;
+			
 		
 
 			
@@ -118,6 +123,10 @@ public class user {
 			}
 			public void setPass(String pass) {
 				this.passs = pass;
+			
+			}
+			public void setName(String name) {
+				this.name = name;
 			
 			}
 		    
