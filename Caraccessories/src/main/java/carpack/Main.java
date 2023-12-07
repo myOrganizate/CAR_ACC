@@ -41,6 +41,10 @@ public class Main {
 	    private static final String FOR_CUSTOMER_LABEL = " for customer: ";
 	    private static final String DATE_LABEL = "date: ";
 	    private static final String DETAIL_LABEL = " detail: ";
+	    private static final String PRODUCT_LABEL = "Product : ";
+	   
+
+
 	   
 
 
@@ -193,7 +197,7 @@ public class Main {
 		                        	logger.info("No products available.");
 		                        } else {
 		                            for (int i = 0; i < products.size(); i++) {
-		                                String a = "Product : " + products.get(i).id + " " + products.get(i).description + " " + products.get(i).prices + " " +
+		                                String a = PRODUCT_LABEL + products.get(i).id + " " + products.get(i).description + " " + products.get(i).prices + " " +
 		                                           products.get(i).availability + " " + products.get(i).Categories;
 		                                logger.info(a);
 		                            }
@@ -1082,7 +1086,7 @@ public class Main {
 	   		                            logger.info("No products available."+ "\n");
 	   		                        } else {
 	   		                            for (int i = 0; i < products.size(); i++) {
-	   		                                String a = "Product : " + products.get(i).id + " " + products.get(i).description + " " + products.get(i).prices + " " +
+	   		                                String a = PRODUCT_LABEL + products.get(i).id + " " + products.get(i).description + " " + products.get(i).prices + " " +
 	   		                                           products.get(i).availability + " " + products.get(i).Categories;
 	   		                                logger.info(a+ "\n");
 	   		                            }
@@ -1185,12 +1189,18 @@ public class Main {
 
 	                                    if (conf.equals("yes")) {
 	                                    	
-	                                        try {
-	                                        	
-	                                           sendEmail.sendemail("Jodikmal@gmail.com", "1", "user");
-	                                        } catch (MessagingException e) {
-	                                            e.printStackTrace();
-	                                        }
+
+	                                    	try {
+	                                    	    sendEmail.sendemail("Jodikmal@gmail.com", "1", "user");
+	                                    	} catch (MessagingException e) {
+	                                    	    if (isDebugModeEnabled()) {
+	                                    	        e.printStackTrace();
+	                                    	    } else {
+	                                    	        System.err.println("Error sending email: " + e.getMessage());
+	                                    	    }
+	                                    	}
+	                                    	
+	                                    	
 	                                    	 logger.info("Your purchases price: " + Totalprofit+ "\n");
 	                                    	 logger.info("Total number of products bought: " + buycount+ "\n");
 	                                    }
@@ -1272,11 +1282,14 @@ public class Main {
 	                                                appoin.add(Installer.appointment(datepr, timepr, decpr, em));
 	                                              
 	                                                try {
-														sendEmail.sendemail("ayamoinn95@gmail.com", "1","installer");
-													} catch (MessagingException e) {
-													
-														e.printStackTrace();
-													}
+	                                                    sendEmail.sendemail("ayamoinn95@gmail.com", "1", "installer");
+	                                                } catch (MessagingException e) {
+	                                                    if (isDebugModeEnabled()) {
+	                                                        e.printStackTrace();
+	                                                    } else {
+	                                                        System.err.println("Error sending email: " + e.getMessage());
+	                                                    }
+	                                                }
 	                                                
 	                                                
 	                                                break; 
@@ -1383,7 +1396,7 @@ public class Main {
 	                            	   logger.info(MIN_PRICE_PROMPT );
 	                            	    String min = scc.next();
 	                             
-	                            	    logger.info("MAX_PRICE_PROMPT");
+	                            	    logger.info(MAX_PRICE_PROMPT);
 	                            	    String max = scc.next();
 	                            	 
 	                            	    
@@ -1416,7 +1429,7 @@ public class Main {
 	                            	  logger.info(MIN_PRICE_PROMPT );
 	                            	    String minn = scc.next();
 	                             
-	                            	    logger.info("MAX_PRICE_PROMPT");
+	                            	    logger.info(MAX_PRICE_PROMPT);
 	                            	    String maxx = scc.next();
 	                            	    logger.info("Enter Category:");
 	                            	    String cat= scc.next();
@@ -1427,7 +1440,7 @@ public class Main {
 	                            	    List<product> filteredProductpriceandcat= product.filterProductcatprice(cat, minn, maxx);
 
 	                            	    if (filteredProductpriceandcat.isEmpty()) {
-	                            	        logger.info("NO_PRODUCTS_FOUND_MESSAGE"+ "\n");
+	                            	        logger.info(NO_PRODUCTS_FOUND_MESSAGE+ "\n");
 	                            	    } else {
 	                            	        logger.info(FILTERED_PRODUCTS_LABEL+ "\n");
 	                            	        for (product filteredProduct : filteredProductpriceandcat) {
@@ -1459,7 +1472,7 @@ public class Main {
 	                            	  logger.info(MIN_PRICE_PROMPT );
 	                            	    String minnn = scc.next();
 	                             
-	                            	    logger.info("MAX_PRICE_PROMPT");
+	                            	    logger.info(MAX_PRICE_PROMPT);
 	                            	    String maxxx = scc.next();
 	                            	    logger.info("Enter product name:");
 	                            	    String namee= scc.next();
@@ -1470,7 +1483,7 @@ public class Main {
 	                            	    List<product> filteredProductpriceandname= product.filterProductnameprice(namee, minnn, maxxx);
 
 	                            	    if (filteredProductpriceandname.isEmpty()) {
-	                            	        logger.info("NO_PRODUCTS_FOUND_MESSAGE "+ "\n");
+	                            	        logger.info(NO_PRODUCTS_FOUND_MESSAGE+ "\n");
 	                            	    } else {
 	                            	        logger.info(FILTERED_PRODUCTS_LABEL+ "\n");
 	                            	        for (product filteredProduct : filteredProductpriceandname) {
@@ -1489,7 +1502,7 @@ public class Main {
 	                             	  logger.info(MIN_PRICE_PROMPT );
 	                            	    String minnnn = scc.next();
 	                             
-	                            	    logger.info("MAX_PRICE_PROMPT");
+	                            	    logger.info(MAX_PRICE_PROMPT);
 	                            	    String maxxxx = scc.next();
 	                            	    logger.info(AVAILABILITY_PROMPT);
 	                            	    String availablity= scc.next();
@@ -1500,7 +1513,7 @@ public class Main {
 	                            	    List<product> filteredProductpriceandavailablity= product.filterProductavaprice(availablity, minnnn, maxxxx);
 
 	                            	    if (filteredProductpriceandavailablity.isEmpty()) {
-	                            	        logger.info("NO_PRODUCTS_FOUND_MESSAGE "+ "\n");
+	                            	        logger.info(NO_PRODUCTS_FOUND_MESSAGE+ "\n");
 	                            	    } else {
 	                            	        logger.info(FILTERED_PRODUCTS_LABEL+ "\n");
 	                            	        for (product filteredProduct : filteredProductpriceandavailablity) {
@@ -1529,7 +1542,7 @@ public class Main {
 	                            	    List<product> filteredProductcatgandname= product.filterProductBycatgoryandname(catg, proname);
 
 	                            	    if (filteredProductcatgandname.isEmpty()) {
-	                            	        logger.info("NO_PRODUCTS_FOUND_MESSAGE "+ "\n");
+	                            	        logger.info(NO_PRODUCTS_FOUND_MESSAGE+ "\n");
 	                            	    } else {
 	                            	        logger.info(FILTERED_PRODUCTS_LABEL+ "\n");
 	                            	        for (product filteredProduct :filteredProductcatgandname) {
@@ -1555,7 +1568,7 @@ public class Main {
 	                            	    List<product> filteredProductavaandname= product.filterProductBynameandavay(ava, prodname);
 
 	                            	    if (filteredProductavaandname.isEmpty()) {
-	                            	        logger.info("NO_PRODUCTS_FOUND_MESSAGE "+ "\n");
+	                            	        logger.info(NO_PRODUCTS_FOUND_MESSAGE+ "\n");
 	                            	    } else {
 	                            	        logger.info(FILTERED_PRODUCTS_LABEL+ "\n");
 	                            	        for (product filteredProduct :filteredProductavaandname) {
@@ -1581,7 +1594,7 @@ public class Main {
 	                            	    List<product> filterProductBycatgoryandavay= product.filterProductBycatgoryandavay(prodcat, proava);
 
 	                            	    if (filterProductBycatgoryandavay.isEmpty()) {
-	                            	        logger.info("NO_PRODUCTS_FOUND_MESSAGE "+ "\n");
+	                            	        logger.info(NO_PRODUCTS_FOUND_MESSAGE+ "\n");
 	                            	    } else {
 	                            	        logger.info(FILTERED_PRODUCTS_LABEL+ "\n");
 	                            	        for (product filteredProduct :filterProductBycatgoryandavay) {
@@ -1834,9 +1847,6 @@ public class Main {
 	
 	
 	
-	
-	
-	
 	public static String createAccountCus() {
 	    user ff = new user();
 	    Scanner n = new Scanner(System.in);
@@ -1882,6 +1892,11 @@ public class Main {
 	    }
 
 	    return ff.getemail();
+	}
+	private static boolean isDebugModeEnabled() {
+	    String debugMode = System.getProperty("debug");
+
+	    return debugMode != null && debugMode.equalsIgnoreCase("true");
 	}
 	
 	

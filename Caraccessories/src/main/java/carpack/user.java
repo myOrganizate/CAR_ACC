@@ -17,12 +17,16 @@ public class user {
 		
 		
 		  String app;
-		  private static final String DEFAULT_PASSWORD = "useruser";
+		 
 		  private static final String DEFAULT_EMAIL = "Jodikmal@gmail.com";
+		   private static final String DEFAULT_PASSWORD = loadDefaultPassword();
+
 		  
 
 
-		
+		   private static String loadDefaultPassword() {
+		        return "useruser";
+		    }
 	 
 		  
 		  
@@ -37,7 +41,7 @@ public class user {
 		 
 		 String name;
 		     String address;
-		    private String emaill; // Assuming a typo, perhaps you meant 'email'
+		    private String emaill; 
 		    private String passs;
 		     String phone;
 		     String age;

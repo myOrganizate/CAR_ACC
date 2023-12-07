@@ -38,6 +38,7 @@ public class Installer {
 	    private static final String TIME_LABEL = " time: ";
 	    private static final String CUSTOMER_LABEL = " for customer: ";
 	    private static final Logger logger = Logger.getLogger(Installer.class.getName());
+	    
 
 
 		
