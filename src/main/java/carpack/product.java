@@ -1,6 +1,7 @@
 package carpack;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -20,7 +21,7 @@ public class product {
 		String email;
 		
 		
-		 static boolean flageorder;
+		
 		 String description;
 		 
 		 static List<product> prod =new ArrayList<product>() ;
@@ -28,12 +29,20 @@ public class product {
 		 static List<product> prodExterior =new ArrayList<product>() ;
 		 static List<product> prodElectronic =new ArrayList<product>() ;
 		 
-		 static boolean fexist;
-		 static String fint;
-		 static String fextt;
-		 static String felec;
+		
+		
 		 static List<product> order =new ArrayList<product>();
 		 private int quantity;
+		 private static final Logger logger = Logger.getLogger(Installer.class.getName());
+		 private static final String PRODUCT_PREFIX = "Product : ";
+		 private static final String ELECTRONIC_CATEGORY = "Electronic";
+		 private static final String EXTERIOR_CATEGORY = "Exterior";
+		    private static final String INTERIOR_CATEGORY = "Interior";
+
+
+		 
+
+
 		 
 	
 	
@@ -51,11 +60,11 @@ public class product {
 		       if(!prod.contains(this))
 		         prod.add(this);
 		 		
-		 		if (Categories.equals("Exterior"))
+		 		if (Categories.equals(EXTERIOR_CATEGORY))
 		 			prodExterior.add(this);
-		 		if (Categories.equals("Interior"))
+		 		if (Categories.equals(INTERIOR_CATEGORY))
 		 			prodInterior.add(this);
-		 		if (Categories.equals("Electronic"))
+		 		if (Categories.equals(ELECTRONIC_CATEGORY))
 		 			prodElectronic.add(this);	
 			
 		 }
@@ -66,17 +75,17 @@ public class product {
       this.prices="200";
          this.image="im1";
          this.availability="yes";
-         this.Categories="Electronic";
+         this.Categories=ELECTRONIC_CATEGORY;
         
        
  		if( prod.isEmpty())
          prod.add(this);
  		
- 		if (Categories.equals("Exterior"))
+ 		if (Categories.equals(EXTERIOR_CATEGORY))
  			prodExterior.add(this);
- 		if (Categories.equals("Interior"))
+ 		if (Categories.equals(INTERIOR_CATEGORY))
  			prodInterior.add(this);
- 		if (Categories.equals("Electronic"))
+ 		if (Categories.equals(ELECTRONIC_CATEGORY))
  			prodElectronic.add(this);	
 	     
 }
@@ -92,11 +101,11 @@ public class product {
 	       if(!prod.contains(this))
 	         prod.add(this);
 	 		
-	 		if (Categories.equals("Exterior"))
+	 		if (Categories.equals(EXTERIOR_CATEGORY))
 	 			prodExterior.add(this);
-	 		if (Categories.equals("Interior"))
+	 		if (Categories.equals(INTERIOR_CATEGORY))
 	 			prodInterior.add(this);
-	 		if (Categories.equals("Electronic"))
+	 		if (Categories.equals(ELECTRONIC_CATEGORY))
 	 			prodElectronic.add(this);	
 		
 		
@@ -124,11 +133,11 @@ public class product {
 			
 			
 			
-			if (Categories.equals("Exterior"))
+			if (Categories.equals(EXTERIOR_CATEGORY))
 	 			prodExterior.add(this);
-	 		if (Categories.equals("Interior"))
+	 		if (Categories.equals(INTERIOR_CATEGORY))
 	 			prodInterior.add(this);
-	 		if (Categories.equals("Electronic"))
+	 		if (Categories.equals(ELECTRONIC_CATEGORY))
 	 			prodElectronic.add(this);	
 		
 			
@@ -138,11 +147,11 @@ public class product {
 	 public void updateProduct(String idd, String description, String prices, String availability, String Categorie, String image) {
 		    for (int i = 0; i < prod.size(); i++) {
 		        if (prod.get(i).id.equals(idd)) {
-		            if ("Exterior".equals(prod.get(i).Categories)) {
+		            if (EXTERIOR_CATEGORY.equals(prod.get(i).Categories)) {
 		                prodExterior.remove(prod.get(i));
-		            } else if ("Interior".equals(prod.get(i).Categories)) {
+		            } else if (INTERIOR_CATEGORY.equals(prod.get(i).Categories)) {
 		                prodInterior.remove(prod.get(i));
-		            } else if ("Electronic".equals(prod.get(i).Categories)) {
+		            } else if (ELECTRONIC_CATEGORY.equals(prod.get(i).Categories)) {
 		                prodElectronic.remove(prod.get(i));
 		            }
 
@@ -153,11 +162,11 @@ public class product {
 		            prod.get(i).Categories = Categorie;
 		            prod.get(i).image = image;
 
-		            if ("Exterior".equals(Categorie)) {
+		            if (EXTERIOR_CATEGORY.equals(Categorie)) {
 		                prodExterior.add(prod.get(i));
-		            } else if ("Interior".equals(Categorie)) {
+		            } else if (INTERIOR_CATEGORY.equals(Categorie)) {
 		                prodInterior.add(prod.get(i));
-		            } else if ("Electronic".equals(Categorie)) {
+		            } else if (ELECTRONIC_CATEGORY.equals(Categorie)) {
 		                prodElectronic.add(prod.get(i));
 		            }
 		        }
@@ -229,7 +238,6 @@ public class product {
 		{
 			
 			 if(prod.get(i).id.equals(id)) {
-				 fexist=true;
 				return  prod.get(i);
 				
 				
@@ -261,8 +269,8 @@ public class product {
 			
 			 if(prodExterior.get(i).id.equals(id)) {
 				 
-				fextt="yes";
-				return  "Exterior";
+				
+				return  EXTERIOR_CATEGORY;
 				
 			}
 		}
@@ -270,16 +278,16 @@ public class product {
 			 
 		for(int i=0;i<prodInterior.size();i++) { 
 			 if(prodInterior.get(i).id.equals(id)) {
-				 fint="yes";	
-				 return  "Interior";
+				 
+				 return INTERIOR_CATEGORY;
 					
 				}
 			 }
 		
 		for(int i=0;i<prodElectronic.size();i++) {
 			 if(prodElectronic.get(i).id.equals(id)) {
-				 felec="yes";
-				 return "Electronic";
+				
+				 return ELECTRONIC_CATEGORY;
 				 
 					
 					
@@ -340,7 +348,7 @@ public class product {
 	
 	public static void printProduct() {
 	    for (int i = 0; i < prod.size(); i++) {
-	        String a = "Product : " + prod.get(i).id + " " + prod.get(i).description + " " + prod.get(i).prices + " " +
+	        String a = PRODUCT_PREFIX + prod.get(i).id + " " + prod.get(i).description + " " + prod.get(i).prices + " " +
 	                prod.get(i).availability + " " + prod.get(i).Categories;
 	        System.out.println(a);
 	    }
@@ -358,14 +366,14 @@ public class product {
 			 if(prod.get(i).id.equals(id)) {
 			
 			
-			a="Product : "+prod.get(i).id+" "+prod.get(i).description+" "+prod.get(i).prices+" "+
+			a=PRODUCT_PREFIX+prod.get(i).id+" "+prod.get(i).description+" "+prod.get(i).prices+" "+
 					prod.get(i).availability+" " +prod.get(i).Categories+" " +prod.get(i).image;
 			
 			 }
 			 
 		}
 		
-		 System.out.println(a);
+		logger.info(a);
 		
 		
 	}
@@ -379,23 +387,23 @@ public class product {
 	
 	public static void printProductExterior() {
 	    for (int i = 0; i < prodExterior.size(); i++) {
-	        String a = "Product : " + prodExterior.get(i).id + " " + prodExterior.get(i).description + " " + prodExterior.get(i).prices + " " +
+	        String a = PRODUCT_PREFIX + prodExterior.get(i).id + " " + prodExterior.get(i).description + " " + prodExterior.get(i).prices + " " +
 	        		prodExterior.get(i).availability + " " + prodExterior.get(i).Categories;
-	        System.out.println(a);
+	        logger.info(a);
 	    }
 	}
 	public static void printprodInterior() {
 	    for (int i = 0; i < prodInterior.size(); i++) {
-	        String a = "Product : " + prodInterior.get(i).id + " " + prodInterior.get(i).description + " " + prodInterior.get(i).prices + " " +
+	        String a = PRODUCT_PREFIX + prodInterior.get(i).id + " " + prodInterior.get(i).description + " " + prodInterior.get(i).prices + " " +
 	        		prodInterior.get(i).availability + " " + prodInterior.get(i).Categories;
-	        System.out.println(a);
+	        logger.info(a);
 	    }
 	}
 	public static void printprodElectronic() {
 	    for (int i = 0; i < prodElectronic.size(); i++) {
-	        String a = "Product : " + prodElectronic.get(i).id + " " + prodElectronic.get(i).description + " " + prodElectronic.get(i).prices + " " +
+	        String a = PRODUCT_PREFIX + prodElectronic.get(i).id + " " + prodElectronic.get(i).description + " " + prodElectronic.get(i).prices + " " +
 	        		prodElectronic.get(i).availability + " " + prodElectronic.get(i).Categories;
-	        System.out.println(a);
+	        logger.info(a);
 	    }
 	}
 	
@@ -408,7 +416,7 @@ public class product {
 	        if (orderedProduct.id.equals(id)) {
 	            orderedProduct.email = email;
 	            order.add(orderedProduct);
-	            flageorder = true; 
+	         
 	            break; 
 	        }
 	    }
@@ -417,9 +425,9 @@ public class product {
 	public static void vieworder(String customerEmail) {
 	    for (product orderedProduct : order) {
 	        if (orderedProduct.email.equals(customerEmail)) {
-	            System.out.println("Product ID: " + orderedProduct.id);
-	            System.out.println("Description: " + orderedProduct.description);
-	            System.out.println("Price: " + orderedProduct.prices);
+	        	logger.info("Product ID: " + orderedProduct.id);
+	            logger.info("Description: " + orderedProduct.description);
+	            logger.info("Price: " + orderedProduct.prices);
 	        }
 	    }
 	}
@@ -577,11 +585,11 @@ public class product {
 	}
 
  private  static List<product> getProductListByCategory(String category) {
-	    if ("interior".equalsIgnoreCase(category)) {
+	    if (INTERIOR_CATEGORY.equalsIgnoreCase(category)) {
 	        return prodInterior;
-	    } else if ("exterior".equalsIgnoreCase(category)) {
+	    } else if (EXTERIOR_CATEGORY.equalsIgnoreCase(category)) {
 	        return prodExterior;
-	    } else if ("electronic".equalsIgnoreCase(category)) {
+	    } else if (ELECTRONIC_CATEGORY.equalsIgnoreCase(category)) {
 	        return prodElectronic;
 	    } else {
 	        return new ArrayList<product>(); 

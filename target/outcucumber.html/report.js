@@ -841,7 +841,7 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the Customer with email \"Jodikmal@gmail.com\"  enter installation details with date \"2-2-2020\"  time \"2:00\"  product \"bluelight\"",
+  "name": "the Customer with email \"Jodikmal@gmail.com\"  enter installation details with date \"2-2-2020\"  time \"10:00\"  product \"bluelight\"",
   "keyword": "When "
 });
 formatter.match({

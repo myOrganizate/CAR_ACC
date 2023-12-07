@@ -1,9 +1,7 @@
 package carpack;
 
 import java.util.List;
-
-
-
+import java.util.logging.Logger;
 import java.util.ArrayList;
 import carpack.Installer;
 
@@ -11,15 +9,24 @@ import carpack.Installer;
 
 
 public class user {
+	 private static final Logger logger = Logger.getLogger(Installer.class.getName());
+
 
 		
 	static 	boolean y;
-		 String name;
-		  String address; 
-		  String age;
-		  String phone;
-		  String app;
 		
+		
+		  String app;
+		 
+		  private static final String DEFAULT_EMAIL = "Jodikmal@gmail.com";
+		   private static final String DEFAULT_PASSWORD = loadDefaultPassword();
+
+		  
+
+
+		   private static String loadDefaultPassword() {
+		        return "useruser";
+		    }
 	 
 		  
 		  
@@ -30,9 +37,15 @@ public class user {
 		 static List<user> useru = new ArrayList<user>();
 		 static List<product> order =new ArrayList<product>();
 		 
+		
 		 
-		 private  static String emaill;
-			private static  String passs;
+		 String name;
+		     String address;
+		    private String emaill; 
+		    private String passs;
+		     String phone;
+		     String age;
+			
 		
 
 			
@@ -40,13 +53,13 @@ public class user {
 				
 					this.name="jodikmal";
 					this.address="Nablus";
-					this.emaill="Jodikmal@gmail.com";
-					this.passs="useruser";
+					this.emaill=DEFAULT_EMAIL;
+					this.passs=DEFAULT_PASSWORD;
 					this.phone="059986789";
 					this.age="20";
 					
-					emailu.add("Jodikmal@gmail.com");
-					passu.add("useruser");
+					emailu.add(DEFAULT_EMAIL);
+					passu.add(DEFAULT_PASSWORD);
 					phone1.add("059986789");
 					useru.add(this);
 					
@@ -58,12 +71,12 @@ public class user {
 
 					
 					
-					if (!passu.contains("useruser"))
-						passu.add("useruser");
+					if (!passu.contains(DEFAULT_PASSWORD))
+						passu.add(DEFAULT_PASSWORD);
 					
 					
-					if (!emailu.contains("Jodikmal@gmail.com"))
-						emailu.add("Jodikmal@gmail.com");
+					if (!emailu.contains(DEFAULT_EMAIL))
+						emailu.add(DEFAULT_EMAIL);
 					
 					
 					
@@ -98,13 +111,13 @@ public class user {
 			 }
 			
 			public String getemail() {
-				if(!emailu.contains("Jodikmal@gmail.com"))
-					emailu.add("Jodikmal@gmail.com");
+				if(!emailu.contains(DEFAULT_EMAIL))
+					emailu.add(DEFAULT_EMAIL);
 				return emaill;
 			}
 			public void setemail(String email) {
-				if (!emailu.contains("Jodikmal@gmail.com"))
-    		       emailu.add("Jodikmal@gmail.com");
+				if (!emailu.contains(DEFAULT_EMAIL))
+    		       emailu.add(DEFAULT_EMAIL);
 				this.emaill = email;
 				
 
@@ -116,10 +129,14 @@ public class user {
 				this.passs = pass;
 			
 			}
+			public void setName(String name) {
+				this.name = name;
+			
+			}
 		    
 			public static  int checkpass(String p) {
-				if (!passu.contains("useruser"))
-					 passu.add("useruser");
+				if (!passu.contains(DEFAULT_PASSWORD))
+					 passu.add(DEFAULT_PASSWORD);
 				for(int i=0;i<passu.size();i++)
 				{
 					if(p.equals(passu.get(i)))
@@ -132,8 +149,8 @@ public class user {
 			
 			public static int checkemail(String e) {
 							
-							if (!emailu.contains("Jodikmal@gmail.com"))
-								 emailu.add("Jodikmal@gmail.com");
+							if (!emailu.contains(DEFAULT_EMAIL))
+								 emailu.add(DEFAULT_EMAIL);
 					
 							for(int i=0;i<emailu.size();i++)
 							{
@@ -211,14 +228,16 @@ public class user {
 				}
 				}
 			
-			public void  reqinst(String date,String time,String detail) {
-				
-				app="date:"+date+"time"+time+"detail"+detail;
-				if(!(Installer.appo.contains(app)))
-				Installer.appo.add(app);
-				
-				
+			
+			
+			public void reqinst(String date, String time, String detail) {
+			    app = "date:" + date + "time" + time + "detail" + detail;
+			    
+			    if (!(Installer.appo.contains(app))) {
+			        Installer.appo.add(app);
+			    }
 			}
+
 			
 			
 			
@@ -269,11 +288,11 @@ public class user {
 			    useru.addAll(uniqueCustomers);
 			    
 			    if (useru.isEmpty()) {
-			        System.out.println("No customers available to delete.");
+			    	logger.info("No customers available to delete.");
 			    } else {
 			    	for (user customer : useru) {
 			    	    String j = "Customer: " + "Name: " + customer.name + " Phone: " + customer.phone + " Address: " + customer.address + " Age: " + customer.age;
-			    	    System.out.println(j);
+			    	    logger.info(j);
 			    	
 			        }
 			    }
@@ -301,13 +320,13 @@ public class user {
 				if (useru.get(i).getemail().equals(email)) {
 						
 					    	
-				    System.out.println("User Profile:");
-				    System.out.println("Email: " + email);
-				    System.out.println("Password: " + useru.get(i).passs);
-				    System.out.println("Phone: " + useru.get(i).phone);
-				    System.out.println("Name: " + useru.get(i).name);
-				    System.out.println("Address: " + useru.get(i).address);
-				    System.out.println("Age: " + useru.get(i).age);
+					logger.info("User Profile:");
+					logger.info("Email: " + email);
+					logger.info("Password: " + useru.get(i).passs);
+					logger.info("Phone: " + useru.get(i).phone);
+					logger.info("Name: " + useru.get(i).name);
+					logger.info("Address: " + useru.get(i).address);
+					logger.info("Age: " + useru.get(i).age);
 				    y= true;
 				    
 					    }

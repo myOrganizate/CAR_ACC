@@ -49,7 +49,7 @@ public class UserStep {
 	public void the_Customer_with_email_can_View_installation_requests(String string) {
 		
 		if(LoginStep.flag) {
-			LoginStep.I.Viewinstallationreq(string);
+			LoginStep.I.viewInstallationRequestsByEmail(string);
 			fviewhis=true;
 			
 		}

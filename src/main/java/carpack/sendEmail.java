@@ -8,10 +8,11 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.Authenticator;
-
+import java.util.logging.Logger;
 public class sendEmail {
 	
-	
+	 private static final Logger logger = Logger.getLogger(Installer.class.getName());
+
 		
 		 static List<String> pass1 =new ArrayList<String>();
 		 
@@ -80,7 +81,7 @@ public class sendEmail {
 			        msg1.setSentDate(new Date());
 			        Transport.send(msg1);
 			    } else {
-			        System.out.println("Invalid recipient type.");
+			    	logger.info("Invalid recipient type.");
 			    }
 		      
 		      
