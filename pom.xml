@@ -1,5 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
   <groupId>CAR</groupId>
   <artifactId>Caraccessories</artifactId>
   <version>0.0.1-SNAPSHOT</version>
@@ -34,11 +36,9 @@
    </dependencies> 
 
 	<properties>
-        <!-- Remove sonar.organization from here -->
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
-
-    <build>
+ <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -49,11 +49,20 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <!-- Add the SonarQube plugin -->
+            <!-- Add the SonarQube plugin with a specific goal -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.10.0.2594</version>
+                <executions>
+                    <execution>
+                        <id>sonar</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sonar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
