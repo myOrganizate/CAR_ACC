@@ -1,14 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
-  <groupId>CAR</groupId>
-  <artifactId>Caraccessories</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>CAR</groupId>
+    <artifactId>Caraccessories</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
    <dependencies>
 	 
 	  
-
  <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>javax.mail</artifactId>
@@ -19,14 +18,11 @@
     <artifactId>cucumber-java</artifactId>
     <version>5.1.0</version>
 </dependency>
-
-
 <dependency>
     <groupId>io.cucumber</groupId>
     <artifactId>cucumber-junit</artifactId>
     <version>5.1.0</version>
 </dependency>
-
 <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
 <dependency>
     <groupId>io.cucumber</groupId>
@@ -35,35 +31,47 @@
 </dependency>
    </dependencies> 
 
-	<properties>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    </properties>
- <build>
+	  <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <!-- Add the SonarQube plugin with a specific goal -->
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.10.0.2594</version>
-                <executions>
-                    <execution>
-                        <id>sonar</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sonar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!-- Add other plugins as needed -->
         </plugins>
     </build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+        <!-- Add other plugins as needed -->
+
+        <!-- Add the following plugin to configure SonarCloud analysis -->
+        <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.10.0.2594</version>
+            <configuration>
+                <!-- Add the following line to disable automatic analysis -->
+                <skip>true</skip>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+    <properties>
+        <sonar.organization>myorganizate</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    </properties>
 </project>
