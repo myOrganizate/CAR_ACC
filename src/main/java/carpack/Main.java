@@ -19,7 +19,9 @@ public class Main {
 	static int maxQuantityAcrossCustomers = 0;
 	static int customercount=0;
 	static int installercount=0;
-	 private static final Logger logger = Logger.getLogger(Installer.class.getName());
+	
+	 private static final Logger logger = Logger.getLogger(Main.class.getName());
+
 	 private static final String NO_APPOINTMENTS_MESSAGE = "There are no appointments available.";
 	 private static final String EMAIL_NOT_FOUND_MESSAGE = "Email not found. Please provide a valid email.";
 	 private static final String PRODUCT_ID_LABEL = "Product ID: ";
@@ -88,34 +90,32 @@ public class Main {
         ArrayList<product> productsElectronic = new ArrayList<product>();
         ArrayList<product> bag = new ArrayList<product>();
         ArrayList<String> allemail=new ArrayList<String>();
-        int userType = -1;
+        int Type = -1;
         
         user r = new user();
         ArrayList<String> appoin=new ArrayList<String>();
         ArrayList<String> sch=new ArrayList<String>();
         
 	    Scanner scc = new Scanner(System.in);
-	    boolean flagintitail = false;
 	    int userselected = 0;
 	    user cc = null; 
 	
 	    admin aa = new admin();
-	    int pr1 = 0;
 	    product p=null;
 	    int buycount=0;
 	    int reqcount=0;
-	    int Totalprofit=0;
+	    int totalProfit=0;
 
 	    Installer w = new Installer();
 	    
 
 	    boolean flagadmin = false;
-	    String nameofprod = null;
+	   
 
-	    String ayam;
-	    int countprod = 0;
-	    int countprod1 = 0;
-	    boolean flagworker = false;
+	   
+	    
+	
+	   boolean flagworker = false;
 	    boolean flaguser = false;
 	    boolean flagaccount = false;
 	    String emails = null;
@@ -134,7 +134,7 @@ public class Main {
 	            String a2 = scc.next();
 	            if (aa.checkemail(a1) == 1 && aa.checkpass(a2) == 1) {
 	                flagadmin = true;
-	                userType = 1;
+	                Type = 1;
 	            }
 
 	            do {
@@ -198,7 +198,7 @@ public class Main {
 		                        } else {
 		                            for (int i = 0; i < products.size(); i++) {
 		                                String a = PRODUCT_LABEL + products.get(i).id + " " + products.get(i).description + " " + products.get(i).prices + " " +
-		                                           products.get(i).availability + " " + products.get(i).Categories;
+		                                           products.get(i).availability + " " + products.get(i).categories;
 		                                logger.info(a);
 		                            }
 		                        }
@@ -216,12 +216,12 @@ public class Main {
 		                        logger.info("Enter availability of Product you need to add: ");
 		                        String availability = scc.next();
 		                        logger.info("Enter Categories of Product you need to add: ");
-		                        String Catttt = scc.next();
+		                        String catigor = scc.next();
 
 		                        logger.info("Enter image of Product you need to add: ");
 		                        String imagg = scc.next();
 
-		                        p = new product(id, desc, prices, availability, Catttt, imagg);
+		                        p = new product(id, desc, prices, availability, catigor , imagg);
 		                        
 		                        
 		                        
@@ -231,13 +231,13 @@ public class Main {
 	                           
 	                            products.add(p); 
 
-	                            if (EXTERIOR_LABEL.equals(Catttt)) {
+	                            if (EXTERIOR_LABEL.equals(catigor )) {
 	                                productsExterior.add(p); 
 	                            }
-	                            if (INTERIOR_LABEL.equals(Catttt)) {
+	                            if (INTERIOR_LABEL.equals(catigor )) {
 	                                productsInterior.add(p); 
 	                            }
-	                            if (ELECTRONIC_LABEL.equals(Catttt)) {
+	                            if (ELECTRONIC_LABEL.equals(catigor )) {
 	                                productsElectronic.add(p); 
 	                            }
 	                            
@@ -268,11 +268,11 @@ public class Main {
 		                        logger.info("Enter availability of Product you need to update: ");
 		                        String availab = scc.next();
 		                        logger.info("Enter Category of Product you need to update: ");
-		                        String Categoriee = scc.next();
+		                        String categoriee = scc.next();
 		                        logger.info("Enter image URL of Product you need to update: ");
 		                        String image = scc.next(); 
 
-		                        p.updateProduct(iddd, descriptionn, pricee, availab, Categoriee, image);
+		                        p.updateProduct(iddd, descriptionn, pricee, availab, categoriee, image);
 
 
 		            		            for (int j = 0; j <  productsInterior.size(); j++) {
@@ -297,11 +297,11 @@ public class Main {
 		            		            }
 		                       
 
-		                        if (EXTERIOR_LABEL.equals(Categoriee)) {
+		                        if (EXTERIOR_LABEL.equals(categoriee)) {
 		                            productsExterior.add(p);
-		                        } else if (INTERIOR_LABEL.equals(Categoriee)) {
+		                        } else if (INTERIOR_LABEL.equals(categoriee)) {
 		                            productsInterior.add(p);
-		                        } else if (ELECTRONIC_LABEL.equals(Categoriee)) {
+		                        } else if (ELECTRONIC_LABEL.equals(categoriee)) {
 		                            productsElectronic.add(p);
 		                        }
 		                        break;
@@ -313,7 +313,7 @@ public class Main {
 		                                    productsExterior.get(i).description,
 		                                    productsExterior.get(i).prices,
 		                                    productsExterior.get(i).availability,
-		                                    productsExterior.get(i).Categories);
+		                                    productsExterior.get(i).categories);
 
 		                            logger.info(logMessage);
 		                        }
@@ -330,24 +330,24 @@ public class Main {
 			                        logger.info("Enter availability of Exterior Product you need to add: ");
 			                        String availabilityex = scc.next();
 			                      
-			                        String Catex =EXTERIOR_LABEL;
+			                        String catex =EXTERIOR_LABEL;
 			                        logger.info("Enter image of  Exterior Product you need to add: ");
 			                        String imagex = scc.next();
 			                       
 			                        
-			                      p=new product(idex,descex,pricesex,availabilityex,Catex,imagex);
+			                      p=new product(idex,descex,pricesex,availabilityex,catex,imagex);
 		                           
 		                            
 		                           
 		                            products.add(p); 
 
-		                            if (EXTERIOR_LABEL.equals(Catex)) {
+		                            if (EXTERIOR_LABEL.equals(catex)) {
 		                                productsExterior.add(p); 
 		                            }
-		                            if (INTERIOR_LABEL.equals(Catex)) {
+		                            if (INTERIOR_LABEL.equals(catex)) {
 		                                productsInterior.add(p); 
 		                            }
-		                            if (ELECTRONIC_LABEL.equals(Catex)) {
+		                            if (ELECTRONIC_LABEL.equals(catex)) {
 		                                productsElectronic.add(p); 
 		                            }
 		                            
@@ -383,7 +383,7 @@ public class Main {
 		                    	logger.info("Enter availability of Exterior Product you need to update: ");
 		                    	String availabex = scc.next();
 		                    	logger.info("Enter Category of Exterior Product you need to update: ");
-		                    	String Categorieeex = scc.next();
+		                    	String categorieeex = scc.next();
 		                    	logger.info("Enter image URL of Exterior Product you need to update: ");
 		                    	String imageex = scc.next();
 
@@ -391,7 +391,7 @@ public class Main {
 		                    	
 		                    	
 		                    	
-		                    	p.updateProduct(idddex, descriptionnex, priceeex, availabex, Categorieeex, imageex);
+		                    	p.updateProduct(idddex, descriptionnex, priceeex, availabex, categorieeex, imageex);
 
 		                    	
 		                    	for (int j = 0; j <productsInterior.size(); j++) {
@@ -416,12 +416,12 @@ public class Main {
 		                    	}
 
 		                    	
-		                    	if (EXTERIOR_LABEL.equals(Categorieeex)) {
-		                    	    productsExterior.add(new product(idddex, descriptionnex, priceeex, availabex, Categorieeex, imageex));
-		                    	} else if (INTERIOR_LABEL.equals(Categorieeex)) {
-		                    	    productsInterior.add(new product(idddex, descriptionnex, priceeex, availabex, Categorieeex, imageex));
-		                    	} else if (ELECTRONIC_LABEL.equals(Categorieeex)) {
-		                    	    productsElectronic.add(new product(idddex, descriptionnex, priceeex, availabex, Categorieeex, imageex));
+		                    	if (EXTERIOR_LABEL.equals(categorieeex)) {
+		                    	    productsExterior.add(new product(idddex, descriptionnex, priceeex, availabex, categorieeex, imageex));
+		                    	} else if (INTERIOR_LABEL.equals(categorieeex)) {
+		                    	    productsInterior.add(new product(idddex, descriptionnex, priceeex, availabex, categorieeex, imageex));
+		                    	} else if (ELECTRONIC_LABEL.equals(categorieeex)) {
+		                    	    productsElectronic.add(new product(idddex, descriptionnex, priceeex, availabex, categorieeex, imageex));
 		                    	}
 	            		                
 			                        break;
@@ -438,7 +438,7 @@ public class Main {
 		                                    productsInterior.get(i).description,
 		                                    productsInterior.get(i).prices,
 		                                    productsInterior.get(i).availability,
-		                                    productsInterior.get(i).Categories);
+		                                    productsInterior.get(i).categories);
 
 		                            logger.info(logMessage);
 		                        }
@@ -459,24 +459,24 @@ public class Main {
 		                        logger.info("Enter availability of Interiorr Product you need to add: ");
 		                        String availabilityin = scc.next();
 		                      
-		                        String Catin =INTERIOR_LABEL;
+		                        String catin =INTERIOR_LABEL;
 		                        logger.info("Enter image of  Interior Product you need to add: ");
 		                        String imagin = scc.next();
 		                       
 		                        
-		                      p=new product(idin,descin,pricesin,availabilityin,Catin,imagin);
+		                      p=new product(idin,descin,pricesin,availabilityin,catin,imagin);
 	                           
 	                            
 	                           
 	                            products.add(p); 
 
-	                            if (EXTERIOR_LABEL.equals(Catin)) {
+	                            if (EXTERIOR_LABEL.equals(catin)) {
 	                                productsExterior.add(p);
 	                            }
-	                            if (INTERIOR_LABEL.equals(Catin)) {
+	                            if (INTERIOR_LABEL.equals(catin)) {
 	                                productsInterior.add(p); 
 	                            }
-	                            if (ELECTRONIC_LABEL.equals(Catin)) {
+	                            if (ELECTRONIC_LABEL.equals(catin)) {
 	                                productsElectronic.add(p); 
 	                            }
 	                            
@@ -516,12 +516,12 @@ public class Main {
 			                        logger.info("Enter availability of Interior Product you need to update: ");
 			                        String availaben = scc.next();
 			                        logger.info("Enter Category of Interior Productt you need to update: ");
-			                        String Categorieeen = scc.next();
+			                        String categorieeen = scc.next();
 			                        logger.info("Enter image URL of Interior Product you need to update: ");
 			                        String imageen = scc.next(); 
 
 			                       
-			                        p.updateProduct(idddin, descriptionnen, priceeen, availaben, Categorieeen, imageen);
+			                        p.updateProduct(idddin, descriptionnen, priceeen, availaben, categorieeen, imageen);
 
 
 			            		          
@@ -549,11 +549,11 @@ public class Main {
 			                       
 
 			                        
-			                        if (EXTERIOR_LABEL.equals(Categorieeen)) {
+			                        if (EXTERIOR_LABEL.equals(categorieeen)) {
 			                            productsExterior.add(p);
-			                        } else if (INTERIOR_LABEL.equals(Categorieeen)) {
+			                        } else if (INTERIOR_LABEL.equals(categorieeen)) {
 			                            productsInterior.add(p);
-			                        } else if (ELECTRONIC_LABEL.equals(Categorieeen)) {
+			                        } else if (ELECTRONIC_LABEL.equals(categorieeen)) {
 			                            productsElectronic.add(p);
 			                        }
 	            		                
@@ -570,7 +570,7 @@ public class Main {
 		                                    productsElectronic.get(i).description,
 		                                    productsElectronic.get(i).prices,
 		                                    productsElectronic.get(i).availability,
-		                                    productsElectronic.get(i).Categories);
+		                                    productsElectronic.get(i).categories);
 
 		                            logger.info(logMessage);
 		                        }
@@ -650,12 +650,12 @@ public class Main {
 		                        logger.info("Enter availability of Electronic  Product you need to update: ");
 		                        String availabel = scc.next();
 		                        logger.info("Enter Category of Electronic  Product you need to update: ");
-		                        String Categorieeel = scc.next();
+		                        String categorieeel = scc.next();
 		                        logger.info("Enter image URL of Electronic  Product you need to update: ");
 		                        String imageel = scc.next(); 
 
 		                        
-		                        p.updateProduct(idddelec, descriptionnel, priceeel, availabel, Categorieeel, imageel);
+		                        p.updateProduct(idddelec, descriptionnel, priceeel, availabel, categorieeel, imageel);
 
 
 		            		         
@@ -683,11 +683,11 @@ public class Main {
 		                       
 
 		                      
-		                        if (EXTERIOR_LABEL.equals(Categorieeel)) {
+		                        if (EXTERIOR_LABEL.equals(categorieeel)) {
 		                            productsExterior.add(p);
-		                        } else if (INTERIOR_LABEL.equals(Categorieeel)) {
+		                        } else if (INTERIOR_LABEL.equals(categorieeel)) {
 		                            productsInterior.add(p);
-		                        } else if (ELECTRONIC_LABEL.equals(Categorieeel)) {
+		                        } else if (ELECTRONIC_LABEL.equals(categorieeel)) {
 		                            productsElectronic.add(p);
 		                        }
             		                
@@ -708,7 +708,7 @@ public class Main {
 		                    	} else {
 		                    	 
 		                    	    for (int i = 0; i < sch.size(); i++) {
-		                    	        logger.info( "" + sch.get(i)+ "\n");
+		                    	    	 logger.info(String.format("%s%n", sch.get(i)));
 		                    	    }
 		                    	}
 	                            break;
@@ -749,8 +749,12 @@ public class Main {
 		                                break;
 		                            }
 		                        }
+		                        logger.info(String.format("Appointment updated successfully: %s%n", newAppointment));
 
-		                        logger.info("Appointment updated successfully: " + newAppointment+ "\n");
+
+
+
+	
 		                        break;
 		                    	
 		                    case 23:
@@ -837,7 +841,7 @@ public class Main {
 		                        
 		                        
 		                        logger.info("4.Total Installation request count : " + reqcount+ "\n");
-		                        logger.info("5.Total profit : " + Totalprofit+ "\n");
+		                        logger.info("5.Total profit : " + totalProfit+ "\n");
 
 		                        
 		                        String mostBoughtProduct = null;
@@ -918,7 +922,7 @@ public class Main {
 	                allemail.add(w1);
 	                installercount++;
 	                }
-	                userType = 2;
+	                Type = 2;
 	            }
 
 	            do {
@@ -1066,7 +1070,7 @@ public class Main {
 
 	                        	allemail.add(emails);
 	                            flaguser = true;
-	                            userType = 3;
+	                            Type = 3;
 
 	                            customercount++;
 	                        }
@@ -1087,7 +1091,7 @@ public class Main {
 	   		                        } else {
 	   		                            for (int i = 0; i < products.size(); i++) {
 	   		                                String a = PRODUCT_LABEL + products.get(i).id + " " + products.get(i).description + " " + products.get(i).prices + " " +
-	   		                                           products.get(i).availability + " " + products.get(i).Categories;
+	   		                                           products.get(i).availability + " " + products.get(i).categories;
 	   		                                logger.info(a+ "\n");
 	   		                            }
 	   		                        }
@@ -1167,7 +1171,7 @@ public class Main {
 	                                            logger.info(PRODUCT_PRICE_LABEL + productInCart.getPrices() + "\t");
 	                                            buycount++;
 	                                            int price = Integer.parseInt(productInCart.getPrices());
-	                                            Totalprofit += price * productInCart.getQuantity();
+	                                            totalProfit += price * productInCart.getQuantity();
 	                                            
 	                                            logger.info(PRODUCT_IMAGE_LABEL + productInCart.getImage() + "\t");
 	                                            logger.info(PRODUCT_CATEGORY_LABEL + productInCart.getCategories()+ "\n");
@@ -1201,7 +1205,7 @@ public class Main {
 	                                    	}
 	                                    	
 	                                    	
-	                                    	 logger.info("Your purchases price: " + Totalprofit+ "\n");
+	                                    	 logger.info("Your purchases price: " + totalProfit+ "\n");
 	                                    	 logger.info("Total number of products bought: " + buycount+ "\n");
 	                                    }
 	                                    else {

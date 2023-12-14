@@ -3,7 +3,7 @@ package carpack;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 import java.util.List;
-import java.util.logging.Logger;
+
 
 
 
@@ -13,7 +13,7 @@ public class product {
 	
 	  String id;
 		
-		String Categories;
+		String categories;
 		String availability;
 		String prices;
 		 String image;
@@ -54,7 +54,7 @@ public class product {
 		      this.prices=prices;
 		         this.image=image;
 		         this.availability= availability;
-		         this.Categories=Categories;
+		         this.categories=Categories;
 		         this.email=customerEmail;
 		        
 		       if(!prod.contains(this))
@@ -75,17 +75,17 @@ public class product {
       this.prices="200";
          this.image="im1";
          this.availability="yes";
-         this.Categories=ELECTRONIC_CATEGORY;
+         this.categories=ELECTRONIC_CATEGORY;
         
        
  		if( prod.isEmpty())
          prod.add(this);
  		
- 		if (Categories.equals(EXTERIOR_CATEGORY))
+ 		if (categories.equals(EXTERIOR_CATEGORY))
  			prodExterior.add(this);
- 		if (Categories.equals(INTERIOR_CATEGORY))
+ 		if (categories.equals(INTERIOR_CATEGORY))
  			prodInterior.add(this);
- 		if (Categories.equals(ELECTRONIC_CATEGORY))
+ 		if (categories.equals(ELECTRONIC_CATEGORY))
  			prodElectronic.add(this);	
 	     
 }
@@ -96,7 +96,7 @@ public class product {
 	      this.prices=prices;
 	         this.image=image;
 	         this.availability= availability;
-	         this.Categories=Categories;
+	         this.categories=Categories;
 	        
 	       if(!prod.contains(this))
 	         prod.add(this);
@@ -120,7 +120,7 @@ public class product {
 			this.prices=prices;
 			this.description=description;
 			this.availability=availability;
-			this.Categories=Categories;
+			this.categories=Categories;
 			
 		
 			
@@ -147,11 +147,11 @@ public class product {
 	 public void updateProduct(String idd, String description, String prices, String availability, String Categorie, String image) {
 		    for (int i = 0; i < prod.size(); i++) {
 		        if (prod.get(i).id.equals(idd)) {
-		            if (EXTERIOR_CATEGORY.equals(prod.get(i).Categories)) {
+		            if (EXTERIOR_CATEGORY.equals(prod.get(i).categories)) {
 		                prodExterior.remove(prod.get(i));
-		            } else if (INTERIOR_CATEGORY.equals(prod.get(i).Categories)) {
+		            } else if (INTERIOR_CATEGORY.equals(prod.get(i).categories)) {
 		                prodInterior.remove(prod.get(i));
-		            } else if (ELECTRONIC_CATEGORY.equals(prod.get(i).Categories)) {
+		            } else if (ELECTRONIC_CATEGORY.equals(prod.get(i).categories)) {
 		                prodElectronic.remove(prod.get(i));
 		            }
 
@@ -159,7 +159,7 @@ public class product {
 		            prod.get(i).description = description;
 		            prod.get(i).prices = prices;
 		            prod.get(i).availability = availability;
-		            prod.get(i).Categories = Categorie;
+		            prod.get(i).categories = Categorie;
 		            prod.get(i).image = image;
 
 		            if (EXTERIOR_CATEGORY.equals(Categorie)) {
@@ -314,8 +314,9 @@ public class product {
 	
 	
 	
-	public void addprodInterior(String id,String description,String prices,String availability,String Categorie,String img) {
-		 product newProduct = new product(id, description, prices, availability, Categorie,image);
+	public void addprodInterior(String id,String description,String prices,String availability,String categorie,String img) {
+		
+		 product newProduct = new product(id, description, prices, availability, categorie,image);
 
 		if(!prod.contains(newProduct))
 			prod.add(newProduct);
@@ -326,8 +327,8 @@ public class product {
 		
 	}
 	
-	public void addprodExterior(String id,String description,String prices,String availability,String Categorie,String imag) {
-		 product newProduct = new product(id, description, prices, availability, Categorie,image);
+	public void addprodExterior(String id,String description,String prices,String availability,String categorie,String imag) {
+		 product newProduct = new product(id, description, prices, availability, categorie,image);
 		
 		if(!prod.contains(newProduct))
 	    prod.add(newProduct);
@@ -338,8 +339,8 @@ public class product {
 		
 	}
 	
-	public static void addprodElectronic(String id, String description, String prices, String availability, String Categorie,String image) {
-	    product newProduct = new product(id, description, prices, availability, Categorie,image);
+	public static void addprodElectronic(String id, String description, String prices, String availability, String categorie,String image) {
+	    product newProduct = new product(id, description, prices, availability, categorie,image);
 
 	    
 	    prod.add(newProduct);
@@ -349,7 +350,7 @@ public class product {
 	public static void printProduct() {
 	    for (int i = 0; i < prod.size(); i++) {
 	        String a = PRODUCT_PREFIX + prod.get(i).id + " " + prod.get(i).description + " " + prod.get(i).prices + " " +
-	                prod.get(i).availability + " " + prod.get(i).Categories;
+	                prod.get(i).availability + " " + prod.get(i).categories;
 	        System.out.println(a);
 	    }
 	}
@@ -367,7 +368,7 @@ public class product {
 			
 			
 			a=PRODUCT_PREFIX+prod.get(i).id+" "+prod.get(i).description+" "+prod.get(i).prices+" "+
-					prod.get(i).availability+" " +prod.get(i).Categories+" " +prod.get(i).image;
+					prod.get(i).availability+" " +prod.get(i).categories+" " +prod.get(i).image;
 			
 			 }
 			 
@@ -388,21 +389,21 @@ public class product {
 	public static void printProductExterior() {
 	    for (int i = 0; i < prodExterior.size(); i++) {
 	        String a = PRODUCT_PREFIX + prodExterior.get(i).id + " " + prodExterior.get(i).description + " " + prodExterior.get(i).prices + " " +
-	        		prodExterior.get(i).availability + " " + prodExterior.get(i).Categories;
+	        		prodExterior.get(i).availability + " " + prodExterior.get(i).categories;
 	        logger.info(a);
 	    }
 	}
 	public static void printprodInterior() {
 	    for (int i = 0; i < prodInterior.size(); i++) {
 	        String a = PRODUCT_PREFIX + prodInterior.get(i).id + " " + prodInterior.get(i).description + " " + prodInterior.get(i).prices + " " +
-	        		prodInterior.get(i).availability + " " + prodInterior.get(i).Categories;
+	        		prodInterior.get(i).availability + " " + prodInterior.get(i).categories;
 	        logger.info(a);
 	    }
 	}
 	public static void printprodElectronic() {
 	    for (int i = 0; i < prodElectronic.size(); i++) {
 	        String a = PRODUCT_PREFIX + prodElectronic.get(i).id + " " + prodElectronic.get(i).description + " " + prodElectronic.get(i).prices + " " +
-	        		prodElectronic.get(i).availability + " " + prodElectronic.get(i).Categories;
+	        		prodElectronic.get(i).availability + " " + prodElectronic.get(i).categories;
 	        logger.info(a);
 	    }
 	}
@@ -444,7 +445,7 @@ public class product {
  }
 
  public String getCategories() {
-     return Categories;
+     return categories;
  }
 
  public static List<product> filterProductcatprice(String category, String minPrice, String maxPrice) {
@@ -631,7 +632,7 @@ public class product {
  
 
 	public String getCategory() {
-	    return Categories;
+	    return categories;
 	}
 
 	public String getPrice() {
