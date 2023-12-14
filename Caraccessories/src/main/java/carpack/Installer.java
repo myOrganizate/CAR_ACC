@@ -149,10 +149,11 @@ public class Installer {
 
 		public static void Viewinstallationreq() {
 		    if (appo.isEmpty()) {
-		        System.out.println("There are no installation requests.");
+		    	logger.info("There are no installation requests.");
 		    } else {
 		        for (String request : appo) {
-		            System.out.println(request);
+		        	logger.info(request+"\n");
+		        	
 		        }
 		    }
 		}
@@ -168,7 +169,10 @@ public class Installer {
 		        }
 		    }
 		    if (!found) {
-		    	logger.info("No installation requests found for customer with email: " + email);
+		    	logger.info(String.format("No installation requests found for customer with email: %s%n", email));
+
+
+		    	
 		    }
 		}
 		
@@ -268,9 +272,9 @@ public class Installer {
 		    if (scheapp.contains(sOld)) {
 		        scheapp.remove(sOld);
 		        scheapp.add(sNew);
-		        logger.info("Appointment updated successfully.");
+		        logger.info("Appointment updated successfully."+"\n");
 		    } else {
-		    	logger.info("Appointment not found at the old date and time.");
+		    	logger.info("Appointment not found at the old date and time."+"\n");
 		    }
 		}
 		 public int checkPhone(String num)
