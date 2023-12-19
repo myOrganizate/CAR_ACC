@@ -835,13 +835,11 @@ public class Main {
 		                    case 27:
 		                        logger.info("  * * * * * * * * * * * * * * * *REPORT * * * * * * * * * * * * * * * * * * * * * * * * * *"+ "\n");
 
-		                        logger.info("1.Total number of customer: " +customercount+ "\n" );
-		                        logger.info("2.Total number of installer: " +installercount+ "\n" );
-		                        logger.info("3.count of buy product : " +buycount+ "\n" );
-		                        
-		                        
-		                        logger.info("4.Total Installation request count : " + reqcount+ "\n");
-		                        logger.info("5.Total profit : " + totalProfit+ "\n");
+		                        logger.info(String.format("1. Total number of customer: %d%n", customercount));
+		                        logger.info(String.format("2. Total number of installer: %d%n", installercount));
+		                        logger.info(String.format("3. Count of buy product: %d%n", buycount));
+		                        logger.info(String.format("4. Total Installation request count: %d%n", reqcount));
+		                        logger.info(String.format("5. Total profit: %f%n", totalProfit));
 
 		                        
 		                        String mostBoughtProduct = null;
@@ -868,8 +866,9 @@ public class Main {
 
 		                      
 		                        if (mostBoughtProduct != null) {
-		                            logger.info("4.The most bought product is : " + mostBoughtProduct+ "\n");
-		                            logger.info("5.Total quantity sold for this most bought product : " + maxQuantityAcrossCustomers+ "\n");
+		                        	logger.info(String.format("4. The most bought product is: %s%n", mostBoughtProduct));
+
+		                        	logger.info(String.format("5. Total quantity sold for this most bought product: %d%n", maxQuantityAcrossCustomers));
 		                        } else {
 		                            logger.info("No products have been bought yet."+ "\n");
 		                        }
@@ -991,9 +990,9 @@ public class Main {
                                 String s=datepr+"\t"+timepr;
                             	sch.add(s);
                             	logger.info("Your APPOINTMENTS: "+ "\n");
-	                        	for (String appointment : sch) {
-	                        	    logger.info(appointment+ "\n");
-	                        	}
+                            	for (String appointment : sch) {
+                            	    logger.info(String.format("%s%n", appointment));
+                            	}
                             	break;
 	                           
 	                     case 5:
@@ -1092,7 +1091,8 @@ public class Main {
 	   		                            for (int i = 0; i < products.size(); i++) {
 	   		                                String a = PRODUCT_LABEL + products.get(i).id + " " + products.get(i).description + " " + products.get(i).prices + " " +
 	   		                                           products.get(i).availability + " " + products.get(i).categories;
-	   		                                logger.info(a+ "\n");
+	   		                             logger.info(String.format("%s%n", a));
+
 	   		                            }
 	   		                        }
 	   		                        break;
@@ -1147,7 +1147,8 @@ public class Main {
 	                                	if (productFound) {
 	                                	    logger.info("Product has been successfully removed from your Shopping Cart."+ "\n");
 	                                	} else {
-	                                	    logger.info("Product with ID " + productIDToDelete + " was not found in your Shopping Cart."+ "\n");
+	                                		logger.info(String.format("Product with ID %s was not found in your Shopping Cart.%n", productIDToDelete));
+
 	                                	}
 	                                	
 	                                  
@@ -1158,7 +1159,8 @@ public class Main {
 	                                    
 	                                    
 	                                
-	                                    logger.info(" Shopping cart to customer with email: " + emails+ "\n");
+	                                    logger.info(String.format("Shopping cart to customer with email: %s%n", emails));
+
 	                                    
 	                                    for (product productInCart : bag) {
 	                                    	
@@ -1185,8 +1187,9 @@ public class Main {
 	                                    
 
 	                                    if (!ordersFound) {
-	                                        logger.info("No orders found for the customer with email: " + emails+ "\n");
+	                                        logger.info(String.format("No orders found for the customer with email: %s%n", emails));
 	                                    }
+
 	                                    
 	                                    logger.info(" Do you want to confirm your order? Enter yes or no: "+ "\n");
 	                                    String conf = scc.next();
@@ -1197,16 +1200,14 @@ public class Main {
 	                                    	try {
 	                                    	    sendEmail.sendemail("Jodikmal@gmail.com", "1", "user");
 	                                    	} catch (MessagingException e) {
-	                                    	    if (isDebugModeEnabled()) {
-	                                    	        e.printStackTrace();
-	                                    	    } else {
+	                                    	   
 	                                    	        System.err.println("Error sending email: " + e.getMessage());
-	                                    	    }
+	                                    	    
 	                                    	}
 	                                    	
 	                                    	
-	                                    	 logger.info("Your purchases price: " + totalProfit+ "\n");
-	                                    	 logger.info("Total number of products bought: " + buycount+ "\n");
+	                                    	logger.info(String.format("Your purchases price: %f%n", totalProfit));
+	                                    	logger.info(String.format("Total number of products bought: %d%n", buycount));
 	                                    }
 	                                    else {
 	                                    	
@@ -1288,11 +1289,9 @@ public class Main {
 	                                                try {
 	                                                    sendEmail.sendemail("ayamoinn95@gmail.com", "1", "installer");
 	                                                } catch (MessagingException e) {
-	                                                    if (isDebugModeEnabled()) {
-	                                                        e.printStackTrace();
-	                                                    } else {
+	                                                   
 	                                                        System.err.println("Error sending email: " + e.getMessage());
-	                                                    }
+	                                                    
 	                                                }
 	                                                
 	                                                
@@ -1896,11 +1895,6 @@ public class Main {
 	    }
 
 	    return ff.getemail();
-	}
-	private static boolean isDebugModeEnabled() {
-	    String debugMode = System.getProperty("debug");
-
-	    return debugMode != null && debugMode.equalsIgnoreCase("true");
 	}
 	
 	
