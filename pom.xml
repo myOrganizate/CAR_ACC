@@ -81,9 +81,11 @@
         <id>jacoco-repo</id>
         <url>https://www.eclemma.org/jacoco/trunk/repo</url>
     </repository>
+		
 </repositories>
 
     <properties>
+	    <sonar.coverage.exclusions>**/Main.java</sonar.coverage.exclusions>
         <sonar.organization>myorganizate</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
