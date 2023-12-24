@@ -27,6 +27,14 @@ public class RoleStep {
 	static boolean fvieworder;
 	static boolean fapp;
 	static boolean fins;
+	static boolean f1;
+	static boolean f2;
+	static boolean f3;
+	static boolean f4;
+	static boolean f5;
+	static boolean f6;
+	static boolean f7;
+
 	
 	
 	
@@ -351,6 +359,9 @@ public void the_Installer_is_login_with_email_and_password(String string, String
 	
 	if( LoginStep.I.checkpass(string2)==1 && LoginStep.I.checkemail(string)==1 ) {
 		LoginStep.flagIns=true;
+		LoginStep.I.printProfile("ayamoinn95@gmail.com");
+		LoginStep.I.editProfile("ayamoinn95@gmail.com","123","aya","","");
+		
 	}
 	if( LoginStep.I.checkpass(string2)==0 || LoginStep.I.checkemail(string)==0) {
 		LoginStep.flagIns=false;
@@ -371,6 +382,7 @@ public void the_Installer_views_installation_requests() {
 @Then("the Installer successfully views installation requests")
 public void the_Installer_successfully_views_installation_requests() {
 	assertTrue(fins&&LoginStep.flagIns);
+	
 	
 }
 
@@ -395,7 +407,180 @@ public void the_Installer_successfully_schedules_an_appointment() {
 
 
 
+
+
+
+
+
+@When("the admin  update an appointment for customer with email {string}  olddate {string}, oldtime {string} newdate {string}, newtime {string}")
+public void the_admin_update_an_appointment_for_customer_with_email_olddate_oldtime_newdate_newtime(String string, String string2, String string3, String string4, String string5) {
+ 
+   
+	 LoginStep.I.updateappointment(string,string2,string3,"redlight",string4,string5,"redlight");
+	 f1=true;
+
+		
+		    	
+
+}
+
+@Then("the admin  successfully update an appointment")
+public void the_admin_successfully_update_an_appointment() {
+ 
+   assertTrue(f1);
+}
+
+@When("the admin  delete  an appointment for customer with email {string} with date {string}, time {string}")
+public void the_admin_delete_an_appointment_for_customer_with_email_with_date_time(String string, String string2, String string3) {
+   
+	 LoginStep.I.deleteappointment(string, string2, string3, "redlight") ;
+	 f2=true;
+
+
+}
+
+@Then("the admin  successfully delete  an appointment")
+public void the_admin_successfully_delete_an_appointment() {
+	assertTrue(f2);
+    
+  
+}
+
+@Then("the Installer can see his profile")
+public void the_Installer_can_see_his_profile() {
+    
+	LoginStep.I.printProfile("jodikmal@gmail.com");
+	assertTrue(f2);
+}
+
+
+
+@When("the Customer searchProduct with id {string}")
+public void the_Customer_searchProduct_with_id(String string) {
+  
+	p.searchProduct(string);
+    p.searchProductcat(string);
+    f3=true;
+}
+
+@Then("the Customer successfully searchProduct")
+public void the_Customer_successfully_searchProduct() {
+   
+  assertTrue(f3);
+}
+
+@When("the admin printProduct with id {string}")
+public void the_admin_printProduct_with_id(String string) {
+    
+	p.printProduct(string);
+	f4=true;
+}
+
+@Then("the admin successfully printProduct")
+public void the_admin_successfully_printProduct() {
+    
+   assertTrue( f4);
+}
+
+@When("the admin print Exterior Product")
+public void the_admin_print_Exterior_Product() {
+   
+	p.printProductExterior();
+    
+}
+
+@Then("the admin successfully print Exterior Product")
+public void the_admin_successfully_print_Exterior_Product() {
+ 
+  assertTrue(f1);
+}
+
+@When("the admin print Interior Product")
+public void the_admin_print_Interior_Product() {
+   
+	 p.printprodInterior();
+   
+}
+
+@Then("the admin successfully print Interior Product")
+public void the_admin_successfully_print_Interior_Product() {
+
+ assertTrue(f1);
+}
+
+@When("the admin print Electronic Product")
+public void the_admin_print_Electronic_Product() {
+ 
+	p.printprodInterior();
+   
+}
+
+@Then("the admin successfully print Electronic Product")
+public void the_admin_successfully_print_Electronic_Product() {
+  
+  assertTrue(f1);
+}
+
+@When("the Customer can vieworder with his email {string}")
+public void the_Customer_can_vieworder_with_his_email(String string) {
+ 
+	p.vieworder(string);
+    
+}
+
+@Then("the Customer successfully vieworder")
+public void the_Customer_successfully_vieworder() {
+
+	assertTrue(f1);
+    
+}
+
+@When("the Customer can editProfile with  email {string} newPassword {string} newPhone {string} newName {string} newAddress {string} newAge {string}")
+public void the_Customer_can_editProfile_with_email_newPassword_newPhone_newName_newAddress_newAge(String string, String string2, String string3, String string4, String string5, String string6) {
+   
+   LoginStep.U.editProfile(string, string2, string3, string4, string5, string6);
+}
+
+@Then("the Customer successfully editProfile")
+public void the_Customer_successfully_editProfile() {
+  
+  assertTrue(f1);
+}
+
+@When("the Customer can printProfile with  email {string}")
+public void the_Customer_can_printProfile_with_email(String string) {
+
 	
+	LoginStep.U.printProfile(string);
+    
+}
+
+@Then("the Customer successfully printProfile")
+public void the_Customer_successfully_printProfile() {
+   
+   
+}
+
+
+
+@When("the Installer  edit his Profile with email  {string} newPassword {string} newPhone {string} newName {string} newAddress {string}")
+public void the_Installer_edit_his_Profile_with_email_newPassword_newPhone_newName_newAddress(String string, String string2, String string3, String string4, String string5) {
+  
+	LoginStep.I.editProfile(string,string2, string3, string4, string5);
+	LoginStep.I.setAddress(string5); 
+	LoginStep.I.setName(string4);    
+	LoginStep.I.setPhone(string3); 
+	f5=true;
+
+
+}
+
+@Then("the Installer can edit his Profile")
+public void the_Installer_can_edit_his_Profile() {
+   
+	assertTrue(f5);
+   
+}
 
 
 

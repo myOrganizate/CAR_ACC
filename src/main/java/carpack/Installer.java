@@ -45,16 +45,7 @@ public class Installer {
 	
 	
 
-		public Installer(String em, String pa) {
-			
-			emaill=em;
-			passs=pa;
-			emailI.add(em);
-			passI.add(pa);
-			if(!installerList.contains(this))
-				installerList.add(this);
-		
-		}
+
 		 public Installer() {
 				this.name="aya";
 				this.address="Nablus";
@@ -225,17 +216,17 @@ public class Installer {
 			        }
 			    }
 			}
-		private void setAddress(String newAddress) {
+		public void setAddress(String newAddress) {
 			
 			this.address = newAddress;
 			
 		}
-		private void setName(String newName) {
+		public void setName(String newName) {
 			
 			this.name=newName;
 			
 		}
-		private void setPhone(String newPhone) {
+		public void setPhone(String newPhone) {
 			
 			this.phone=newPhone;
 			

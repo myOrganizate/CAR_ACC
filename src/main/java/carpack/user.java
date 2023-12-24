@@ -164,37 +164,18 @@ public class user {
 				
 			}
 			
-			public  String getCustomerName() {
-				return this.name;
-			}
+		
 
-			public void setCustomerName(String customerName) {
-				this.name = customerName;
-			}
+	
 
-			public String getCustomerPhoneNumber() {
-				return this.phone;
-			}
+			
 
-			public void setCustomerPhoneNumber(String customerPhoneNumber) {
-				this.phone = customerPhoneNumber;
-			}
+			
 
-			public  String getCustomerAddress() {
-				return this.address;
-			}
+			
 
-			public void setCustomerAddress(String s) {
-				this.address = s;
-			}
-
-			public  String getCustomerAge() {
-				return this.age;
-			}
-
-			public void setCustomerAge(String s) {
-				this.age = s;
-			}
+		
+			
 			
 			
 			public void createCustomer(String email,String pass,String phone,String name,String address,String age) {
@@ -230,13 +211,6 @@ public class user {
 			
 			
 			
-			public void reqinst(String date, String time, String detail) {
-			    app = "date:" + date + "time" + time + "detail" + detail;
-			    
-			    if (!(Installer.appo.contains(app))) {
-			        Installer.appo.add(app);
-			    }
-			}
 
 			
 			
@@ -245,10 +219,11 @@ public class user {
 			
 			public void updatCustomer(String email,String name,String age,String add,String phone)
 			{
-				this.setCustomerName(name);
-				this.setCustomerAge(age);
-				this.setCustomerAddress(add);
-				this.setCustomerPhoneNumber(phone);
+				this.name =name;
+				this.age = age;
+				this.address = add;
+				this.phone = phone;
+				
 				
 				
 				

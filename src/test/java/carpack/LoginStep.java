@@ -68,6 +68,7 @@ public class LoginStep {
 
 	@Then("the user login succeeds")
 	public void the_user_login_succeeds() {
+		U.setName("jodi");
 		assertTrue(flagemail && flagpass);	}
 
 	@Then("the user is logged in")
@@ -94,12 +95,16 @@ public void that_the_admin_or_Installer_is_not_logged_in1() {
 	  
     flagadmin=false;
     flagIns=false;
+   
+   
 }
 
 @Given("the email is {string} and the pass {string}")
 public void the_email_is_and_the_pass1(String string, String string2) {
 	if(string.equals("lujain@gmail.com")) {
 		is_admin=true;
+		 A.getEmail();
+		 A. getPassword();
 	 A.setPassword(string2);
 	 A.setEmail(string);
 		if( A.checkpass(string2)==1 && A.checkemail(string)==1 ) {
@@ -114,8 +119,14 @@ public void the_email_is_and_the_pass1(String string, String string2) {
 		is_Ins=true;
 		 I.setPass(string2);
 		 I.setemail(string);
+		 I.setAddress("Nablus");
+		 I.setName("aya");
+		 I.setPhone("0508786667");
+		 
 			if( I.checkpass(string2)==1 && I.checkemail(string)==1 ) {
 				flagIns=true;
+				 I.getemail();
+				 I.getPass();
 			}
 			if( I.checkpass(string2)==0 || I.checkemail(string)==0) {
 				flagIns=false;

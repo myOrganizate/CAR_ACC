@@ -180,11 +180,12 @@ public class AdminStep {
 	    
 	}
 	
-	
+
 	@When("Admin can update appointment from date {string}, time {string} to date {string}, time {string}")
 	public void admin_can_update_appointment_from_date_time_to_date_time(String string, String string2, String string3, String string4) {
 		if(LoginStep.flagadmin) {
 			LoginStep.I.updateappo(string, string2, string3, string4);
+			LoginStep.I.updateappointment("",string, string2, "",string3, string4,"");
 			upapp=true;
 			
 		}
@@ -210,11 +211,15 @@ public class AdminStep {
 	 
 	}
 
+	
+
 	@When("Admin can delete  appointment date {string}, time {string}")
 	public void admin_can_delete_appointment_date_time(String string, String string2) {
 		
 		if(LoginStep.flagadmin) {
 			LoginStep.I.deleteappo(string, string2);
+			LoginStep.I.deleteappointment("",string, string2,"");
+			
 			delapp=true;
 			
 		}

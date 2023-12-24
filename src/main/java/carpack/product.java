@@ -48,26 +48,7 @@ public class product {
 	
 	
 	
-		 public product(String id, String description, String prices, String availability, String Categories, String image, String customerEmail) {
-			  this.id=id;
-		         this.description=description;
-		      this.prices=prices;
-		         this.image=image;
-		         this.availability= availability;
-		         this.categories=Categories;
-		         this.email=customerEmail;
-		        
-		       if(!prod.contains(this))
-		         prod.add(this);
-		 		
-		 		if (Categories.equals(EXTERIOR_CATEGORY))
-		 			prodExterior.add(this);
-		 		if (Categories.equals(INTERIOR_CATEGORY))
-		 			prodInterior.add(this);
-		 		if (Categories.equals(ELECTRONIC_CATEGORY))
-		 			prodElectronic.add(this);	
-			
-		 }
+	
 	
 	 public product() { 
          this.id="1";

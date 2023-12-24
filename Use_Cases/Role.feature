@@ -83,9 +83,83 @@ Then admin can delete product
     Given the Installer is login with email "ayamoinn95@gmail.com" and password "ayaaya1"
     When the Installer schedules an appointment with date "2-2-2023", time "2:00" 
     Then the Installer successfully schedules an appointment
-
+    
+ 
+  Scenario: admin can update appointments
+    Given the admin is login with email "lujain@gmail.com" and password "lujain"
+    When the admin  update an appointment for customer with email "Jodikmal@gmail.com"  olddate "2-2-2023", oldtime "2:00" newdate "4-2-2023", newtime "4:00" 
+    Then the admin  successfully update an appointment
+    
+    
+    
+      Scenario: admin can delete appointments
+    Given the admin is login with email "lujain@gmail.com" and password "lujain"
+    When the admin  delete  an appointment for customer with email "Jodikmal@gmail.com" with date "4-2-2023", time "4:00" 
+    Then the admin  successfully delete  an appointment
+    
+  
+    Scenario: Installer can print his profile 
+    Given the Installer is login with email "ayamoinn95@gmail.com" and password "ayaaya1"
+     Then  the Installer can see his profile 
+    
+   
+       Scenario: Installer can edit his Profile
+    Given the Installer is login with email "ayamoinn95@gmail.com" and password "ayaaya1"
+    When the Installer  edit his Profile with email  "ayamoinn95@gmail.com" newPassword "123" newPhone "059484746" newName "Aya" newAddress "Nablus"
+    Then  the Installer can edit his Profile
+    
+   
+     Scenario: Customer can searchProduct with id 
+    Given the Customer is login with email "Jodikmal@gmail.com" and password "useruser"
+    When the Customer searchProduct with id "10"
+    Then the Customer successfully searchProduct
+    
+   
+     Scenario: admin can printProduct with id 
+    Given the admin is login with email "lujain@gmail.com" and password "lujain"
+    When the admin printProduct with id "10"
+    Then the admin successfully printProduct
   
     
+ 
+   
+     Scenario: admin can print Exterior Product
+    Given the admin is login with email "lujain@gmail.com" and password "lujain"
+    When the admin print Exterior Product
+    Then the admin successfully print Exterior Product
     
+    
+   
+    Scenario: admin can print Interior Product
+    Given the admin is login with email "lujain@gmail.com" and password "lujain"
+    When the admin print Interior Product
+    Then the admin successfully print Interior Product
+   
+   
+     Scenario: admin can print Electronic Product
+    Given the admin is login with email "lujain@gmail.com" and password "lujain"
+    When the admin print Electronic Product
+    Then the admin successfully print Electronic Product
+    
+  
+    Scenario: Customer can vieworder 
+    Given the Customer is login with email "Jodikmal@gmail.com" and password "useruser"
+    When the Customer can vieworder with his email "Jodikmal@gmail.com"
+    Then the Customer successfully vieworder
+    
+    
+    
+      Scenario: Customer can editProfile 
+    Given the Customer is login with email "Jodikmal@gmail.com" and password "useruser"
+    When the Customer can editProfile with  email "Jodikmal@gmail.com" newPassword "123" newPhone "059584846" newName "jodi" newAddress "nablus" newAge "23"
+    Then the Customer successfully editProfile
+    
+    
+
+    
+        Scenario: Customer can printProfile 
+    Given the Customer is login with email "Jodikmal@gmail.com" and password "useruser"
+    When the Customer can printProfile with  email "Jodikmal@gmail.com"
+    Then the Customer successfully printProfile
     
    
